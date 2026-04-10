@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 import { WorkCard } from "./WorkCard"
 import { WorkFilters } from "./WorkFilters"
 
@@ -40,30 +39,28 @@ export function WorksGrid({ works, className }: WorksGridProps) {
         categories={categories}
         activeCategory={activeCategory}
         onFilterChange={setActiveCategory}
-        className="mb-8"
+        className="mb-12"
       />
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeCategory}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {filteredWorks.map((work) => (
-            <WorkCard
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filteredWorks.map((work, index) => {
+          const cycleIndex = index % 5
+          const isLarge = cycleIndex === 0 || cycleIndex === 4
+
+          return (
+            <div
               key={work.slug}
-              {...work}
-            />
-          ))}
-        </motion.div>
-      </AnimatePresence>
+              className={isLarge ? "md:col-span-2" : ""}
+            >
+              <WorkCard {...work} index={index} />
+            </div>
+          )
+        })}
+      </div>
 
       {filteredWorks.length === 0 && (
         <div className="text-center py-16">
-          <p className="text-muted text-lg">No se encontraron obras en esta categoría.</p>
+          <p className="text-gray-500 text-lg font-body">No se encontraron obras en esta categoría.</p>
         </div>
       )}
     </div>

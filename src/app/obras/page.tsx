@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
-import Image from "next/image"
 import { constructMetadata } from "@/lib/metadata"
-import { SectionHeader } from "@/components/ui/SectionHeader"
 import { WorksGrid } from "@/components/obras/WorksGrid"
 
 export const metadata: Metadata = constructMetadata({
@@ -79,37 +77,31 @@ const mockWorks = [
 export default function ObrasPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 -z-20">
-          <Image
-            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80"
-            alt="Obras Construvial"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-dark/80 -z-10" />
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h1 className="font-display font-bold text-5xl md:text-7xl text-white uppercase tracking-wider mb-4">
-            Nuestras <span className="text-accent">Obras</span>
+      {/* Hero — with watermark number */}
+      <section className="relative h-[55vh] min-h-[420px] flex items-center justify-center overflow-hidden bg-[#0A1628]">
+        {/* Watermark "500" */}
+        <span className="absolute font-display text-[20vw] text-white/[0.03] leading-none select-none pointer-events-none">
+          500
+        </span>
+
+        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+          <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-6">
+            Portfolio
+          </p>
+          <h1 className="font-display text-6xl md:text-8xl text-white uppercase tracking-wider mb-4 leading-[0.9]">
+            500 obras en<br />
+            <span className="text-[#E8720C]">35 años</span>
           </h1>
-          <p className="font-body text-xl text-gray-200 max-w-2xl mx-auto">
-            Más de 500 proyectos finalizados con éxito en todo el país
+          <p className="font-body text-gray-400 text-lg max-w-2xl mx-auto mt-6">
+            Viales, civiles, industriales y electromecánicas — en 40 ciudades de Argentina.
           </p>
         </div>
       </section>
 
       {/* Works Grid */}
-      <section className="py-20 bg-light">
+      <section className="py-20 bg-[#0D1B2A]">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionHeader
-            title="Portfolio de Obras"
-            subtitle="Explorá nuestros proyectos filtrados por categoría."
-            centered
-          />
-          <WorksGrid works={mockWorks} className="mt-12" />
+          <WorksGrid works={mockWorks} className="mt-8" />
         </div>
       </section>
     </>

@@ -16,19 +16,23 @@ interface WorkFiltersProps {
 
 export function WorkFilters({ categories, activeCategory, onFilterChange, className }: WorkFiltersProps) {
   return (
-    <div className={cn("flex flex-wrap gap-3", className)}>
+    <div className={cn("flex flex-wrap gap-0 border-b border-white/10", className)}>
       {categories.map((category) => (
         <button
           key={category.value}
           onClick={() => onFilterChange(category.value)}
           className={cn(
-            "px-5 py-2 rounded-full font-body text-sm font-medium transition-all duration-300 border",
+            "font-body text-sm font-medium px-5 py-3 relative transition-colors duration-200",
             activeCategory === category.value
-              ? "bg-accent text-white border-accent"
-              : "bg-white text-muted border-gray-200 hover:border-accent/50 hover:text-accent"
+              ? "text-[#E8720C]"
+              : "text-gray-500 hover:text-white"
           )}
         >
           {category.label}
+          {/* Animated underline */}
+          {activeCategory === category.value && (
+            <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#E8720C]" />
+          )}
         </button>
       ))}
     </div>

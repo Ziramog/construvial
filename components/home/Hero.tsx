@@ -1,83 +1,119 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/Button"
 
 export function Hero() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80"
-          alt="Construvial S.A. Obra principal"
-          fill
-          priority
-          className="object-cover"
-        />
-      </div>
-      <div className="absolute inset-0 bg-dark/80 -z-10" />
+    <section className="min-h-screen flex">
+      {/* Left panel — content */}
+      <div className="w-full lg:w-[58%] bg-[#0A1628] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-24 relative overflow-hidden">
+        {/* Noise texture */}
+        <div className="absolute inset-0 opacity-[0.03] bg-noise pointer-events-none" />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={{
-            hidden: {},
-            show: {
-              transition: { staggerChildren: 0.2 },
-            },
-          }}
-          className="flex flex-col items-center max-w-4xl mx-auto"
+        {/* Founding year badge */}
+        <p
+          className={`font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-8 relative z-10 transition-all duration-700 ${
+            mounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"
+          }`}
         >
-          <motion.h1
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-            }}
-            className="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-white uppercase tracking-wider mb-6"
-          >
-            Hacemos <span className="text-accent">realidad</span> los proyectos de nuestros clientes
-          </motion.h1>
+          Desde 1989 · Río Tercero, Córdoba
+        </p>
 
-          <motion.p
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-            }}
-            className="font-body text-xl md:text-2xl text-gray-200 mb-10 tracking-wide font-light"
+        {/* Title — Bebas Neue, massive */}
+        <div className="relative z-10">
+          <h1
+            className={`font-display text-[clamp(56px,8vw,120px)] leading-[0.9] text-white uppercase mb-6 transition-all duration-800 delay-300 ${
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            }`}
           >
-            35 años construyendo infraestructura para Argentina
-          </motion.p>
+            Hacemos<br />
+            <span className="text-[#E8720C]">realidad</span>
+            <br />
+            los proyectos<br />
+            de nuestros<br />
+            clientes
+          </h1>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-            }}
-            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+          {/* Orange divider */}
+          <div
+            className={`w-16 h-[2px] bg-[#E8720C] mb-6 transition-all duration-700 delay-700 ${
+              mounted ? "w-16" : "w-0"
+            }`}
+          />
+
+          {/* Subtitle */}
+          <p
+            className={`font-body text-gray-400 text-lg max-w-md mb-12 leading-relaxed transition-all duration-700 delay-500 ${
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
           >
-            <Button asChild size="lg" className="w-full sm:w-auto text-lg font-bold px-8">
-              <Link href="/obras">Ver nuestras obras</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-lg font-bold px-8 border-white text-white hover:bg-white/10">
-              <Link href="/contacto">Contactanos</Link>
-            </Button>
-          </motion.div>
-        </motion.div>
+            Obras viales, civiles, metálicas y electromecánicas.
+            500 proyectos finalizados en 40 ciudades de Argentina.
+          </p>
+
+          {/* CTAs */}
+          <div
+            className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 delay-[800ms] ${
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+            }`}
+          >
+            <Link
+              href="/obras"
+              className="inline-flex items-center justify-center gap-3 bg-[#E8720C] text-white font-body font-semibold px-8 py-4 hover:bg-orange-600 transition-colors duration-200 group"
+            >
+              Ver nuestras obras
+              <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+            </Link>
+            <Link
+              href="/contacto"
+              className="inline-flex items-center justify-center gap-3 border border-white/20 text-white font-body px-8 py-4 hover:border-white/60 transition-colors duration-200"
+            >
+              Contactanos
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div
+          className={`absolute bottom-8 left-8 md:left-20 flex items-center gap-3 transition-opacity duration-1000 delay-[1500ms] ${
+            mounted ? "opacity-40" : "opacity-0"
+          }`}
+        >
+          <div className="w-8 h-[1px] bg-white" />
+          <span className="font-body text-white text-xs tracking-widest uppercase">Scroll</span>
+        </div>
       </div>
-      
-      {/* Scroll indicator overlay */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70"
-      >
-        <span className="text-xs uppercase tracking-[0.3em]">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/70 to-transparent" />
-      </motion.div>
+
+      {/* Right panel — image */}
+      <div className="hidden lg:block lg:w-[42%] relative">
+        <Image
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
+          alt="Obra Construvial"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Minimal overlay */}
+        <div className="absolute inset-0 bg-[#0A1628]/10" />
+
+        {/* Floating stat badge */}
+        <div
+          className={`absolute bottom-12 left-[-60px] bg-[#E8720C] p-6 z-10 transition-all duration-800 delay-[1200ms] ${
+            mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          }`}
+        >
+          <p className="font-display text-5xl text-white leading-none">500+</p>
+          <p className="font-body text-white/80 text-sm mt-1">Obras finalizadas</p>
+        </div>
+      </div>
     </section>
   )
 }

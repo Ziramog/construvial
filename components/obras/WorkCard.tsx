@@ -8,34 +8,47 @@ interface WorkCardProps {
   client: string
   image: string
   slug: string
+  index: number
 }
 
-export function WorkCard({ title, category, client, image, slug }: WorkCardProps) {
+export function WorkCard({ title, category, client, image, slug, index }: WorkCardProps) {
+  const num = String(index + 1).padStart(3, "0")
+
   return (
-    <Link href={`/obras/${slug}`} className="group block">
-      <div className="relative rounded-xl overflow-hidden bg-white shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:border-accent/30">
-        <div className="relative h-64 overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute top-4 left-4">
-            <span className="bg-accent text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-              {category}
-            </span>
-          </div>
-        </div>
-        <div className="p-6">
-          <h3 className="font-display text-xl font-bold text-dark mb-2 group-hover:text-accent transition-colors">
+    <Link href={`/obras/${slug}`} className="group block relative overflow-hidden">
+      <div className="relative aspect-[4/3]">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        {/* Overlay gradient only at bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+
+        {/* Work number — top right */}
+        <span className="absolute top-4 right-4 font-display text-3xl text-white/30 leading-none select-none">
+          {num}
+        </span>
+
+        {/* Category badge */}
+        <span className="absolute bottom-20 left-5 bg-[#E8720C] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5">
+          {category}
+        </span>
+
+        {/* Info */}
+        <div className="absolute bottom-0 left-0 right-0 p-5">
+          <h3 className="font-display text-xl text-white uppercase leading-tight mb-1 group-hover:text-[#E8720C] transition-colors duration-200">
             {title}
           </h3>
-          <p className="font-body text-muted text-sm mb-4">{client}</p>
-          <div className="flex items-center gap-2 font-body font-semibold text-primary group-hover:text-accent transition-colors">
-            Ver más
-            <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-          </div>
+          <p className="font-body text-gray-400 text-sm">{client}</p>
+        </div>
+
+        {/* Hover overlay — "Ver proyecto" */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+          <span className="text-white font-body text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2">
+            Ver proyecto <ArrowRight size={16} />
+          </span>
         </div>
       </div>
     </Link>

@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #FFD100;
-  --color-accent: #FFC107;
-  --color-dark: #0A0A0A;
-  --color-dark-2: #1A1A1A;
+  --color-primary: #1B3A6B;
+  --color-accent: #E8720C;
+  --color-dark: #0A1628;
+  --color-dark-2: #0D1B2A;
+  --color-dark-3: #080F1E;
   --color-light: #F5F5F5;
   --color-text: #1A1A1A;
   --color-muted: #6B7280;
-  
+
   --background: #ffffff;
-  --foreground: #1A1A2E;
+  --foreground: #0A1628;
 }
 
 * {
@@ -28,59 +29,79 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Noise texture for dark backgrounds */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* Animated underline for links */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #E8720C;
+  transition: width 0.3s ease;
+}
+.link-underline:hover::after {
+  width: 100%;
+}
+
 /* Selection styling */
 ::selection {
-  background-color: var(--color-accent);
+  background: #E8720C;
   color: white;
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling — industrial, no radius */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-light);
+  background: #0A1628;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 5px;
+  background: #E8720C;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+  background: #d4650a;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  
-  /* Custom utility for container max width */
+
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
-  /* Gradient text utility */
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
 }
 
 @layer components {
-  /* Section spacing */
   .section-padding {
     @apply py-16 md:py-24;
   }
-  
-  /* Card hover effect */
+
   .card-hover {
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
   }

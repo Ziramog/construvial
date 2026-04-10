@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { CONTACT, SERVICIOS } from "@/lib/constants"
-import { Button } from "@/components/ui/Button"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -24,8 +23,8 @@ export function Header() {
   const navLinks = [
     { name: "Inicio", href: "/" },
     { name: "Quiénes somos", href: "/quienes-somos" },
-    { 
-      name: "Servicios", 
+    {
+      name: "Servicios",
       href: "/servicios",
       dropdown: SERVICIOS.map(s => ({ name: s.titulo, href: `/servicios/${s.slug}` }))
     },
@@ -38,13 +37,16 @@ export function Header() {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b",
-      isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm border-gray-200 py-3 text-text" : "bg-transparent border-transparent py-4 text-white"
+      isScrolled
+        ? "bg-[#0A1628]/95 backdrop-blur-sm border-b border-white/10 py-3"
+        : "bg-transparent border-b border-transparent py-4"
     )}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-display text-2xl font-bold tracking-wider">
-              CONSTRU<span className="text-accent">VIAL</span>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 z-50 relative">
+            <span className="font-display text-3xl font-normal tracking-wider text-white">
+              CONSTRU<span className="text-[#E8720C]">VIAL</span>
             </span>
           </Link>
 
@@ -52,25 +54,27 @@ export function Header() {
           <nav className="hidden lg:flex items-center gap-8 font-body font-medium">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group">
-                <Link 
+                <Link
                   href={link.href}
                   className={cn(
-                    "flex items-center gap-1 hover:text-accent transition-colors",
-                    pathname === link.href && "text-accent"
+                    "flex items-center gap-1 text-white/70 hover:text-white transition-colors duration-200 text-sm tracking-wide",
+                    pathname === link.href && "text-[#E8720C]"
                   )}
                 >
                   {link.name}
-                  {link.dropdown && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform" />}
+                  {link.dropdown && (
+                    <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-200" />
+                  )}
                 </Link>
-                
+
                 {link.dropdown && (
                   <div className="absolute top-full left-0 pt-4 hidden group-hover:block w-56">
-                    <div className="bg-white rounded-md shadow-lg border border-gray-100 py-2 flex flex-col">
+                    <div className="bg-[#0D1B2A] border border-white/10 rounded-sm py-2 flex flex-col shadow-xl">
                       {link.dropdown.map((drop) => (
-                        <Link 
-                          key={drop.name} 
+                        <Link
+                          key={drop.name}
                           href={drop.href}
-                          className="px-4 py-2 text-sm text-text hover:bg-gray-50 hover:text-accent transition-colors"
+                          className="px-4 py-2.5 text-sm text-white/70 hover:bg-[#E8720C]/10 hover:text-white transition-colors duration-200"
                         >
                           {drop.name}
                         </Link>
@@ -82,15 +86,20 @@ export function Header() {
             ))}
           </nav>
 
+          {/* CTA */}
           <div className="hidden lg:flex items-center">
-            <Button asChild variant="accent" className="font-bold">
-              <Link href={CONTACT.whatsapp} target="_blank">Consultanos</Link>
-            </Button>
+            <Link
+              href={CONTACT.whatsapp}
+              target="_blank"
+              className="bg-[#E8720C] text-white font-body font-semibold tracking-wider uppercase text-xs px-6 py-2.5 hover:bg-orange-600 transition-colors duration-200"
+            >
+              Consultanos
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
-            className="lg:hidden p-2"
+          <button
+            className="lg:hidden p-2 text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -98,26 +107,37 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Nav — fullscreen with Bebas Neue titles */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-100 flex flex-col overflow-y-auto max-h-[calc(100vh-80px)]">
-          <nav className="flex flex-col p-4 font-body font-medium text-text">
-            {navLinks.map((link) => (
-              <div key={link.name} className="flex flex-col border-b border-gray-100 last:border-0">
-                <Link 
+        <div className="lg:hidden fixed inset-0 top-0 bg-[#0A1628] z-40 flex flex-col overflow-y-auto">
+          <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
+            <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+              <span className="font-display text-3xl font-normal tracking-wider text-white">
+                CONSTRU<span className="text-[#E8720C]">VIAL</span>
+              </span>
+            </Link>
+            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-white">
+              <X size={24} />
+            </button>
+          </div>
+          <nav className="flex flex-col p-6">
+            {navLinks.map((link, idx) => (
+              <div key={link.name} className="flex flex-col">
+                <Link
                   href={link.href}
-                  className="py-4 hover:text-accent font-bold"
+                  className="font-display text-4xl text-white uppercase py-4 hover:text-[#E8720C] transition-colors duration-200"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
+                {idx < navLinks.length - 1 && <div className="h-px bg-white/10" />}
                 {link.dropdown && (
-                  <div className="flex flex-col pl-4 pb-2 pb-4">
+                  <div className="flex flex-col pl-6 pb-4">
                     {link.dropdown.map((drop) => (
-                      <Link 
-                        key={drop.name} 
+                      <Link
+                        key={drop.name}
                         href={drop.href}
-                        className="py-2 text-sm text-muted hover:text-accent"
+                        className="font-body text-white/50 text-sm py-2 hover:text-[#E8720C] transition-colors duration-200"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {drop.name}
@@ -127,10 +147,15 @@ export function Header() {
                 )}
               </div>
             ))}
-            <div className="mt-4 pb-4">
-              <Button asChild variant="accent" className="w-full">
-                <Link href={CONTACT.whatsapp} target="_blank">Consultanos</Link>
-              </Button>
+            <div className="mt-8">
+              <Link
+                href={CONTACT.whatsapp}
+                target="_blank"
+                className="block text-center bg-[#E8720C] text-white font-body font-semibold tracking-wider uppercase text-sm px-6 py-4 hover:bg-orange-600 transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Consultanos
+              </Link>
             </div>
           </nav>
         </div>

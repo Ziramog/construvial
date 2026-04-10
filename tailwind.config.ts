@@ -5,17 +5,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#FFD100',
-        accent: '#FFC107',
-        dark: '#0A0A0A',
-        'dark-2': '#1A1A1A',
+        primary: '#1B3A6B',
+        accent: '#E8720C',
+        dark: '#0A1628',
+        'dark-2': '#0D1B2A',
+        'dark-3': '#080F1E',
         muted: '#6B7280',
         light: '#F5F5F5',
         text: '#1A1A1A',
       },
       fontFamily: {
-        display: ['var(--font-barlow)', 'sans-serif'],
-        body: ['var(--font-dm-sans)', 'sans-serif'],
+        display: ['var(--font-display)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
       },
       animation: {
         'fade-up': 'fadeUp 0.6s ease-out forwards',
