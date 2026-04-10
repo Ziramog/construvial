@@ -11,7 +11,9 @@
       "Bash(node *)",
       "Bash(powershell *)",
       "Bash(dir *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push)"
     ]
   },
   "$version": 3

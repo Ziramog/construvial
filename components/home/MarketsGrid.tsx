@@ -37,48 +37,50 @@ const markets = [
 
 export function MarketsGrid() {
   return (
-    <section id="mercados" className="py-24 bg-[#1A1A1A]">
-      <div className="container mx-auto px-4 md:px-6">
-        {/* Section Header */}
-        <div className="mb-12">
+    <section id="mercados" className="py-24 bg-[#050D19] overflow-hidden">
+      <div className="container mx-auto px-4 md:px-12 lg:px-20">
+        <div className="mb-16">
           <FadeIn delay={0} direction="up">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-[0.95] mb-2">
-              Nuestros Mercados
+             <span className="font-body text-[#FFD100] text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">
+              Diversificación Técnica
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-white uppercase leading-[0.9] mb-2">
+              Nuestros <br /> <span className="text-[#FFD100]">Mercados</span>
             </h2>
-          </FadeIn>
-          <FadeIn delay={100} direction="none">
-            <div className="w-16 h-[2px] bg-[#FFD100] mt-4" />
+            <div className="w-20 h-[3px] bg-[#FFD100] mt-8" />
           </FadeIn>
         </div>
 
-        {/* 2x3 Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2 lg:gap-4 border border-[#1A1A1A]/20 bg-[#1A1A1A]/20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {markets.map((market, index) => (
-            <FadeIn key={index} delay={index * 50} direction="up" className="h-full">
-              <div className="group relative h-40 sm:h-48 md:h-56 lg:h-80 w-full overflow-hidden bg-[#1A1A1A] cursor-pointer">
+            <FadeIn key={index} delay={index * 100} direction="up">
+              <div className="group relative h-96 w-full overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-xl transition-all duration-500 hover:border-[#FFD100]/50">
                 {/* Background Image */}
                 <Image
                   src={market.image}
                   alt={market.title}
                   fill
-                  className="object-cover opacity-40 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-60"
+                  className="object-cover opacity-50 grayscale transition-all duration-700 group-hover:scale-110 group-hover:opacity-80 group-hover:grayscale-0"
                 />
 
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/40 to-transparent" />
+                {/* Industrial Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
 
                 {/* Content */}
-                <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end">
-                  <div className="text-[#FFD100] mb-2 md:mb-4 transform group-hover:-translate-y-2 transition-transform duration-300">
-                    {market.icon}
+                <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                  <div className="mb-6 transform group-hover:-translate-y-2 transition-transform duration-300">
+                    <div className="bg-[#FFD100] text-black w-14 h-14 flex items-center justify-center p-3 shadow-2xl">
+                        {market.icon}
+                    </div>
                   </div>
-                  <h3 className="font-display text-lg md:text-xl lg:text-2xl text-white uppercase tracking-wider transform group-hover:-translate-y-2 transition-transform duration-300">
+                  <h3 className="font-display text-2xl lg:text-3xl text-white uppercase tracking-tight transform group-hover:-translate-y-2 transition-transform duration-300">
                     {market.title}
                   </h3>
+                  
+                  {/* Decorative line visible only on hover */}
+                  <div className="h-[2px] w-0 bg-[#FFD100] mt-4 group-hover:w-full transition-all duration-500" />
                 </div>
-
-                {/* Hover Accent Line */}
-                <div className="absolute bottom-0 left-0 h-1 bg-[#FFD100] w-0 group-hover:w-full transition-all duration-500 ease-out" />
               </div>
             </FadeIn>
           ))}
