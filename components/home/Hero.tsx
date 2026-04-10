@@ -28,8 +28,8 @@ const slides = [
     subtitle: "Rutas, autopistas, pavimentaciones y mantenimiento vial con los más altos estándares",
     cta: "Ver Proyectos Viales",
     ctaLink: "/obras",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBZwxWjZgSzYQjfZOywpwbAv2N_43PIeztrg51yrZIDYyUBn0Ji81ZmytXk1-Noi-yB36bDk50PKeOInOqneP7OrC3X-BaI1EUuHyMqAHYjM-EYY6cbCG8sp_URaCvABnvlMFIjwe1CjiI4uS2GN24qqPVS8Ji8ihYIfWloEmlcwQuKvAPJxKgVk44FYuG_gNuI-ZnTdki2UHLcAi6AAHwA6EyPq4odJqr6Htji0Xq9gOwyDbfhnQ-0-weVnGhDMWGB1Y8oftJ-Hho",
-    alt: "Fotografía real de oficina de ingeniería civil moderna",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBbd6tU0_SGGbjqLlR6-DY33riq4kEY6hKyk7JcPfgsufZFMd5Suo1yea__VFySGVv9nLofjFdunnlyAAYP1aHsjKcL15jbUc8d_wTQfN9IpD_J7L3-KA8-KiNNrpe6nG6uQsY7zKSbY17PnqVYeQOcK3d35SR1l-8T2HO7eJa9mqOX5mCcukq5GRKzlEVuwiVmmHTuirqD4SVPbWc4VRW7l035e2c9V7R3PyF9shC2jskC3YSbkmDLyMLlzHapcvJJFnJ319Rgqy0",
+    alt: "Fotografía panorámica 4K de oficina de ingeniería civil moderna",
   },
   {
     headline: "Construí Tu\nFuturo Con\nNosotros",
