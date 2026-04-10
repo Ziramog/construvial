@@ -12,8 +12,8 @@ const slides = [
     subtitle: "Más de 35 años construyendo infraestructura vial y civil en Argentina",
     cta: "Explorar Servicios",
     ctaLink: "/servicios",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDs8ULNCzSpdi_bO3rHCo3X81M90IbwANOOt4XNFa_RMCaogmsXTrInrVFp6Pm6RCt9uRUXlbZa02P4BbDzA6AmYaxD9Tg51tmztLdHTcJULy3E3Ir-wyZ4ZaJ8tqjBQZ2hICN14jXiQ9-8x6UORlfSQFi_Ep9mKAttOF0m2RWYG7v4LJd3pqduV2IeCEad0rafN2D2IRcI882jNXgUN6zGRm3UjRvQDJO5-8bqh8jdc794K94Mh0dW03cMTCTM347a29FJmLMkiJle",
-    alt: "Fondo corporativo minimalista de infraestructura moderna",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBnCUxLNlY9fB2FNV2msGES86-CEi2uD6COe_ZDgIFdH5TGANIOIo_QI2HCiercH_TOfTbswOXjl38puiMZjnTGEU-rwzCwYrHAjLSeWrMAP1sg5Y0oyiV4TpQ6NVB6tuaX81AfFzzmIf7hLqVsrv8eMzkFaGw1Lj38V6buXFFo8OaUMH7OHoMCWsrPIHCh27TlllmJIOJtSUzybpFE5RbOLH241xcFqOjkgF8gsCQ3q8jqX1zhKUxLnZMmMj3GG4hh0XCobTKEUwzR",
+    alt: "Galpón corporativo con flota de maquinaria vial",
   },
   {
     headline: "Equipamiento\nde Primera Línea",
