@@ -77,7 +77,7 @@ export function Hero() {
             src={slide.image}
             alt={slide.alt}
             fill
-            className="object-cover"
+            className={`object-cover ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
             priority={current === 0}
             sizes="100vw"
           />
