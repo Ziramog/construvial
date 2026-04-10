@@ -28,8 +28,8 @@ const slides = [
     subtitle: "Rutas, autopistas, pavimentaciones y mantenimiento vial con los más altos estándares",
     cta: "Ver Proyectos Viales",
     ctaLink: "/obras",
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=85",
-    alt: "Construcción de ruta con maquinaria vial",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD4Fqqy9lAHqa8eX9kvKWi-lqddhZ8lO6qQCAJ1eLtU9HLB_1MQVluDrXuX7svus_cwLvNqDEBHt7kEgzddVknKl-6MLyAGPr_OP25IyynzCw6NU6PShmrSbxQLwdFU1GZTrPL7bYDiQrJYEWAzhUK_YcYBuH_FvlDcM7kpo-TjtjEKGJyPWDMXePqUaMFPjVXI0pQTn1DkGFI-Iwg1mElXsogvtbhK0eTOhmWudFlCkU3R7FR-Cc3unqTNVSWOVYsSln4czRBufTE",
+    alt: "Ingenieros civiles trabajando en planos de infraestructura en AutoCAD",
   },
   {
     headline: "Construí Tu\nFuturo Con\nNosotros",
