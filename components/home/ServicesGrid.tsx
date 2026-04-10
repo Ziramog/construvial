@@ -10,11 +10,11 @@ import { ArrowRight } from "lucide-react"
 
 // Adding specific images for the services to match the industrial theme
 const serviceImages = [
-  "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80", // Civil
-  "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=80", // Suelos
-  "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80", // Equipos
-  "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=80", // Logistica
-  "https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=1200&q=80", // Tecnico
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCsyAo9C1bLl8YA7UsGT0IpjHwa9gevQahhk68KfokdHJoeA3EgZrMbGYdUthklels20AsGQ6-irUF4kK10ZntJgJShGRPYUwJ_GOkL0Aw3LajhEGz_TLxrayHrjU69YN9T7n7mEEo03KKr_w28LJ4MHelROBSQQYxu2Wwan2ZLA3k4NlzEnWHe8unLLYVh8LdZCjOkmGyNjIFMzVX8GcgoVDLkfot3SqaeYFrU6NNI-1AFvvLalTCHq6BkgyuNvT4gauA6w_h0T7k", // Civil
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuDVoPNncMlvZSTSl06_WZV40IbXGf4DlWmiKTW5KKlMeztbd_KN-pei0fdj3pfYtrGHtBdPH6KZUI-NN2uztfZHk0d6O6PwNSqZMCZSZ_peF0lKo5tO4IHahgfjNUBPdwSL-Ni4v62e1IhMXU4n8u6l2Hwlj6Qwne4MQvGcmgBZ7VDXjAz8KTTzJPd4rpVRjeO9QhyG3VnH9JoNVOjyOXlEjbePNoyHb1nNeYAT9faVFHmIUglMx4H4hJ0iQyo_B60INpYaGnHhhTA", // Suelos
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAPfn5XiYaYnJzfiVEySGE884zYgOxQtr18PgXNfvmHG6dJleQO-aWf4Lw9iEClk02C8tfi09ltyyqWWSNI4Atf_0Jk_y1gKrl9n9QdfQtaMuZttJZJpENpPXhM6bE8lzAcLWK1iHSXU-L0_RubZdBU4DdkJQ4-tzrq1WXMHG_TicLEWmIRJPSe51i6Y61rDnx1psRt-U7BdHjRTK6IMlkXYO7-7J5_0-Nri99vq0Xt4fp9UhaZX8xeFFUYvXcWvfhMLjwp_mMtycc", // Equipos
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBn_0KSIz-FMOV5UOgQvBAhaQ8FVksDemAb4pfiljtUOPCDXjfxdGOlcbrkyU3GWlTFwTn3pqtSndBFZevSTcJB8usLdVEXJ8wNKw4KadeUwwOrstzZWf6GU8ujJARQiNCrf2xLy9HXGIO7sr0ACvOPxEPu_ciKsVQ62MfBOK_sv5csVarUOdq4ghxtbeChRDD0xETskoZzZ14Uqlvi0jDG5j_OQV7_DC_-XamLkUJIeSIFOnzQyIomB5-mmtPpP5v1j0dWwIhFEgM", // Logistica
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBUxIjC8zk_G9qktdo2JB2kZ8K0_7DUk0DH25Oed73q5PClqx10TCCu_gS_v6wLI9fHWzdmipB04rWv0LOEvtKN21IuTm34atmEqJEiD_PJyC_JqVlL0aEIjOJx-QpqfB0L3xniOpK9k7rHmxe0vkwAzLaUX1Ct8eHgmTZV8MI0xTPn_NkTaEpt1ucACzqs-7InIY2qtozaKEmFHLNg_Jtt9eoXYPQ8XQw_40X_MCbHkOxgKVATxCmu5MNPSrzZQufHg00JkPsEEYA", // Tecnico
 ]
 
 export function ServicesGrid() {

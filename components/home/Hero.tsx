@@ -36,7 +36,7 @@ const slides = [
     subtitle: "Sumate a un equipo de más de 80 profesionales apasionados por la construcción",
     cta: "Sumate al Equipo",
     ctaLink: "/contacto",
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=85",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAowWCcX82AeVP00r4ZEZHrmmfRfQjvIhP14gdIjW3T6OCpk9PREw1U_haG4lsExpZvtfqLBaD68ghuWqPWSU7MFpQN9a1cW-qVNQQ9eIYOGs21jUPB71f9Cb2QIIna2XRuEFQ_nEVaEUkEaRNkYtdreAdHwb9Nk3M_NKKW1p-rLrP0PThZkc9UY4ZXM6f8izHDiAwxoyYkrK1KMgK-vSvM5hTRRtQdWC6l17HK1ZF8XEqAsf5b_y-HUirxwyYBBeBqaFq_kSRlWgg",
     alt: "Equipo de construcción trabajando en obra civil",
   },
 ]
@@ -78,8 +78,9 @@ export function Hero() {
             alt={slide.alt}
             fill
             className={`object-cover ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
-            priority={current === 0}
+            priority={current === 0 || current === 1}
             sizes="100vw"
+            quality={90}
           />
           {/* Dark gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/20" />
