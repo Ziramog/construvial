@@ -12,8 +12,16 @@ const slides = [
     subtitle: "Más de 35 años construyendo infraestructura vial y civil en Argentina",
     cta: "Explorar Servicios",
     ctaLink: "/servicios",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1920&q=85",
-    alt: "Maquinaria pesada pavimentando una autopista",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDs8ULNCzSpdi_bO3rHCo3X81M90IbwANOOt4XNFa_RMCaogmsXTrInrVFp6Pm6RCt9uRUXlbZa02P4BbDzA6AmYaxD9Tg51tmztLdHTcJULy3E3Ir-wyZ4ZaJ8tqjBQZ2hICN14jXiQ9-8x6UORlfSQFi_Ep9mKAttOF0m2RWYG7v4LJd3pqduV2IeCEad0rafN2D2IRcI882jNXgUN6zGRm3UjRvQDJO5-8bqh8jdc794K94Mh0dW03cMTCTM347a29FJmLMkiJle",
+    alt: "Fondo corporativo minimalista de infraestructura moderna",
+  },
+  {
+    headline: "Equipamiento\nde Primera Línea",
+    subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones volcadores",
+    cta: "Conocer Nuestro Equipamiento",
+    ctaLink: "/equipos",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWIxzTy19jKMv_mfzEKVBQIRSE3igHdKFRu57XIGh5QT2dttsZ303tNzhPvT_mIkTcruasggI0Qu27Iqx4PQ-Maxa6rs_CK-10r4EMSUgAsZzrELNlvyPWiyg3_vUUzqLofrzq2TSLBGvq3_gVlVaPht7V6UtfnQBt6XgVDOqqMX_DK51uYkH_9E73HIVHsMzg50gNuSXnTAn56wpp6xSs0BI1uu4zZHX-cjCSFzGI2RtIPvILfoICaBj3OwqNZgKvV-xhI8kJ09jS",
+    alt: "Maquinaria pesada trabajando de manera eficiente en proyecto de infraestructura",
   },
   {
     headline: "Obra Vial\nde Excelencia",
@@ -24,14 +32,6 @@ const slides = [
     alt: "Construcción de ruta con maquinaria vial",
   },
   {
-    headline: "Equipamiento\nde Primera Línea",
-    subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones volcadores",
-    cta: "Conocer Nuestro Equipamiento",
-    ctaLink: "/equipos",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=85",
-    alt: "Excavadora y equipo pesado en obra de construcción",
-  },
-  {
     headline: "Construí Tu\nFuturo Con\nNosotros",
     subtitle: "Sumate a un equipo de más de 80 profesionales apasionados por la construcción",
     cta: "Sumate al Equipo",
@@ -40,6 +40,7 @@ const slides = [
     alt: "Equipo de construcción trabajando en obra civil",
   },
 ]
+
 
 export function Hero() {
   const [current, setCurrent] = useState(0)
