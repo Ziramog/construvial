@@ -3,8 +3,9 @@ import { Hero } from "@/components/home/Hero"
 import { Stats } from "@/components/home/Stats"
 import { ServicesGrid } from "@/components/home/ServicesGrid"
 import { FeaturedWorks } from "@/components/home/FeaturedWorks"
-import { ClientLogos } from "@/components/home/ClientLogos"
-import { CTABanner } from "@/components/home/CTABanner"
+import { MarketsGrid } from "@/components/home/MarketsGrid"
+import { CompanySection } from "@/components/home/CompanySection"
+import { ContactSection } from "@/components/home/ContactSection"
 import { constructMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = constructMetadata({
@@ -19,8 +20,9 @@ export default function HomePage() {
       <Stats />
       <ServicesGrid />
       <FeaturedWorks />
-      <ClientLogos />
-      <CTABanner />
+      <MarketsGrid />
+      <CompanySection />
+      <ContactSection />
     </>
   )
 }

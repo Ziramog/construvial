@@ -1,88 +1,126 @@
 import Link from "next/link"
-import { MapPin, Phone, Mail } from "lucide-react"
-import { CONTACT, SERVICIOS } from "@/lib/constants"
+import Image from "next/image"
+import { MapPin, Phone, Mail, Linkedin, Instagram, Facebook } from "lucide-react"
+import { CONTACT } from "@/lib/constants"
 
 export function Footer() {
   return (
-    <footer className="bg-dark text-white pt-16 pb-8 border-t-4 border-accent">
+    <footer className="bg-[#0C0F0F] text-white pt-20 pb-10 border-t-4 border-[#FFD100]">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           
-          {/* Brand */}
-          <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2">
-              <span className="font-display text-3xl font-bold tracking-wider">
-                CONSTRU<span className="text-accent">VIAL</span>
-              </span>
-            </Link>
-            <p className="text-gray-400 font-body text-sm leading-relaxed">
-              35 años de experiencia ejecutando obras viales, civiles, metálicas y electromecánicas con los más altos estándares de calidad y seguridad.
+          {/* Column 1: Empresa Info / Links */}
+          <div className="flex flex-col gap-6">
+            <h3 className="font-display text-2xl uppercase tracking-wider text-white mb-2">Empresa</h3>
+            <p className="font-body text-[#acadad] text-sm leading-relaxed mb-4">
+              Más de 35 años construyendo infraestructura vial y civil en Argentina. Ingeniería de excelencia y equipamiento de primera línea.
             </p>
-            <div className="flex items-center gap-4 mt-2">
-              <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" className="bg-dark-2 p-2 rounded-full hover:bg-accent transition-colors">
-                <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </a>
-              <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" className="bg-dark-2 p-2 rounded-full hover:bg-accent transition-colors">
-                <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-              </a>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="flex flex-col gap-4">
-            <h3 className="font-display text-xl font-bold uppercase tracking-wide border-b border-gray-700 pb-2">Empresa</h3>
-            <ul className="flex flex-col gap-2 font-body text-gray-400">
-              <li><Link href="/quienes-somos" className="hover:text-accent transition-colors">Quiénes Somos</Link></li>
-              <li><Link href="/obras" className="hover:text-accent transition-colors">Nuestras Obras</Link></li>
-              <li><Link href="/equipos" className="hover:text-accent transition-colors">Catálogo de Equipos</Link></li>
-              <li><Link href="/blog" className="hover:text-accent transition-colors">Blog y Novedades</Link></li>
-              <li><Link href="/contacto" className="hover:text-accent transition-colors">Contacto</Link></li>
+            <ul className="flex flex-col gap-3 font-body text-sm font-bold uppercase tracking-wide">
+              <li>
+                <Link href="/quienes-somos" className="text-[#f5f2f1] hover:text-[#FFD100] transition-colors flex items-center gap-2">
+                  <span className="w-2 h-2 bg-[#FFD100]" />
+                  Quiénes Somos
+                </Link>
+              </li>
+              <li>
+                <Link href="/obras" className="text-[#f5f2f1] hover:text-[#FFD100] transition-colors flex items-center gap-2">
+                  <span className="w-2 h-2 bg-[#FFD100]" />
+                  Nuestros Proyectos
+                </Link>
+              </li>
+              <li>
+                <Link href="/equipos" className="text-[#f5f2f1] hover:text-[#FFD100] transition-colors flex items-center gap-2">
+                  <span className="w-2 h-2 bg-[#FFD100]" />
+                  Equipamiento
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="flex flex-col gap-4">
-            <h3 className="font-display text-xl font-bold uppercase tracking-wide border-b border-gray-700 pb-2">Servicios</h3>
-            <ul className="flex flex-col gap-2 font-body text-gray-400">
-              {SERVICIOS.map((servicio) => (
-                <li key={servicio.slug}>
-                  <Link href={`/servicios/${servicio.slug}`} className="hover:text-accent transition-colors">
-                    {servicio.titulo}
-                  </Link>
-                </li>
-              ))}
+          {/* Column 2: Servicios Links */}
+          <div className="flex flex-col gap-6">
+            <h3 className="font-display text-2xl uppercase tracking-wider text-white mb-2">Soluciones</h3>
+            <ul className="flex flex-col gap-4 font-body text-[#acadad] text-sm">
+              <li>
+                <Link href="/servicios/ingenieria-civil" className="hover:text-[#FFD100] transition-colors">Ingeniería Civil</Link>
+              </li>
+              <li>
+                <Link href="/servicios/movimiento-suelos" className="hover:text-[#FFD100] transition-colors">Movimiento de Suelos</Link>
+              </li>
+              <li>
+                <Link href="/servicios/alquiler-equipos" className="hover:text-[#FFD100] transition-colors">Alquiler de Equipos</Link>
+              </li>
+              <li>
+                <Link href="/servicios/logistica" className="hover:text-[#FFD100] transition-colors">Logística y Distribución</Link>
+              </li>
+              <li>
+                <Link href="/servicios/departamento-tecnico" className="hover:text-[#FFD100] transition-colors">Departamento Técnico</Link>
+              </li>
             </ul>
           </div>
 
-          {/* Contact */}
-          <div className="flex flex-col gap-4">
-            <h3 className="font-display text-xl font-bold uppercase tracking-wide border-b border-gray-700 pb-2">Contacto</h3>
-            <ul className="flex flex-col gap-4 font-body text-gray-400 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-accent shrink-0 mt-0.5" />
+           {/* Column 3: Contacto Info */}
+           <div className="flex flex-col gap-6">
+            <h3 className="font-display text-2xl uppercase tracking-wider text-white mb-2">Sede Central</h3>
+            <ul className="flex flex-col gap-5 font-body text-[#acadad] text-sm">
+              <li className="flex items-start gap-4">
+                <MapPin size={20} className="text-[#FFD100] shrink-0" />
                 <span>{CONTACT.address}</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={18} className="text-accent shrink-0" />
+              <li className="flex items-start gap-4">
+                <Phone size={20} className="text-[#FFD100] shrink-0" />
                 <div className="flex flex-col">
                   <span>{CONTACT.phone1}</span>
                   <span>{CONTACT.phone2}</span>
                 </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail size={18} className="text-accent shrink-0" />
-                <a href={`mailto:${CONTACT.email}`} className="hover:text-white transition-colors">{CONTACT.email}</a>
+              <li className="flex items-start gap-4">
+                <Mail size={20} className="text-[#FFD100] shrink-0" />
+                <a href={`mailto:${CONTACT.email}`} className="hover:text-white transition-colors">
+                  {CONTACT.email}
+                </a>
               </li>
             </ul>
           </div>
 
+          {/* Column 4: Certificaciones y Redes */}
+          <div className="flex flex-col gap-6">
+            <h3 className="font-display text-2xl uppercase tracking-wider text-white mb-2">Certificaciones</h3>
+            <div className="flex gap-4 items-center">
+              <div className="w-20 h-20 bg-white p-2">
+                <Image src="/iso-9001.png" alt="ISO 9001" width={80} height={80} className="object-contain w-full h-full opacity-60 grayscale" />
+              </div>
+               <div className="w-20 h-20 bg-white p-2">
+                <Image src="/iso-14001.png" alt="ISO 14001" width={80} height={80} className="object-contain w-full h-full opacity-60 grayscale" />
+              </div>
+            </div>
+            
+            <h3 className="font-display text-xl uppercase tracking-wider text-white mt-4 mb-1">Redes Sociales</h3>
+            <div className="flex items-center gap-4">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-[#1A1A1A] p-3 text-white hover:bg-[#FFD100] hover:text-[#1A1A1A] transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <a href={CONTACT.instagram} target="_blank" rel="noopener noreferrer" className="bg-[#1A1A1A] p-3 text-white hover:bg-[#FFD100] hover:text-[#1A1A1A] transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href={CONTACT.facebook} target="_blank" rel="noopener noreferrer" className="bg-[#1A1A1A] p-3 text-white hover:bg-[#FFD100] hover:text-[#1A1A1A] transition-colors">
+                <Facebook size={20} />
+              </a>
+            </div>
+          </div>
+
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-body text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} Construvial S.A. Todos los derechos reservados.</p>
-          <div className="flex items-center gap-4">
-            <Link href="/legal/privacidad" className="hover:text-white">Política de Privacidad</Link>
-            <Link href="/legal/terminos" className="hover:text-white">Términos de Servicio</Link>
+        {/* Bottom Bar */}
+        <div className="border-t border-[#1A1A1A] pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-body text-xs text-[#767777] uppercase tracking-wider">
+          <p>© 2026 Construvial S.A. Todos los derechos reservados.</p>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            <Link href="/legal/privacidad" className="hover:text-white transition-colors">Política de Privacidad</Link>
+            <Link href="/legal/terminos" className="hover:text-white transition-colors">Términos de Servicio</Link>
+            <div className="flex items-center gap-3">
+              <span>Diseño:</span>
+              <Image src="/Construvial-LogoNegro-300x138.png" alt="Construvial Logo" width={60} height={28} className="brightness-0 invert opacity-50" />
+            </div>
           </div>
         </div>
       </div>

@@ -1,21 +1,21 @@
 import type { Metadata } from "next"
-import { Bebas_Neue, Inter_Tight } from "next/font/google"
+import { Space_Grotesk, Inter } from "next/font/google"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton"
 import { constructMetadata } from "@/lib/metadata"
 import "./globals.css"
 
-// Bebas Neue — display font for titles, numbers, labels
-const bebasNeue = Bebas_Neue({
+// Space Grotesk — display font for titles, numbers, labels (Industrial aesthetic)
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 })
 
-// Inter Tight — body font for text, nav, buttons, specs
-const interTight = Inter_Tight({
+// Inter — utility body font for text, nav, buttons, specs
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
@@ -30,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${bebasNeue.variable} ${interTight.variable}`}>
-      <body className="font-body antialiased">
+    <html lang="es" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <body className="font-body antialiased selection:bg-[#FFD100] selection:text-black">
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
