@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <defs>
+    <style>
+      .text-primary { fill: #1B3A6B; }
+      .text-accent { fill: #E8720C; }
+    </style>
+  </defs>
+  <text x="0" y="38" class="text-primary" font-family="Arial, sans-serif" font-weight="bold" font-size="28" letter-spacing="2">
+    CONSTRU<tspan class="text-accent">VIAL</tspan>
+  </text>
+  <text x="0" y="48" class="text-primary" font-family="Arial, sans-serif" font-size="8" opacity="0.6">
+    S.A.
+  </text>
+</svg>
