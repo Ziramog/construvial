@@ -20,7 +20,7 @@ const slides = [
     subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones volcadores",
     cta: "Conocer Nuestro Equipamiento",
     ctaLink: "/equipos",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAWIxzTy19jKMv_mfzEKVBQIRSE3igHdKFRu57XIGh5QT2dttsZ303tNzhPvT_mIkTcruasggI0Qu27Iqx4PQ-Maxa6rs_CK-10r4EMSUgAsZzrELNlvyPWiyg3_vUUzqLofrzq2TSLBGvq3_gVlVaPht7V6UtfnQBt6XgVDOqqMX_DK51uYkH_9E73HIVHsMzg50gNuSXnTAn56wpp6xSs0BI1uu4zZHX-cjCSFzGI2RtIPvILfoICaBj3OwqNZgKvV-xhI8kJ09jS",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuD9Mq4LM2j6Kzn4_sa1ep4P0URF70VDlUa8KmWfqf-l1W-FXFck2vZnxIGaugKZJiaY2TVfAZaqICVUoqQ-1zjmZT11Vz1beI8ClloC7-GFNCiqqAPD8Fykh9nguStTUgYpz0DWYI4NDb33BD-88oQCb2JU5hTJLdJSTR6Sih6WlvBNGkD33Jv2mClAH-ODjCPOOuPtKM4jJKaOzfkHIMqmmw0YdrFDR80EJK4q4zoCh80ZS7MQD2cXlP1DYb1DPtbtwhJq3guau6k",
     alt: "Maquinaria pesada trabajando de manera eficiente en proyecto de infraestructura",
   },
   {
