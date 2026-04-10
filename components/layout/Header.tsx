@@ -28,20 +28,28 @@ export function Header() {
   ]
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-[#1A1A1A] py-3 shadow-lg" : "bg-[#1A1A1A]/90 py-5"}`}>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled 
+          ? "bg-white py-3 shadow-lg" 
+          : "bg-gradient-to-b from-black/70 via-black/30 to-transparent py-5"
+      }`}
+    >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Logo Badge Container */}
           <Link href="/" className="z-50 relative" onClick={() => setIsMobileMenuOpen(false)}>
-            <div className={`relative transition-all duration-300 ${isScrolled ? "w-[120px] h-[55px]" : "w-[150px] h-[70px]"}`}>
-              <Image
-                src="/Construvial-LogoNegro-300x138.png"
-                alt="Construvial S.A."
-                fill
-                className="object-contain brightness-0 invert"
-                priority
-              />
+            <div className={`bg-white rounded-md shadow-md px-4 py-2 flex items-center justify-center transition-all duration-300`}>
+              <div className={`relative transition-all duration-300 ${isScrolled ? "w-[120px] h-[40px]" : "w-[150px] h-[55px]"}`}>
+                <Image
+                  src="/Construvial-LogoNegro-300x138.png"
+                  alt="Construvial S.A."
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </div>
           </Link>
 
@@ -52,7 +60,11 @@ export function Header() {
                 <Link
                   href={link.href}
                   className={`text-sm tracking-wider uppercase transition-colors duration-200 font-bold ${
-                    pathname === link.href ? "text-[#FFD100]" : "text-white/90 hover:text-[#FFD100]"
+                    pathname === link.href 
+                      ? "text-[#FFD100]" 
+                      : isScrolled 
+                        ? "text-[#1A1A1A] hover:text-[#FFD100]" 
+                        : "text-white/90 hover:text-[#FFD100]"
                   }`}
                 >
                   {link.name}
@@ -67,7 +79,11 @@ export function Header() {
           <div className="hidden lg:flex items-center">
             <Link
               href="/#contacto"
-              className="bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-sm px-6 py-3 hover:bg-yellow-400 transition-colors duration-200"
+              className={`font-body font-bold tracking-wider uppercase text-sm px-6 py-3 transition-colors duration-200 ${
+                isScrolled
+                  ? "bg-[#FFD100] text-[#1A1A1A] hover:bg-yellow-400"
+                  : "bg-[#FFD100] text-[#1A1A1A] hover:bg-yellow-400"
+              }`}
             >
               Solicitar Presupuesto
             </Link>
@@ -75,7 +91,9 @@ export function Header() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 text-white relative z-50"
+            className={`lg:hidden p-2 relative z-50 transition-colors duration-300 ${
+              isMobileMenuOpen ? "text-white" : isScrolled ? "text-[#1A1A1A]" : "text-white"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
