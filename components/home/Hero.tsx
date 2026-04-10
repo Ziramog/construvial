@@ -1,117 +1,182 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+
+const slides = [
+  {
+    headline: "Ingeniería.\nConstrucción.\nSoluciones.",
+    subtitle: "Más de 35 años construyendo infraestructura vial y civil en Argentina",
+    cta: "Explorar Servicios",
+    ctaLink: "/servicios",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1920&q=85",
+    alt: "Maquinaria pesada pavimentando una autopista",
+  },
+  {
+    headline: "Obra Vial\nde Excelencia",
+    subtitle: "Rutas, autopistas, pavimentaciones y mantenimiento vial con los más altos estándares",
+    cta: "Ver Proyectos Viales",
+    ctaLink: "/obras",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=85",
+    alt: "Construcción de ruta con maquinaria vial",
+  },
+  {
+    headline: "Equipamiento\nde Primera Línea",
+    subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones volcadores",
+    cta: "Conocer Nuestro Equipamiento",
+    ctaLink: "/equipos",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=85",
+    alt: "Excavadora y equipo pesado en obra de construcción",
+  },
+  {
+    headline: "Construí Tu\nFuturo Con\nNosotros",
+    subtitle: "Sumate a un equipo de más de 80 profesionales apasionados por la construcción",
+    cta: "Sumate al Equipo",
+    ctaLink: "/contacto",
+    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=85",
+    alt: "Equipo de construcción trabajando en obra civil",
+  },
+]
 
 export function Hero() {
-  const [mounted, setMounted] = useState(false)
+  const [current, setCurrent] = useState(0)
+  const [direction, setDirection] = useState(1)
 
-  useEffect(() => {
-    setMounted(true)
+  const next = useCallback(() => {
+    setDirection(1)
+    setCurrent((prev) => (prev + 1) % slides.length)
   }, [])
 
+  const prev = useCallback(() => {
+    setDirection(-1)
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
+  }, [])
+
+  // Auto-advance every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(next, 6000)
+    return () => clearInterval(timer)
+  }, [next])
+
+  const slide = slides[current]
+
   return (
-    <section className="min-h-screen flex">
-      {/* Left panel — content */}
-      <div className="w-full lg:w-[58%] bg-[#0A1628] flex flex-col justify-center px-8 md:px-16 lg:px-20 py-24 relative overflow-hidden">
-        {/* Noise texture */}
-        <div className="absolute inset-0 opacity-[0.03] bg-noise pointer-events-none" />
-
-        {/* Founding year badge */}
-        <p
-          className={`font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-8 relative z-10 transition-all duration-700 ${
-            mounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"
-          }`}
+    <section id="hero" className="relative h-screen min-h-[700px] max-h-[900px] w-full overflow-hidden">
+      {/* Background images */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0"
         >
-          Desde 1989 · Río Tercero, Córdoba
-        </p>
-
-        {/* Title — Bebas Neue, massive */}
-        <div className="relative z-10">
-          <h1
-            className={`font-display text-[clamp(56px,8vw,120px)] leading-[0.9] text-white uppercase mb-6 transition-all duration-800 delay-300 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
-          >
-            Hacemos<br />
-            <span className="text-[#FFD100]">realidad</span>
-            <br />
-            los proyectos<br />
-            de nuestros<br />
-            clientes
-          </h1>
-
-          {/* Orange divider */}
-          <div
-            className={`w-16 h-[2px] bg-[#FFD100] mb-6 transition-all duration-700 delay-700 ${
-              mounted ? "w-16" : "w-0"
-            }`}
+          <Image
+            src={slide.image}
+            alt={slide.alt}
+            fill
+            className="object-cover"
+            priority={current === 0}
+            sizes="100vw"
           />
+          {/* Dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/20" />
+        </motion.div>
+      </AnimatePresence>
 
-          {/* Subtitle */}
-          <p
-            className={`font-body text-gray-400 text-lg max-w-md mb-12 leading-relaxed transition-all duration-700 delay-500 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
+      {/* Content */}
+      <div className="relative z-10 h-full flex flex-col justify-center container mx-auto px-6 md:px-12 lg:px-20">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-3xl"
           >
-            Obras viales, civiles, metálicas y electromecánicas.
-            500 proyectos finalizados en 40 ciudades de Argentina.
-          </p>
+            {/* Badge */}
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
+              className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-6"
+            >
+              Desde 1989 · Córdoba, Argentina
+            </motion.p>
 
-          {/* CTAs */}
-          <div
-            className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 delay-[800ms] ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-            }`}
-          >
-            <Link
-              href="/obras"
-              className="inline-flex items-center justify-center gap-3 bg-[#FFD100] text-black font-body font-semibold px-8 py-4 hover:bg-yellow-400 transition-colors duration-200 group"
-            >
-              Ver nuestras obras
-              <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
-            </Link>
-            <Link
-              href="/contacto"
-              className="inline-flex items-center justify-center gap-3 border border-white/20 text-white font-body px-8 py-4 hover:border-white/60 transition-colors duration-200"
-            >
-              Contactanos
-            </Link>
+            {/* Headline */}
+            <h1 className="font-display text-[clamp(42px,7vw,96px)] leading-[0.92] text-white uppercase mb-6 whitespace-pre-line">
+              {slide.headline}
+            </h1>
+
+            {/* Subtitle */}
+            <p className="font-body text-gray-300 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+              {slide.subtitle}
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href={slide.ctaLink}
+                className="inline-flex items-center justify-center gap-3 bg-[#FFD100] text-black font-body font-bold px-8 py-4 text-sm tracking-wider uppercase hover:bg-yellow-400 transition-all duration-200 group"
+              >
+                {slide.cta}
+                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+              </Link>
+              <Link
+                href="/contacto"
+                className="inline-flex items-center justify-center gap-3 border-2 border-white/30 text-white font-body font-medium px-8 py-4 text-sm tracking-wider uppercase hover:border-[#FFD100] hover:text-[#FFD100] transition-all duration-200"
+              >
+                Solicitar Presupuesto
+              </Link>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Bottom bar: Nav arrows + slide indicators */}
+        <div className="absolute bottom-8 left-6 right-6 md:left-12 md:right-12 lg:left-20 lg:right-20 flex items-center justify-between">
+          {/* Slide indicators */}
+          <div className="flex items-center gap-3">
+            {slides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setDirection(idx > current ? 1 : -1)
+                  setCurrent(idx)
+                }}
+                className={`h-1 transition-all duration-300 ${
+                  idx === current ? "w-12 bg-[#FFD100]" : "w-6 bg-white/30 hover:bg-white/50"
+                }`}
+                aria-label={`Ir a slide ${idx + 1}`}
+              />
+            ))}
+            <span className="font-body text-white/40 text-xs ml-4 tracking-widest">
+              {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+            </span>
           </div>
-        </div>
 
-        {/* Scroll indicator */}
-        <div
-          className={`absolute bottom-8 left-8 md:left-20 flex items-center gap-3 transition-opacity duration-1000 delay-[1500ms] ${
-            mounted ? "opacity-40" : "opacity-0"
-          }`}
-        >
-          <div className="w-8 h-[1px] bg-white" />
-          <span className="font-body text-white text-xs tracking-widest uppercase">Scroll</span>
-        </div>
-      </div>
-
-      {/* Right panel — image */}
-      <div className="hidden lg:block lg:w-[42%] relative">
-        <Image
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
-          alt="Obra Construvial"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Minimal overlay */}
-        <div className="absolute inset-0 bg-[#0A1628]/10" />
-
-        {/* Floating stat badge */}
-        <div
-          className={`absolute bottom-12 left-[-60px] bg-[#FFD100] p-6 z-10 transition-all duration-800 delay-[1200ms] ${
-            mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-          }`}
-        >
-          <p className="font-display text-5xl text-white leading-none">500+</p>
-          <p className="font-body text-white/80 text-sm mt-1">Obras finalizadas</p>
+          {/* Nav arrows */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={prev}
+              className="w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-[#FFD100] hover:text-black hover:border-[#FFD100] transition-all duration-200"
+              aria-label="Slide anterior"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={next}
+              className="w-12 h-12 flex items-center justify-center border border-white/20 text-white hover:bg-[#FFD100] hover:text-black hover:border-[#FFD100] transition-all duration-200"
+              aria-label="Slide siguiente"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
       </div>
     </section>
