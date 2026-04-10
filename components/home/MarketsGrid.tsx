@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { FadeIn } from "@/components/ui/FadeIn"
-import { Map, Droplet, Building2, Mountain, ArrowRight, Route } from "lucide-react"
+import { Map, Droplet, Building2, Mountain, Route } from "lucide-react"
 
 const markets = [
   {

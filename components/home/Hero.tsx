@@ -43,15 +43,12 @@ const slides = [
 
 export function Hero() {
   const [current, setCurrent] = useState(0)
-  const [direction, setDirection] = useState(1)
 
   const next = useCallback(() => {
-    setDirection(1)
     setCurrent((prev) => (prev + 1) % slides.length)
   }, [])
 
   const prev = useCallback(() => {
-    setDirection(-1)
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
   }, [])
 
@@ -146,7 +143,6 @@ export function Hero() {
               <button
                 key={idx}
                 onClick={() => {
-                  setDirection(idx > current ? 1 : -1)
                   setCurrent(idx)
                 }}
                 className={`h-1 transition-all duration-300 ${
