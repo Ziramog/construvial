@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown } from "lucide-react"
@@ -38,16 +39,21 @@ export function Header() {
     <header className={cn(
       "fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b",
       isScrolled
-        ? "bg-[#0A1628]/95 backdrop-blur-sm border-b border-white/10 py-3"
-        : "bg-transparent border-b border-transparent py-4"
+        ? "bg-white/95 backdrop-blur-sm border-b border-gray-200 py-2"
+        : "bg-transparent border-b border-transparent py-3"
     )}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 z-50 relative">
-            <span className="font-display text-3xl font-normal tracking-wider text-white">
-              CONSTRU<span className="text-[#E8720C]">VIAL</span>
-            </span>
+          <Link href="/" className="z-50 relative" onClick={() => setIsMobileMenuOpen(false)}>
+            <Image
+              src="/Construvial-LogoNegro-300x138.png"
+              alt="Construvial S.A."
+              width={160}
+              height={74}
+              className="object-contain transition-all duration-300"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -57,8 +63,9 @@ export function Header() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "flex items-center gap-1 text-white/70 hover:text-white transition-colors duration-200 text-sm tracking-wide",
-                    pathname === link.href && "text-[#E8720C]"
+                    "flex items-center gap-1 text-white/80 hover:text-[#FFD100] transition-colors duration-200 text-sm tracking-wide",
+                    isScrolled && "text-gray-700 hover:text-[#FFD100]",
+                    pathname === link.href && "text-[#FFD100]"
                   )}
                 >
                   {link.name}
@@ -69,12 +76,12 @@ export function Header() {
 
                 {link.dropdown && (
                   <div className="absolute top-full left-0 pt-4 hidden group-hover:block w-56">
-                    <div className="bg-[#0D1B2A] border border-white/10 rounded-sm py-2 flex flex-col shadow-xl">
+                    <div className="bg-white border border-gray-200 rounded-sm py-2 flex flex-col shadow-xl">
                       {link.dropdown.map((drop) => (
                         <Link
                           key={drop.name}
                           href={drop.href}
-                          className="px-4 py-2.5 text-sm text-white/70 hover:bg-[#E8720C]/10 hover:text-white transition-colors duration-200"
+                          className="px-4 py-2.5 text-sm text-gray-700 hover:bg-[#FFD100]/10 hover:text-[#FFD100] transition-colors duration-200"
                         >
                           {drop.name}
                         </Link>
@@ -91,7 +98,7 @@ export function Header() {
             <Link
               href={CONTACT.whatsapp}
               target="_blank"
-              className="bg-[#E8720C] text-white font-body font-semibold tracking-wider uppercase text-xs px-6 py-2.5 hover:bg-orange-600 transition-colors duration-200"
+              className="bg-[#FFD100] text-black font-body font-semibold tracking-wider uppercase text-xs px-6 py-2.5 hover:bg-yellow-400 transition-colors duration-200"
             >
               Consultanos
             </Link>
@@ -109,12 +116,16 @@ export function Header() {
 
       {/* Mobile Nav — fullscreen with Bebas Neue titles */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-0 bg-[#0A1628] z-40 flex flex-col overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 top-0 bg-black z-40 flex flex-col overflow-y-auto">
           <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
-            <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-              <span className="font-display text-3xl font-normal tracking-wider text-white">
-                CONSTRU<span className="text-[#E8720C]">VIAL</span>
-              </span>
+            <Link href="/" className="z-50 relative" onClick={() => setIsMobileMenuOpen(false)}>
+              <Image
+                src="/Construvial-LogoNegro-300x138.png"
+                alt="Construvial S.A."
+                width={140}
+                height={64}
+                className="object-contain brightness-0 invert"
+              />
             </Link>
             <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-white">
               <X size={24} />
@@ -125,7 +136,7 @@ export function Header() {
               <div key={link.name} className="flex flex-col">
                 <Link
                   href={link.href}
-                  className="font-display text-4xl text-white uppercase py-4 hover:text-[#E8720C] transition-colors duration-200"
+                  className="font-display text-4xl text-white uppercase py-4 hover:text-[#FFD100] transition-colors duration-200"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -137,7 +148,7 @@ export function Header() {
                       <Link
                         key={drop.name}
                         href={drop.href}
-                        className="font-body text-white/50 text-sm py-2 hover:text-[#E8720C] transition-colors duration-200"
+                        className="font-body text-white/50 text-sm py-2 hover:text-[#FFD100] transition-colors duration-200"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {drop.name}
@@ -151,7 +162,7 @@ export function Header() {
               <Link
                 href={CONTACT.whatsapp}
                 target="_blank"
-                className="block text-center bg-[#E8720C] text-white font-body font-semibold tracking-wider uppercase text-sm px-6 py-4 hover:bg-orange-600 transition-colors duration-200"
+                className="block text-center bg-[#FFD100] text-black font-body font-semibold tracking-wider uppercase text-sm px-6 py-4 hover:bg-yellow-400 transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Consultanos

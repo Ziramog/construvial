@@ -85,12 +85,12 @@ export default function ObrasPage() {
         </span>
 
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-          <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-6">
+          <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-6">
             Portfolio
           </p>
           <h1 className="font-display text-6xl md:text-8xl text-white uppercase tracking-wider mb-4 leading-[0.9]">
             500 obras en<br />
-            <span className="text-[#E8720C]">35 años</span>
+            <span className="text-[#FFD100]">35 años</span>
           </h1>
           <p className="font-body text-gray-400 text-lg max-w-2xl mx-auto mt-6">
             Viales, civiles, industriales y electromecánicas — en 40 ciudades de Argentina.

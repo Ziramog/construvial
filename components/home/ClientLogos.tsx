@@ -10,7 +10,7 @@ export function ClientLogos() {
         {/* Section header */}
         <div className="mb-16 max-w-3xl">
           <FadeIn delay={0} direction="left">
-            <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-4">
+            <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-4">
               Confianza
             </p>
           </FadeIn>
@@ -20,7 +20,7 @@ export function ClientLogos() {
             </h2>
           </FadeIn>
           <FadeIn delay={400} direction="none">
-            <div className="w-16 h-[2px] bg-[#E8720C] mb-6" />
+            <div className="w-16 h-[2px] bg-[#FFD100] mb-6" />
           </FadeIn>
           <FadeIn delay={200} direction="up">
             <p className="font-body text-gray-400 text-lg">
@@ -34,7 +34,7 @@ export function ClientLogos() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
           {CLIENTES.map((cliente, idx) => (
             <FadeIn key={cliente} delay={idx * 20} direction="up">
-              <div className="group border border-white/10 p-5 flex items-center justify-center hover:bg-[#E8720C]/10 hover:border-[#E8720C]/30 transition-all duration-300">
+              <div className="group border border-white/10 p-5 flex items-center justify-center hover:bg-[#FFD100]/10 hover:border-[#FFD100]/30 transition-all duration-300">
                 <span className="font-display text-lg text-gray-400 group-hover:text-white transition-colors duration-300 text-center leading-tight">
                   {cliente}
                 </span>

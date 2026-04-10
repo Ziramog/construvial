@@ -24,14 +24,14 @@ export function WorkFilters({ categories, activeCategory, onFilterChange, classN
           className={cn(
             "font-body text-sm font-medium px-5 py-3 relative transition-colors duration-200",
             activeCategory === category.value
-              ? "text-[#E8720C]"
+              ? "text-[#FFD100]"
               : "text-gray-500 hover:text-white"
           )}
         >
           {category.label}
           {/* Animated underline */}
           {activeCategory === category.value && (
-            <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#E8720C]" />
+            <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FFD100]" />
           )}
         </button>
       ))}

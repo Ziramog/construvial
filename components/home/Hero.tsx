@@ -20,7 +20,7 @@ export function Hero() {
 
         {/* Founding year badge */}
         <p
-          className={`font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-8 relative z-10 transition-all duration-700 ${
+          className={`font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-8 relative z-10 transition-all duration-700 ${
             mounted ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-5"
           }`}
         >
@@ -35,7 +35,7 @@ export function Hero() {
             }`}
           >
             Hacemos<br />
-            <span className="text-[#E8720C]">realidad</span>
+            <span className="text-[#FFD100]">realidad</span>
             <br />
             los proyectos<br />
             de nuestros<br />
@@ -44,7 +44,7 @@ export function Hero() {
 
           {/* Orange divider */}
           <div
-            className={`w-16 h-[2px] bg-[#E8720C] mb-6 transition-all duration-700 delay-700 ${
+            className={`w-16 h-[2px] bg-[#FFD100] mb-6 transition-all duration-700 delay-700 ${
               mounted ? "w-16" : "w-0"
             }`}
           />
@@ -67,7 +67,7 @@ export function Hero() {
           >
             <Link
               href="/obras"
-              className="inline-flex items-center justify-center gap-3 bg-[#E8720C] text-white font-body font-semibold px-8 py-4 hover:bg-orange-600 transition-colors duration-200 group"
+              className="inline-flex items-center justify-center gap-3 bg-[#FFD100] text-black font-body font-semibold px-8 py-4 hover:bg-yellow-400 transition-colors duration-200 group"
             >
               Ver nuestras obras
               <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
@@ -106,7 +106,7 @@ export function Hero() {
 
         {/* Floating stat badge */}
         <div
-          className={`absolute bottom-12 left-[-60px] bg-[#E8720C] p-6 z-10 transition-all duration-800 delay-[1200ms] ${
+          className={`absolute bottom-12 left-[-60px] bg-[#FFD100] p-6 z-10 transition-all duration-800 delay-[1200ms] ${
             mounted ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >

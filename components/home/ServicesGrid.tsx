@@ -20,7 +20,7 @@ export function ServicesGrid() {
         {/* Section header */}
         <div className="mb-16">
           <FadeIn delay={0} direction="left">
-            <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-4">
+            <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-4">
               Qué hacemos
             </p>
           </FadeIn>
@@ -30,7 +30,7 @@ export function ServicesGrid() {
             </h2>
           </FadeIn>
           <FadeIn delay={400} direction="none">
-            <div className="w-16 h-[2px] bg-[#E8720C] mt-6 animate-expand" />
+            <div className="w-16 h-[2px] bg-[#FFD100] mt-6 animate-expand" />
           </FadeIn>
         </div>
 
@@ -49,14 +49,14 @@ export function ServicesGrid() {
                     <span className="font-display text-6xl text-gray-700 leading-none select-none">
                       {serviceNumber(index)}
                     </span>
-                    <span className="text-[#E8720C] opacity-60 group-hover:opacity-100 transition-opacity">
+                    <span className="text-[#FFD100] opacity-60 group-hover:opacity-100 transition-opacity">
                       {iconMap[servicio.icon] || <Building size={28} strokeWidth={1.5} />}
                     </span>
                   </div>
 
                   {/* Title + description */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-display text-3xl text-white uppercase tracking-wide group-hover:text-[#E8720C] transition-colors duration-200">
+                    <h3 className="font-display text-3xl text-white uppercase tracking-wide group-hover:text-[#FFD100] transition-colors duration-200">
                       {servicio.titulo}
                     </h3>
                     <p className="font-body text-gray-400 text-sm mt-2 max-w-2xl leading-relaxed">
@@ -65,7 +65,7 @@ export function ServicesGrid() {
                   </div>
 
                   {/* Arrow */}
-                  <div className="text-[#E8720C] opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-2 transition-all duration-300">
+                  <div className="text-[#FFD100] opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-2 transition-all duration-300">
                     <ArrowRight size={24} />
                   </div>
                 </div>

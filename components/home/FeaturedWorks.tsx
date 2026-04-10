@@ -15,7 +15,7 @@ export function FeaturedWorks() {
         {/* Section header */}
         <div className="mb-16">
           <FadeIn delay={0} direction="left">
-            <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-4">
+            <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-4">
               Portfolio
             </p>
           </FadeIn>
@@ -25,7 +25,7 @@ export function FeaturedWorks() {
             </h2>
           </FadeIn>
           <FadeIn delay={400} direction="none">
-            <div className="w-16 h-[2px] bg-[#E8720C] mt-6" />
+            <div className="w-16 h-[2px] bg-[#FFD100] mt-6" />
           </FadeIn>
         </div>
 
@@ -44,7 +44,7 @@ export function FeaturedWorks() {
               {/* Gradient overlay only at bottom */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               {/* Category badge */}
-              <span className="absolute top-6 left-6 bg-[#E8720C] text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5">
+              <span className="absolute top-6 left-6 bg-[#FFD100] text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5">
                 {mockWorks[0].category}
               </span>
               {/* Info at bottom */}
@@ -69,7 +69,7 @@ export function FeaturedWorks() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <span className="absolute top-4 left-4 bg-[#E8720C] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1">
+                  <span className="absolute top-4 left-4 bg-[#FFD100] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1">
                     {work.category}
                   </span>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -89,7 +89,7 @@ export function FeaturedWorks() {
           <div className="mt-16">
             <Link
               href="/obras"
-              className="link-underline inline-flex items-center gap-3 text-white font-body text-lg hover:text-[#E8720C] transition-colors duration-200 group"
+              className="link-underline inline-flex items-center gap-3 text-white font-body text-lg hover:text-[#FFD100] transition-colors duration-200 group"
             >
               Ver todas las obras
               <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>

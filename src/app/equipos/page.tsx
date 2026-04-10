@@ -93,11 +93,11 @@ export default function EquiposPage() {
         </span>
 
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-          <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-6">
+          <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-6">
             Maquinaria
           </p>
           <h1 className="font-display text-5xl md:text-7xl text-white uppercase tracking-wider mb-4 leading-[0.9]">
-            Flota de <span className="text-[#E8720C]">40+</span> equipos<br />certificados
+            Flota de <span className="text-[#FFD100]">40+</span> equipos<br />certificados
           </h1>
           <p className="font-body text-gray-400 text-lg max-w-2xl mx-auto mt-6">
             Equipos viales, de transporte y logística disponibles para alquiler.
@@ -121,7 +121,7 @@ export default function EquiposPage() {
             href="https://wa.link/ocm4yr"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#E8720C] text-white font-body font-semibold px-8 py-4 hover:bg-orange-600 transition-colors duration-200"
+            className="inline-flex items-center gap-3 bg-[#FFD100] text-black font-body font-semibold px-8 py-4 hover:bg-yellow-400 transition-colors duration-200"
           >
             Consultar disponibilidad
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>

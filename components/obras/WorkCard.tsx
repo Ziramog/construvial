@@ -32,13 +32,13 @@ export function WorkCard({ title, category, client, image, slug, index }: WorkCa
         </span>
 
         {/* Category badge */}
-        <span className="absolute bottom-20 left-5 bg-[#E8720C] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5">
+        <span className="absolute bottom-20 left-5 bg-[#FFD100] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5">
           {category}
         </span>
 
         {/* Info */}
         <div className="absolute bottom-0 left-0 right-0 p-5">
-          <h3 className="font-display text-xl text-white uppercase leading-tight mb-1 group-hover:text-[#E8720C] transition-colors duration-200">
+          <h3 className="font-display text-xl text-white uppercase leading-tight mb-1 group-hover:text-[#FFD100] transition-colors duration-200">
             {title}
           </h3>
           <p className="font-body text-gray-400 text-sm">{client}</p>

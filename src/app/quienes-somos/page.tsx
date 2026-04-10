@@ -31,14 +31,14 @@ export default function QuienesSomosPage() {
 
         <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
           <FadeIn delay={0} direction="left">
-            <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-6">
+            <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-6">
               Nuestra historia
             </p>
           </FadeIn>
           <FadeIn delay={100} direction="up">
             <h1 className="font-display text-6xl md:text-8xl text-white uppercase tracking-wider mb-4 leading-[0.9]">
               35 años<br />
-              <span className="text-[#E8720C]">construyendo</span><br />
+              <span className="text-[#FFD100]">construyendo</span><br />
               la Argentina
             </h1>
           </FadeIn>
@@ -56,7 +56,7 @@ export default function QuienesSomosPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <FadeIn delay={0} direction="left">
-                <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-4">
+                <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-4">
                   Nuestra Historia
                 </p>
               </FadeIn>
@@ -102,7 +102,7 @@ export default function QuienesSomosPage() {
       <section className="py-24 bg-[#080F1E] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-6">
           <FadeIn delay={0} direction="left">
-            <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-4">
+            <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-4">
               Trayectoria
             </p>
           </FadeIn>
@@ -122,12 +122,12 @@ export default function QuienesSomosPage() {
                   <div className="relative">
                     {/* Dot on timeline */}
                     <div className="hidden lg:flex items-center gap-4 mb-6">
-                      <div className="w-4 h-4 rounded-full bg-[#E8720C] relative z-10 ring-4 ring-[#080F1E]" />
-                      <span className="font-display text-3xl text-[#E8720C]">{hito.año}</span>
+                      <div className="w-4 h-4 rounded-full bg-[#FFD100] relative z-10 ring-4 ring-[#080F1E]" />
+                      <span className="font-display text-3xl text-[#FFD100]">{hito.año}</span>
                     </div>
 
                     {/* Mobile: year inline */}
-                    <span className="lg:hidden font-display text-3xl text-[#E8720C] block mb-2">{hito.año}</span>
+                    <span className="lg:hidden font-display text-3xl text-[#FFD100] block mb-2">{hito.año}</span>
 
                     <h3 className="font-display text-lg text-white uppercase mb-2">{hito.titulo}</h3>
                     <p className="font-body text-gray-500 text-sm leading-relaxed">{hito.descripcion}</p>
@@ -149,7 +149,7 @@ export default function QuienesSomosPage() {
             {/* Misión */}
             <FadeIn delay={100} direction="up">
               <div className="relative">
-                <div className="w-12 h-[2px] bg-[#E8720C] mb-8" />
+                <div className="w-12 h-[2px] bg-[#FFD100] mb-8" />
                 <h3 className="font-display text-4xl text-white uppercase mb-6">Misión</h3>
                 <p className="font-body text-gray-400 text-lg leading-relaxed">
                   Ejecutar obras de infraestructura con los más altos estándares de calidad, seguridad y responsabilidad ambiental, contribuyendo al desarrollo de las comunidades donde operamos.
@@ -160,7 +160,7 @@ export default function QuienesSomosPage() {
             {/* Visión */}
             <FadeIn delay={200} direction="up">
               <div className="relative">
-                <div className="w-12 h-[2px] bg-[#E8720C] mb-8" />
+                <div className="w-12 h-[2px] bg-[#FFD100] mb-8" />
                 <h3 className="font-display text-4xl text-white uppercase mb-6">Visión</h3>
                 <p className="font-body text-gray-400 text-lg leading-relaxed">
                   Ser la empresa constructora de referencia en Argentina, reconocida por la excelencia en la ejecución de proyectos viales, civiles e industriales, y por el desarrollo de soluciones innovadoras.
@@ -171,27 +171,27 @@ export default function QuienesSomosPage() {
             {/* Valores */}
             <FadeIn delay={300} direction="up">
               <div className="relative">
-                <div className="w-12 h-[2px] bg-[#E8720C] mb-8" />
+                <div className="w-12 h-[2px] bg-[#FFD100] mb-8" />
                 <h3 className="font-display text-4xl text-white uppercase mb-6">Valores</h3>
                 <ul className="font-body text-gray-400 space-y-3 text-lg">
                   <li className="flex items-start gap-3">
-                    <span className="text-[#E8720C] mt-1">→</span>
+                    <span className="text-[#FFD100] mt-1">→</span>
                     Compromiso con la calidad
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#E8720C] mt-1">→</span>
+                    <span className="text-[#FFD100] mt-1">→</span>
                     Seguridad ante todo
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#E8720C] mt-1">→</span>
+                    <span className="text-[#FFD100] mt-1">→</span>
                     Responsabilidad ambiental
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#E8720C] mt-1">→</span>
+                    <span className="text-[#FFD100] mt-1">→</span>
                     Innovación constante
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#E8720C] mt-1">→</span>
+                    <span className="text-[#FFD100] mt-1">→</span>
                     Trabajo en equipo
                   </li>
                 </ul>
@@ -219,7 +219,7 @@ export default function QuienesSomosPage() {
 
             <div className="order-1 lg:order-2">
               <FadeIn delay={0} direction="left">
-                <p className="font-body text-[#E8720C] text-sm tracking-[0.3em] uppercase mb-4">
+                <p className="font-body text-[#FFD100] text-sm tracking-[0.3em] uppercase mb-4">
                   Nuestro Equipo
                 </p>
               </FadeIn>
@@ -269,7 +269,7 @@ export default function QuienesSomosPage() {
           <FadeIn delay={400} direction="up">
             <Link
               href="/contacto"
-              className="inline-flex items-center gap-3 bg-[#E8720C] text-white font-body font-semibold px-8 py-4 hover:bg-orange-600 transition-colors duration-200 group"
+              className="inline-flex items-center gap-3 bg-[#FFD100] text-black font-body font-semibold px-8 py-4 hover:bg-yellow-400 transition-colors duration-200 group"
             >
               Contactanos
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>

@@ -43,7 +43,7 @@ function EquipoRow({ equipo, index }: { equipo: Equipo; index: number }) {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="bg-[#E8720C]/20 text-[#E8720C] text-xs font-bold uppercase tracking-wider px-2.5 py-1">
+                  <span className="bg-[#FFD100]/20 text-[#FFD100] text-xs font-bold uppercase tracking-wider px-2.5 py-1">
                     {equipo.tipo}
                   </span>
                   {equipo.disponibleParaAlquiler ? (
@@ -100,7 +100,7 @@ function EquipoRow({ equipo, index }: { equipo: Equipo; index: number }) {
               <Link
                 href="https://wa.link/ocm4yr"
                 target="_blank"
-                className="link-underline inline-flex items-center gap-2 text-[#E8720C] font-body text-sm hover:text-orange-500 transition-colors group/link"
+                className="link-underline inline-flex items-center gap-2 text-[#FFD100] font-body text-sm hover:text-yellow-400 transition-colors group/link"
               >
                 Consultar disponibilidad
                 <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
@@ -142,13 +142,13 @@ export function EquiposClient({ equipos }: { equipos: Equipo[] }) {
               onClick={() => setActiveTipo(tipo)}
               className={`font-body text-sm font-medium px-5 py-3 relative transition-colors duration-200 ${
                 activeTipo === tipo
-                  ? "text-[#E8720C]"
+                  ? "text-[#FFD100]"
                   : "text-gray-500 hover:text-white"
               }`}
             >
               {tipo} ({counts[tipo]})
               {activeTipo === tipo && (
-                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#E8720C]" />
+                <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FFD100]" />
               )}
             </button>
           ))}
