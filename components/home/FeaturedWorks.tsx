@@ -8,19 +8,19 @@ const mockWorks = [
     title: "Ruta Nacional 19", 
     location: "Córdoba, Argentina", 
     category: "Obras Viales", 
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=800&q=80" 
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBhIPPxAV0nDkkv50H5SRXNvLSYNVSU41OiAeBFw9XxtOHSNcs7sJqY3kKWVEb8o_4xyoPKwD4tQFtQQWZ7kyxPRxHhR6OHiIzzAHfWypfC1bR_CdvRvtLYjagL-YtKa2wHjNNwb4RVNJf7ucxuQZrG4KnqiQdI70Whd7YE7vCtGyhAoaIEttZXmB30if8Rcbx0OnPOQ1y0yYHQPSD1X3nFVtai_oN2pQC_GSzGia2GMlNIRMyh5QIycTu_ExobOSfV9iMR6Tv-ei4" 
   },
   { 
     title: "Puente Río Cuarto", 
     location: "Río Cuarto, Córdoba", 
     category: "Obras Hidráulicas", 
-    image: "https://images.unsplash.com/photo-1545652981-d21212dcda28?auto=format&fit=crop&w=800&q=80" 
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCmwrMXgLvdxICutAVEeUQNLnkrl7aK42cZlRG7q1QebDaRKGD1Bkpnyfosdg-QzXJz43M8Li1chF0MrogQU4ZkaMY1BZdqDU67myNR7j9jX3GKPOcQvrP5xlxYRpgvkR9Tv2wypTazojyK4LhYy6AbRgoP6VoC49YeSrULuPGbD3QNTlyg8jKeysgqlE7Qa62JLba6bXsVJ4fMJQwBFkIT9Krz4sGrgFx___mNqZx3-Cgttdoo69WI7GkISs-OHE4oIqQq9iQMtno" 
   },
   { 
     title: "Urbanización Barrio Norte", 
     location: "Villa María, Córdoba", 
     category: "Obra Civil", 
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=800&q=80" 
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC9h0esgajXpTPGjZu3TkyzSfHOnM6eSECmsywBVvnsT7PoVriPnZEfBxqJQJQ5DBI6W1-4wiJKhQTZEtw8RD8tLPIkSR0ft4gvLXruNlKU3IVQ6_UoOxNqkdaVBgcmjjko-AKcW_hh3sspsq-Spx4QLyKj4J1Lp7FP5AEY-4Y834yZiqk3LTpuZ36ANBndMNhJbJnr4fm0n2pAIyMGo1PuCMo-3gTNho2OwlelQeZu0PymW1pEqujR3yWPy6WLK3QyUt_mrOhkKNw" 
   },
 ]
 
