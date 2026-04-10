@@ -37,7 +37,7 @@ const markets = [
 
 export function MarketsGrid() {
   return (
-    <section id="mercados" className="py-24 bg-[#0a1628]">
+    <section id="mercados" className="py-24 bg-[#1A1A1A]">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
         <div className="mb-12">
@@ -55,7 +55,7 @@ export function MarketsGrid() {
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-1 lg:gap-4 border border-[#1A1A1A]/20 bg-[#1A1A1A]/20">
           {markets.map((market, index) => (
             <FadeIn key={index} delay={index * 50} direction="up" className="h-full">
-              <div className="group relative h-48 md:h-64 lg:h-80 w-full overflow-hidden bg-[#0A1628] cursor-pointer">
+              <div className="group relative h-48 md:h-64 lg:h-80 w-full overflow-hidden bg-[#1A1A1A] cursor-pointer">
                 {/* Background Image */}
                 <Image
                   src={market.image}
@@ -65,7 +65,7 @@ export function MarketsGrid() {
                 />
                 
                 {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628] via-[#0A1628]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/40 to-transparent" />
 
                 {/* Content */}
                 <div className="absolute inset-0 p-6 flex flex-col justify-end">
