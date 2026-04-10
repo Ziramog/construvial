@@ -29,10 +29,10 @@ export function FeaturedWorks() {
     <section id="proyectos" className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4 sm:gap-6">
           <div>
             <FadeIn delay={0} direction="up">
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] uppercase leading-[0.95] mb-2">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] uppercase leading-[0.95] mb-2">
                 Proyectos Destacados
               </h2>
             </FadeIn>
@@ -40,7 +40,7 @@ export function FeaturedWorks() {
               <div className="w-16 h-[2px] bg-[#FFD100] mt-4" />
             </FadeIn>
           </div>
-          
+
           <FadeIn delay={200} direction="left">
             <Link
               href="/obras"
@@ -53,7 +53,7 @@ export function FeaturedWorks() {
         </div>
 
         {/* 3-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {mockWorks.map((work, index) => (
             <FadeIn key={index} delay={index * 150} direction="up">
               <Link href="/obras" className="group block bg-[#f6f6f6] h-full transition-transform duration-300 hover:-translate-y-1">
@@ -66,27 +66,27 @@ export function FeaturedWorks() {
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Category Badge - No border radius */}
-                  <div className="absolute top-4 left-4 bg-[#FFD100] px-3 py-1">
-                    <span className="font-body text-[10px] font-bold text-[#1A1A1A] uppercase tracking-wider">
+                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-[#FFD100] px-2 sm:px-3 py-1">
+                    <span className="font-body text-[9px] sm:text-[10px] font-bold text-[#1A1A1A] uppercase tracking-wider">
                       {work.category}
                     </span>
                   </div>
                 </div>
-                
+
                 {/* Content Container - Monolithic utility feel */}
-                <div className="p-6 md:p-8 flex flex-col justify-between" style={{ minHeight: '180px' }}>
+                <div className="p-4 sm:p-6 md:p-8 flex flex-col justify-between" style={{ minHeight: '160px' }}>
                   <div>
-                    <h3 className="font-display text-2xl lg:text-3xl text-[#1A1A1A] uppercase group-hover:text-[#6e5900] transition-colors leading-tight mb-2">
+                    <h3 className="font-display text-xl sm:text-2xl lg:text-3xl text-[#1A1A1A] uppercase group-hover:text-[#6e5900] transition-colors leading-tight mb-2">
                       {work.title}
                     </h3>
-                    <p className="font-body text-[#5a5c5c] text-sm tracking-wide">
+                    <p className="font-body text-[#5a5c5c] text-xs sm:text-sm tracking-wide">
                       {work.location}
                     </p>
                   </div>
-                  
-                  <div className="mt-6 flex items-center text-[#1A1A1A] font-body text-sm font-bold uppercase">
+
+                  <div className="mt-4 sm:mt-6 flex items-center text-[#1A1A1A] font-body text-xs sm:text-sm font-bold uppercase">
                     Ver proyecto
-                    <ArrowRight size={16} className="ml-2 text-[#FFD100] group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight size={14} className="ml-1.5 sm:ml-2 text-[#FFD100] group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
                 </div>
               </Link>

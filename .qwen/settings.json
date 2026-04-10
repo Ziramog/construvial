@@ -9,7 +9,9 @@
       "Bash(curl *)",
       "Bash(taskkill *)",
       "Bash(node *)",
-      "Bash(powershell *)"
+      "Bash(powershell *)",
+      "Bash(dir *)",
+      "Bash(git add *)"
     ]
   },
   "$version": 3

@@ -52,10 +52,10 @@ export function MarketsGrid() {
         </div>
 
         {/* 2x3 Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-1 lg:gap-4 border border-[#1A1A1A]/20 bg-[#1A1A1A]/20">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2 lg:gap-4 border border-[#1A1A1A]/20 bg-[#1A1A1A]/20">
           {markets.map((market, index) => (
             <FadeIn key={index} delay={index * 50} direction="up" className="h-full">
-              <div className="group relative h-48 md:h-64 lg:h-80 w-full overflow-hidden bg-[#1A1A1A] cursor-pointer">
+              <div className="group relative h-40 sm:h-48 md:h-56 lg:h-80 w-full overflow-hidden bg-[#1A1A1A] cursor-pointer">
                 {/* Background Image */}
                 <Image
                   src={market.image}
@@ -63,16 +63,16 @@ export function MarketsGrid() {
                   fill
                   className="object-cover opacity-40 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-60"
                 />
-                
+
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/40 to-transparent" />
 
                 {/* Content */}
-                <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                  <div className="text-[#FFD100] mb-4 transform group-hover:-translate-y-2 transition-transform duration-300">
+                <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end">
+                  <div className="text-[#FFD100] mb-2 md:mb-4 transform group-hover:-translate-y-2 transition-transform duration-300">
                     {market.icon}
                   </div>
-                  <h3 className="font-display text-xl md:text-2xl text-white uppercase tracking-wider transform group-hover:-translate-y-2 transition-transform duration-300">
+                  <h3 className="font-display text-lg md:text-xl lg:text-2xl text-white uppercase tracking-wider transform group-hover:-translate-y-2 transition-transform duration-300">
                     {market.title}
                   </h3>
                 </div>

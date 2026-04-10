@@ -22,6 +22,12 @@
   padding: 0;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -33,6 +39,13 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent horizontal scroll on all elements */
+*,
+*::before,
+*::after {
+  max-width: 100%;
 }
 
 /* Noise texture for dark backgrounds */

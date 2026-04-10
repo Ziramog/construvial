@@ -12,7 +12,7 @@ const slides = [
     subtitle: "Más de 35 años construyendo infraestructura vial y civil en Argentina",
     cta: "Explorar Servicios",
     ctaLink: "/servicios",
-    image: "/hero-slide-1.png",
+    image: "/hero-slide-1.jpg",
     alt: "Galpón corporativo extendido en 4K con flota masiva de maquinaria vial",
   },
   {
@@ -20,7 +20,7 @@ const slides = [
     subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones volcadores",
     cta: "Conocer Nuestro Equipamiento",
     ctaLink: "/equipos",
-    image: "/hero-slide-2.png",
+    image: "/hero-slide-2.jpg",
     alt: "Maquinaria pesada trabajando de manera eficiente en proyecto de infraestructura",
   },
   {
@@ -67,9 +67,9 @@ export function Hero() {
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
+          exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0"
         >
@@ -77,22 +77,22 @@ export function Hero() {
             src={slide.image}
             alt={slide.alt}
             fill
-            className="object-cover"
+            className={`object-cover object-center ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
             priority={current === 0 || current === 1}
             sizes="100vw"
-            quality={90}
+            quality={85}
           />
-          {/* Dark gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-black/20" />
+          {/* Dark gradient overlay - optimized for mobile readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/35" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-center container mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+      {/* Content - Bottom aligned for better mobile UX */}
+      <div className="relative z-10 h-full flex flex-col justify-end pb-16 sm:pb-20 md:pb-24 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -102,34 +102,34 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
-              className="font-body text-[#FFD100] text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-6"
+              transition={{ delay: 0.15, duration: 0.4 }}
+              className="font-body text-[#FFD100] text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4"
             >
               Desde 1989 · Córdoba, Argentina
             </motion.p>
 
             {/* Headline */}
-            <h1 className="font-display text-[clamp(32px,8vw,96px)] leading-[0.92] text-white uppercase mb-4 sm:mb-6 whitespace-pre-line">
+            <h1 className="font-display text-[clamp(26px,7vw,96px)] leading-[0.92] text-white uppercase mb-3 sm:mb-4 whitespace-pre-line">
               {slide.headline}
             </h1>
 
             {/* Subtitle */}
-            <p className="font-body text-gray-300 text-base sm:text-lg md:text-xl max-w-xl mb-6 sm:mb-10 leading-relaxed">
+            <p className="font-body text-gray-200 text-sm sm:text-base md:text-lg max-w-xl mb-5 sm:mb-6 leading-relaxed">
               {slide.subtitle}
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            {/* CTAs - Improved mobile distribution with equal width */}
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
                 href={slide.ctaLink}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#FFD100] text-black font-body font-bold px-6 sm:px-8 py-4 text-sm tracking-wider uppercase hover:bg-yellow-400 transition-all duration-200 group"
+                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#FFD100] text-black font-body font-bold px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 group shadow-lg"
               >
                 {slide.cta}
                 <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
               </Link>
               <Link
                 href="/contacto"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 border-2 border-white/30 text-white font-body font-medium px-6 sm:px-8 py-4 text-sm tracking-wider uppercase hover:border-[#FFD100] hover:text-[#FFD100] transition-all duration-200"
+                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 border-2 border-white/40 text-white font-body font-medium px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:border-[#FFD100] hover:text-[#FFD100] active:bg-white/10 transition-all duration-200"
               >
                 Solicitar Presupuesto
               </Link>
@@ -138,7 +138,7 @@ export function Hero() {
         </AnimatePresence>
 
         {/* Bottom bar: Nav arrows + slide indicators */}
-        <div className="absolute bottom-4 sm:bottom-8 left-4 right-4 md:left-12 md:right-12 lg:left-20 lg:right-20 flex items-center justify-between">
+        <div className="absolute bottom-3 sm:bottom-5 left-4 right-4 md:left-12 md:right-12 lg:left-20 lg:right-20 flex items-center justify-between">
           {/* Slide indicators */}
           <div className="flex items-center gap-2 sm:gap-3">
             {slides.map((_, idx) => (
@@ -147,32 +147,32 @@ export function Hero() {
                 onClick={() => {
                   setCurrent(idx)
                 }}
-                className={`h-1 transition-all duration-300 ${
+                className={`h-1 rounded-full transition-all duration-300 ${
                   idx === current ? "w-8 sm:w-12 bg-[#FFD100]" : "w-4 sm:w-6 bg-white/30 hover:bg-white/50"
                 }`}
                 aria-label={`Ir a slide ${idx + 1}`}
               />
             ))}
-            <span className="font-body text-white/40 text-[10px] sm:text-xs ml-2 sm:ml-4 tracking-widest">
+            <span className="font-body text-white/50 text-[10px] sm:text-xs ml-2 sm:ml-4 tracking-widest">
               {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
             </span>
           </div>
 
           {/* Nav arrows */}
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <button
               onClick={prev}
-              className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-white/20 text-white hover:bg-[#FFD100] hover:text-black hover:border-[#FFD100] transition-all duration-200"
+              className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center border border-white/30 text-white hover:bg-[#FFD100] hover:text-black hover:border-[#FFD100] active:bg-yellow-500 transition-all duration-200"
               aria-label="Slide anterior"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={16} />
             </button>
             <button
               onClick={next}
-              className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center border border-white/20 text-white hover:bg-[#FFD100] hover:text-black hover:border-[#FFD100] transition-all duration-200"
+              className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center border border-white/30 text-white hover:bg-[#FFD100] hover:text-black hover:border-[#FFD100] active:bg-yellow-500 transition-all duration-200"
               aria-label="Slide siguiente"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={16} />
             </button>
           </div>
         </div>

@@ -4,12 +4,12 @@ import { MapPin, Phone, Mail } from "lucide-react"
 
 export function ContactSection() {
   return (
-    <section id="contacto" className="py-24 bg-[#F6F6F6]">
-      <div className="container mx-auto px-4 md:px-6">
-        
-        <div className="mb-12">
+    <section id="contacto" className="py-16 sm:py-20 md:py-24 bg-[#F6F6F6]">
+      <div className="container mx-auto px-4 sm:px-6 md:px-6">
+
+        <div className="mb-8 sm:mb-12">
           <FadeIn delay={0} direction="up">
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] uppercase leading-[0.95] mb-2">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] uppercase leading-[0.95] mb-2">
               Solicite Su Presupuesto
             </h2>
           </FadeIn>
@@ -18,18 +18,18 @@ export function ContactSection() {
           </FadeIn>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-8">
+
           {/* Left Column: Form (7 cols) */}
           <div className="lg:col-span-7">
             <FadeIn delay={200} direction="up">
-              <form className="bg-white p-8 md:p-12 border border-[#e7e8e8] shadow-sm">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <form className="bg-white p-6 sm:p-8 md:p-12 border border-[#e7e8e8] shadow-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                   <div className="flex items-center border-b-2 border-[#1A1A1A]/20 focus-within:border-[#FFD100] transition-colors bg-[#f6f6f6]">
                     <input
                       type="text"
                       placeholder="Nombre Completo"
-                      className="w-full bg-transparent px-4 py-4 outline-none font-body text-[#1A1A1A] placeholder:text-[#5a5c5c]"
+                      className="w-full bg-transparent px-3 sm:px-4 py-3 sm:py-4 outline-none font-body text-[#1A1A1A] placeholder:text-[#5a5c5c] text-sm sm:text-base"
                       required
                     />
                   </div>
@@ -37,33 +37,33 @@ export function ContactSection() {
                     <input
                       type="tel"
                       placeholder="Teléfono"
-                      className="w-full bg-transparent px-4 py-4 outline-none font-body text-[#1A1A1A] placeholder:text-[#5a5c5c]"
+                      className="w-full bg-transparent px-3 sm:px-4 py-3 sm:py-4 outline-none font-body text-[#1A1A1A] placeholder:text-[#5a5c5c] text-sm sm:text-base"
                       required
                     />
                   </div>
                 </div>
 
-                <div className="flex items-center border-b-2 border-[#1A1A1A]/20 focus-within:border-[#FFD100] transition-colors bg-[#f6f6f6] mb-6">
+                <div className="flex items-center border-b-2 border-[#1A1A1A]/20 focus-within:border-[#FFD100] transition-colors bg-[#f6f6f6] mb-4 sm:mb-6">
                   <input
                     type="email"
                     placeholder="Correo Electrónico"
-                    className="w-full bg-transparent px-4 py-4 outline-none font-body text-[#1A1A1A] placeholder:text-[#5a5c5c]"
+                    className="w-full bg-transparent px-3 sm:px-4 py-3 sm:py-4 outline-none font-body text-[#1A1A1A] placeholder:text-[#5a5c5c] text-sm sm:text-base"
                     required
                   />
                 </div>
 
-                <div className="flex items-start border-b-2 border-[#1A1A1A]/20 focus-within:border-[#FFD100] transition-colors bg-[#f6f6f6] mb-8">
+                <div className="flex items-start border-b-2 border-[#1A1A1A]/20 focus-within:border-[#FFD100] transition-colors bg-[#f6f6f6] mb-6 sm:mb-8">
                   <textarea
                     placeholder="Mensaje o detalle del proyecto"
                     rows={4}
-                    className="w-full bg-transparent px-4 py-4 outline-none font-body text-[#1A1A1A] placeholder:text-[#5a5c5c] resize-none"
+                    className="w-full bg-transparent px-3 sm:px-4 py-3 sm:py-4 outline-none font-body text-[#1A1A1A] placeholder:text-[#5a5c5c] resize-none text-sm sm:text-base"
                     required
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#FFD100] text-[#1A1A1A] font-body font-bold text-sm uppercase tracking-wider py-5 hover:bg-yellow-400 transition-colors duration-200"
+                  className="w-full bg-[#FFD100] text-[#1A1A1A] font-body font-bold text-sm uppercase tracking-wider py-4 sm:py-5 hover:bg-yellow-400 transition-colors duration-200 active:scale-95"
                 >
                   Enviar Consulta
                 </button>
@@ -74,43 +74,43 @@ export function ContactSection() {
           {/* Right Column: Contact Info (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <FadeIn delay={300} direction="left">
-              <div className="bg-[#1A1A1A] text-white p-8 md:p-12 h-full flex flex-col justify-center relative overflow-hidden">
+              <div className="bg-[#1A1A1A] text-white p-6 sm:p-8 md:p-12 h-full flex flex-col justify-center relative overflow-hidden">
                 {/* Decorative background element */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFD100] opacity-10 rounded-bl-full" />
-                
-                <h3 className="font-display text-3xl uppercase mb-8 text-white relative z-10">
+                <div className="absolute top-0 right-0 w-24 sm:w-32 h-24 sm:h-32 bg-[#FFD100] opacity-10 rounded-bl-full" />
+
+                <h3 className="font-display text-2xl sm:text-3xl uppercase mb-6 sm:mb-8 text-white relative z-10">
                   Información de Contacto
                 </h3>
-                
-                <ul className="flex flex-col gap-8 relative z-10">
-                  <li className="flex items-start gap-4">
-                    <div className="bg-[#FFD100] text-[#1A1A1A] p-3">
-                      <MapPin size={24} />
+
+                <ul className="flex flex-col gap-6 sm:gap-8 relative z-10">
+                  <li className="flex items-start gap-3 sm:gap-4">
+                    <div className="bg-[#FFD100] text-[#1A1A1A] p-2.5 sm:p-3 flex-shrink-0">
+                      <MapPin size={20} />
                     </div>
                     <div>
-                      <p className="font-body text-sm text-gray-400 uppercase tracking-widest mb-1">Dirección</p>
-                      <p className="font-body text-base">{CONTACT.address}</p>
-                    </div>
-                  </li>
-                  
-                  <li className="flex items-start gap-4">
-                    <div className="bg-[#FFD100] text-[#1A1A1A] p-3">
-                      <Phone size={24} />
-                    </div>
-                    <div>
-                      <p className="font-body text-sm text-gray-400 uppercase tracking-widest mb-1">Teléfonos</p>
-                      <p className="font-body text-base">{CONTACT.phone1}</p>
-                      <p className="font-body text-base">{CONTACT.phone2}</p>
+                      <p className="font-body text-xs sm:text-sm text-gray-400 uppercase tracking-widest mb-1">Dirección</p>
+                      <p className="font-body text-sm sm:text-base">{CONTACT.address}</p>
                     </div>
                   </li>
 
-                  <li className="flex items-start gap-4">
-                    <div className="bg-[#FFD100] text-[#1A1A1A] p-3">
-                      <Mail size={24} />
+                  <li className="flex items-start gap-3 sm:gap-4">
+                    <div className="bg-[#FFD100] text-[#1A1A1A] p-2.5 sm:p-3 flex-shrink-0">
+                      <Phone size={20} />
                     </div>
                     <div>
-                      <p className="font-body text-sm text-gray-400 uppercase tracking-widest mb-1">Email</p>
-                      <a href={`mailto:${CONTACT.email}`} className="font-body text-base hover:text-[#FFD100] transition-colors">
+                      <p className="font-body text-xs sm:text-sm text-gray-400 uppercase tracking-widest mb-1">Teléfonos</p>
+                      <p className="font-body text-sm sm:text-base">{CONTACT.phone1}</p>
+                      <p className="font-body text-sm sm:text-base">{CONTACT.phone2}</p>
+                    </div>
+                  </li>
+
+                  <li className="flex items-start gap-3 sm:gap-4">
+                    <div className="bg-[#FFD100] text-[#1A1A1A] p-2.5 sm:p-3 flex-shrink-0">
+                      <Mail size={20} />
+                    </div>
+                    <div>
+                      <p className="font-body text-xs sm:text-sm text-gray-400 uppercase tracking-widest mb-1">Email</p>
+                      <a href={`mailto:${CONTACT.email}`} className="font-body text-sm sm:text-base hover:text-[#FFD100] transition-colors break-all">
                         {CONTACT.email}
                       </a>
                     </div>
