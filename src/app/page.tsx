@@ -2,8 +2,6 @@ import type { Metadata } from "next"
 import { Hero } from "@/components/home/Hero"
 import { Stats } from "@/components/home/Stats"
 import { ServicesGrid } from "@/components/home/ServicesGrid"
-import { FeaturedWorks } from "@/components/home/FeaturedWorks"
-import { MarketsGrid } from "@/components/home/MarketsGrid"
 import { CompanySection } from "@/components/home/CompanySection"
 import { ContactSection } from "@/components/home/ContactSection"
 import { constructMetadata } from "@/lib/metadata"
@@ -19,8 +17,6 @@ export default function HomePage() {
       <Hero />
       <Stats />
       <ServicesGrid />
-      <FeaturedWorks />
-      <MarketsGrid />
       <CompanySection />
       <ContactSection />
     </>

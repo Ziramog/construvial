@@ -128,7 +128,9 @@ export function Hero() {
                 <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
               </Link>
               <Link
-                href="/contacto"
+                href="https://wa.link/ocm4yr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 border-2 border-white/40 text-white font-body font-medium px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:border-[#FFD100] hover:text-[#FFD100] active:bg-white/10 transition-all duration-200"
               >
                 Solicitar Presupuesto

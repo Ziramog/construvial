@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { useInView } from "framer-motion"
 
 interface AnimatedCounterProps {
   value: number
@@ -9,60 +10,41 @@ interface AnimatedCounterProps {
   className?: string
 }
 
-export function AnimatedCounter({ value, suffix = "", duration = 2000, className = "" }: AnimatedCounterProps) {
-  const ref = useRef<HTMLSpanElement>(null)
+export function AnimatedCounter({ value, suffix = "", duration = 2, className = "" }: AnimatedCounterProps) {
   const [count, setCount] = useState(0)
-  const [isInView, setIsInView] = useState(false)
-  const animatedRef = useRef(false)
+  const [mounted, setMounted] = useState(false)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
 
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animatedRef.current) {
-          animatedRef.current = true
-          setIsInView(true)
-        }
-      },
-      { threshold: 0.2 }
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
+    setMounted(true)
   }, [])
 
   useEffect(() => {
-    if (!isInView) return
+    if (isInView && mounted) {
+      let start = 0
+      const end = value
+      if (start === end) return
 
-    let startTime: number | null = null
-    let animationFrame: number
+      const totalMiliseconds = duration * 1000
+      const incrementTime = totalMiliseconds / end
 
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const progress = Math.min((timestamp - startTime) / duration, 1)
+      const timer = setInterval(() => {
+        start += 1
+        setCount(start)
+        if (start >= end) {
+          setCount(end)
+          clearInterval(timer)
+        }
+      }, Math.max(incrementTime, 16))
 
-      // easeOutExpo
-      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
-
-      setCount(Math.floor(easeProgress * value))
-
-      if (progress < 1) {
-        animationFrame = requestAnimationFrame(step)
-      } else {
-        setCount(value)
-      }
+      return () => clearInterval(timer)
     }
-
-    animationFrame = requestAnimationFrame(step)
-
-    return () => cancelAnimationFrame(animationFrame)
-  }, [isInView, value, duration])
+  }, [isInView, mounted, value, duration])
 
   return (
     <span ref={ref} className={className}>
-      {count}{suffix}
+      {mounted ? count : 0}{suffix}
     </span>
   )
 }

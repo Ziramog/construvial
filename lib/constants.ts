@@ -6,6 +6,7 @@ export const CONTACT = {
   whatsapp: 'https://wa.link/ocm4yr',
   instagram: 'https://www.instagram.com/construvial_sa/',
   facebook: 'https://www.facebook.com/profile.php?id=100068820263821',
+  linkedin: 'https://www.linkedin.com/company/construvial-sa/',
 }
 
 export const STATS = [

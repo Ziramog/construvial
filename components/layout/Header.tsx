@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -36,16 +37,15 @@ export function Header() {
       <div className="w-full h-full px-4 sm:px-6 md:px-8 xl:px-12 relative z-10 flex flex-col justify-center">
         <div className="flex items-center justify-between">
 
-          {/* Structural Typographic Logo */}
-          <Link href="/" className="z-50 relative flex flex-col justify-center" onClick={() => setIsMobileMenuOpen(false)}>
-            <div className="font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter leading-none flex items-start">
-              <span className="text-white">CONSTRU</span>
-              <span className="text-[#FFD100]">VIAL</span>
-              <span className="text-[#FFD100] text-[8px] sm:text-[10px] ml-1 mt-0.5 font-bold">®</span>
-            </div>
-            <div className="text-[7px] sm:text-[9px] md:text-[11px] font-body tracking-[0.2em] sm:tracking-[0.25em] text-white/50 uppercase mt-0.5 sm:mt-1 pl-0.5 sm:pl-1">
-              Construcciones Viales y Civiles
-            </div>
+          {/* Official Logo */}
+          <Link href="/" className="z-50 relative h-10 w-44 sm:h-12 sm:w-56" onClick={() => setIsMobileMenuOpen(false)}>
+            <Image
+              src="/Archivo/CONSTRUVIAL_logo.png"
+              alt="Construvial Logo"
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav - Centered */}
@@ -71,7 +71,9 @@ export function Header() {
           {/* CTA - Right */}
           <div className="hidden lg:flex items-center">
             <Link
-              href="/contacto"
+              href="https://wa.link/ocm4yr"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-sm px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:bg-yellow-400"
             >
               Solicitar Presupuesto
@@ -107,7 +109,9 @@ export function Header() {
           ))}
           <div className="w-16 h-1 bg-white/10 my-2 sm:my-4" />
           <Link
-            href="/contacto"
+            href="https://wa.link/ocm4yr"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full text-center bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
             onClick={() => setIsMobileMenuOpen(false)}
           >

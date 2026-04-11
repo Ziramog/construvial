@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { MapPin, Phone, Mail } from "lucide-react"
 import { CONTACT } from "@/lib/constants"
 
@@ -8,9 +9,16 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           
-          {/* Column 1: Empresa Info / Links */}
+          {/* Column 1: Logo & Links */}
           <div className="flex flex-col gap-6">
-            <h3 className="font-display text-2xl uppercase tracking-wider text-white mb-2">Empresa</h3>
+            <div className="relative h-12 w-48 mb-2">
+              <Image
+                src="/Archivo/CONSTRUVIAL_logo.png"
+                alt="Construvial Logo"
+                fill
+                className="object-contain object-left"
+              />
+            </div>
             <p className="font-body text-[#acadad] text-sm leading-relaxed mb-4">
               Más de 35 años construyendo infraestructura vial y civil en Argentina. Ingeniería de excelencia y equipamiento de primera línea.
             </p>
@@ -85,19 +93,14 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <h3 className="font-display text-2xl uppercase tracking-wider text-white mb-2">Certificaciones</h3>
             <div className="flex flex-col gap-3 font-body text-sm text-[#acadad]">
-              <div className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-[#FFD100]" />
-                <span>ISO 9001 - Gestión de Calidad</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="w-2 h-2 bg-[#FFD100]" />
-                <span>ISO 14001 - Gestión Ambiental</span>
-              </div>
+              <p className="leading-relaxed">
+                Certificado bajo normas ISO 9001:2015 e ISO 14001:2015
+              </p>
             </div>
 
             <h3 className="font-display text-xl uppercase tracking-wider text-white mt-4 mb-1">Redes Sociales</h3>
             <div className="flex items-center gap-4">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-[#1A1A1A] p-3 text-white hover:bg-[#FFD100] hover:text-[#1A1A1A] transition-colors">
+              <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" className="bg-[#1A1A1A] p-3 text-white hover:bg-[#FFD100] hover:text-[#1A1A1A] transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
                 </svg>
