@@ -9,9 +9,9 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           
-          {/* Column 1: Logo & Links */}
+          {/* Column 1: Logo & Links - 2.5x Bigger */}
           <div className="flex flex-col gap-6">
-            <div className="relative h-12 w-48 mb-2">
+            <div className="relative h-28 w-112 mb-4">
               <Image
                 src="/Archivo/CONSTRUVIAL_logo.png"
                 alt="Construvial Logo"
