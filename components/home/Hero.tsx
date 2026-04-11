@@ -28,7 +28,8 @@ const slides = [
     subtitle: "Rutas, autopistas, pavimentaciones y mantenimiento vial con los más altos estándares",
     cta: "Ver Proyectos Viales",
     ctaLink: "/obras",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDOMw3ZyZXYereWXpbRJlZMu2otGQCLoRy3ZjRK9BSK12IllKuLp-dI9T-AxTpfKVjfzII7oSIFLk3VFw3mFT3-3Ip6gpBNJJRi7hdvnkAVQHNEcivBjW6zrrC03ZVzfn1rKzzE6UXeTWM1bom0cTYsJQvgVngq6a9zpuF6ScuF8VRyj7zXn7H2544rGRKTR3Z0tO6CMTvYbYKN9QsgX3XCtZLtp5EmFQS4tvknKcYgnp7RcdUsgfPKM9i-ndko2eJ7Q-2HB3Ejw7X1",
+    image: "/Two_machines_moving_202604112021.mp4",
+    isVideo: true,
     alt: "Maquinaria vial trabajando en pavimentación",
   },
   {
@@ -39,6 +40,7 @@ const slides = [
     image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=85",
     alt: "Equipo de construcción trabajando en obra civil",
   },
+
 ]
 
 
@@ -73,15 +75,26 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <Image
-            src={slide.image}
-            alt={slide.alt}
-            fill
-            className={`object-cover object-center ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
-            priority={current === 0 || current === 1}
-            sizes="100vw"
-            quality={85}
-          />
+          {slide.isVideo ? (
+            <video
+              src={slide.image}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={`object-cover object-center w-full h-full ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
+            />
+          ) : (
+            <Image
+              src={slide.image}
+              alt={slide.alt || "Background image"}
+              fill
+              className={`object-cover object-center ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
+              priority={current === 0 || current === 1}
+              sizes="100vw"
+              quality={85}
+            />
+          )}
           {/* Subtle overlay for readability - much clearer view */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50" />
         </motion.div>
