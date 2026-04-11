@@ -82,8 +82,8 @@ export function Hero() {
             sizes="100vw"
             quality={85}
           />
-          {/* Dark gradient overlay - optimized for mobile readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-black/35" />
+          {/* Subtle overlay for readability - much clearer view */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50" />
         </motion.div>
       </AnimatePresence>
 
@@ -103,18 +103,18 @@ export function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.15, duration: 0.4 }}
-              className="font-body text-[#FFD100] text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4"
+              className="font-body text-[#FFD100] text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 drop-shadow-md"
             >
               Desde 1989 · Córdoba, Argentina
             </motion.p>
 
-            {/* Headline */}
-            <h1 className="font-display text-[clamp(26px,7vw,96px)] leading-[0.92] text-white uppercase mb-3 sm:mb-4 whitespace-pre-line">
+            {/* Headline with drop shadow for clarity */}
+            <h1 className="font-display text-[clamp(26px,7vw,96px)] leading-[0.92] text-white uppercase mb-3 sm:mb-4 whitespace-pre-line drop-shadow-xl">
               {slide.headline}
             </h1>
 
-            {/* Subtitle */}
-            <p className="font-body text-gray-200 text-sm sm:text-base md:text-lg max-w-xl mb-5 sm:mb-6 leading-relaxed">
+            {/* Subtitle with drop shadow */}
+            <p className="font-body text-gray-200 text-sm sm:text-base md:text-lg max-w-xl mb-5 sm:mb-6 leading-relaxed drop-shadow-lg">
               {slide.subtitle}
             </p>
 
