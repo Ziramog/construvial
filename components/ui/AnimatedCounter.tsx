@@ -1,50 +1,47 @@
-"use client"
+'use client'
 
-import { useEffect, useRef, useState } from "react"
-import { useInView } from "framer-motion"
+import { useEffect, useRef, useState } from 'react'
 
-interface AnimatedCounterProps {
-  value: number
+interface CounterProps {
+  target: number
   suffix?: string
   duration?: number
   className?: string
 }
 
-export function AnimatedCounter({ value, suffix = "", duration = 2, className = "" }: AnimatedCounterProps) {
+export function AnimatedCounter({ target, suffix = '', duration = 2000, className = '' }: CounterProps) {
   const [count, setCount] = useState(0)
-  const [mounted, setMounted] = useState(false)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const ref = useRef<HTMLSpanElement>(null)
+  const animatedRef = useRef(false)
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    const el = ref.current
+    if (!el) return
 
-  useEffect(() => {
-    if (isInView && mounted) {
-      let start = 0
-      const end = value
-      if (start === end) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animatedRef.current) {
+          animatedRef.current = true
+          const startTime = performance.now()
 
-      const totalMiliseconds = duration * 1000
-      const incrementTime = totalMiliseconds / end
+          const tick = (now: number) => {
+            const elapsed = now - startTime
+            const progress = Math.min(elapsed / duration, 1)
+            const eased = 1 - Math.pow(1 - progress, 3) // ease-out cubic
+            setCount(Math.floor(eased * target))
+            if (progress < 1) requestAnimationFrame(tick)
+            else setCount(target)
+          }
 
-      const timer = setInterval(() => {
-        start += 1
-        setCount(start)
-        if (start >= end) {
-          setCount(end)
-          clearInterval(timer)
+          requestAnimationFrame(tick)
         }
-      }, Math.max(incrementTime, 16))
+      },
+      { threshold: 0.2 }
+    )
 
-      return () => clearInterval(timer)
-    }
-  }, [isInView, mounted, value, duration])
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [target, duration])
 
-  return (
-    <span ref={ref} className={className}>
-      {mounted ? count : 0}{suffix}
-    </span>
-  )
+  return <span ref={ref} className={className}>{count}{suffix}</span>
 }

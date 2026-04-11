@@ -1,6 +1,9 @@
+'use client'
+
 import { FadeIn } from "@/components/ui/FadeIn"
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
 import { STATS } from "@/lib/constants"
+
 
 export function Stats() {
   return (
@@ -22,7 +25,8 @@ export function Stats() {
             <FadeIn key={index} delay={index * 100} direction="up">
               <div className="flex flex-col items-center text-center">
                 <div className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#1A1A1A] leading-none flex items-baseline">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                  <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+
                 </div>
                 <p className="font-body text-[#4a3f00] text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] mt-2 sm:mt-3 leading-relaxed font-medium">
                   {stat.label}
