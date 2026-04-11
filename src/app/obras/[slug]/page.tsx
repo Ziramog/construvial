@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, MapPin, Calendar, User } from "lucide-react"
+import { ArrowLeft, MapPin, Calendar, User, ArrowRight } from "lucide-react"
 import { constructMetadata } from "@/lib/metadata"
-import { Button } from "@/components/ui/Button"
 import { notFound } from "next/navigation"
+import { FadeIn } from "@/components/ui/FadeIn"
 
 // Mock data - replace with Sanity when connected
 const mockWorks = [
@@ -171,7 +171,7 @@ export default function ObraDetallePage({ params }: ObraDetallePageProps) {
   }
 
   return (
-    <>
+    <div className="bg-[#1A1A1A] text-white font-body">
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[500px] flex items-end overflow-hidden">
         <Image
@@ -181,86 +181,111 @@ export default function ObraDetallePage({ params }: ObraDetallePageProps) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/40 to-transparent" />
         <div className="relative z-10 container mx-auto px-4 md:px-6 pb-16">
-          <Link href="/obras" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
-            <ArrowLeft size={18} />
-            Volver a Obras
-          </Link>
-          <span className="inline-block bg-accent text-white text-sm font-bold uppercase tracking-wider px-4 py-1 rounded-full mb-4">
-            {work.category}
-          </span>
-          <h1 className="font-display font-bold text-4xl md:text-6xl text-white uppercase tracking-wider mb-4">
-            {work.title}
-          </h1>
+          <FadeIn delay={0} direction="up">
+            <Link href="/obras" className="inline-flex items-center gap-2 text-[#FFD100] hover:text-white mb-6 transition-colors font-body text-sm uppercase tracking-widest">
+              <ArrowLeft size={18} />
+              Volver a Obras
+            </Link>
+            <span className="inline-block bg-[#FFD100] text-[#1A1A1A] text-xs font-bold uppercase tracking-wider px-4 py-1.5 mb-4">
+              {work.category}
+            </span>
+            <h1 className="font-display font-bold text-4xl md:text-6xl text-white uppercase tracking-wider mb-4 leading-tight">
+              {work.title}
+            </h1>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Details */}
-      <section className="py-16 bg-white">
+      {/* Details - Warm White Section */}
+      <section className="py-24 bg-[#F4F1EC]">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <h2 className="font-display text-2xl font-bold text-primary mb-6 uppercase">Descripción del Proyecto</h2>
-              <p className="font-body text-text text-lg leading-relaxed mb-8">{work.description}</p>
-              
-              {/* Gallery */}
-              <h3 className="font-display text-xl font-bold text-primary mb-6 uppercase">Galería de Imágenes</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {work.galeria.map((img, idx) => (
-                  <div key={idx} className="relative h-48 rounded-lg overflow-hidden">
-                    <Image
-                      src={img}
-                      alt={`${work.title} - Imagen ${idx + 1}`}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                ))}
-              </div>
+              <FadeIn delay={0} direction="up">
+                <span className="font-body text-[#FFD100] text-xs tracking-[0.3em] uppercase mb-3 block">Proyecto</span>
+                <h2 className="font-display text-2xl font-bold text-[#1A1A1A] mb-8 uppercase tracking-wide">Descripción del Proyecto</h2>
+                <div className="w-12 h-1 bg-[#FFD100] mb-8" />
+                <p className="font-body text-[#1A1A1A]/80 text-lg leading-relaxed mb-12">{work.description}</p>
+                
+                {/* Gallery */}
+                <h3 className="font-display text-xl font-bold text-[#1A1A1A] mb-8 uppercase tracking-wide">Galería de Imágenes</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {work.galeria.map((img, idx) => (
+                    <div key={idx} className="group relative h-64 overflow-hidden border border-black/5 bg-black/5 p-2 shadow-xl transition-all hover:border-[#FFD100]/50 active:scale-95">
+                      <div className="relative w-full h-full overflow-hidden">
+                        <Image
+                          src={img}
+                          alt={`${work.title} - Imagen ${idx + 1}`}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </FadeIn>
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-6">
-              <div className="bg-light p-6 rounded-lg border border-gray-100">
-                <h3 className="font-display text-lg font-bold text-primary mb-4 uppercase">Datos del Proyecto</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <User className="text-accent shrink-0 mt-1" size={18} />
-                    <div>
-                      <p className="text-muted text-sm">Cliente</p>
-                      <p className="font-body font-medium text-text">{work.client}</p>
+            <div className="space-y-8">
+              <FadeIn delay={200} direction="right">
+                <div className="bg-[#1A1A1A] p-8 border border-white/10 shadow-2xl">
+                  <h3 className="font-display text-lg font-bold text-white mb-8 uppercase tracking-widest border-b border-white/10 pb-4">Ficha Técnica</h3>
+                  <div className="space-y-8">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-[#FFD100] p-2.5 text-[#1A1A1A] shrink-0">
+                        <User size={20} strokeWidth={2.5} />
+                      </div>
+                      <div>
+                        <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-1">Cliente</p>
+                        <p className="font-body font-bold text-white uppercase text-sm">{work.client}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="text-accent shrink-0 mt-1" size={18} />
-                    <div>
-                      <p className="text-muted text-sm">Ubicación</p>
-                      <p className="font-body font-medium text-text">{work.ubicacion}</p>
+                    <div className="flex items-start gap-4">
+                      <div className="bg-[#FFD100] p-2.5 text-[#1A1A1A] shrink-0">
+                        <MapPin size={20} strokeWidth={2.5} />
+                      </div>
+                      <div>
+                        <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-1">Ubicación</p>
+                        <p className="font-body font-bold text-white uppercase text-sm">{work.ubicacion}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Calendar className="text-accent shrink-0 mt-1" size={18} />
-                    <div>
-                      <p className="text-muted text-sm">Año</p>
-                      <p className="font-body font-medium text-text">{work.anio}</p>
+                    <div className="flex items-start gap-4">
+                      <div className="bg-[#FFD100] p-2.5 text-[#1A1A1A] shrink-0">
+                        <Calendar size={20} strokeWidth={2.5} />
+                      </div>
+                      <div>
+                        <p className="text-white/40 text-[10px] uppercase tracking-[0.2em] mb-1">Año</p>
+                        <p className="font-body font-bold text-white uppercase text-sm">{work.anio}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="bg-primary text-white p-6 rounded-lg">
-                <h3 className="font-display text-lg font-bold mb-2 uppercase">¿Te interesa este proyecto?</h3>
-                <p className="font-body text-gray-300 text-sm mb-4">Contactanos para conocer más detalles o solicitar un presupuesto.</p>
-                <Button asChild variant="accent" className="w-full font-bold">
-                  <Link href="/contacto">Contactanos</Link>
-                </Button>
-              </div>
+                <div className="mt-8 bg-[#111111] p-8 border border-white/10 relative overflow-hidden group">
+                  <div className="relative z-10">
+                    <h3 className="font-display text-xl font-bold text-white mb-4 uppercase tracking-wide">¿Te interesa este proyecto?</h3>
+                    <p className="font-body text-gray-400 text-sm mb-8 leading-relaxed">Combinamos excelencia técnica y compromiso en cada obra. Contactanos para conversar sobre tu próximo desafío.</p>
+                    <Link
+                      href="https://wa.link/ocm4yr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-3 w-full bg-[#FFD100] text-[#1A1A1A] font-body font-bold py-4 text-xs tracking-widest uppercase hover:bg-white transition-all shadow-xl"
+                    >
+                      Consultar por WhatsApp
+                      <ArrowRight size={16} />
+                    </Link>
+                  </div>
+                  <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-[#FFD100]/5 blur-[40px] rounded-full group-hover:bg-[#FFD100]/10 transition-colors" />
+                </div>
+              </FadeIn>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

@@ -29,7 +29,7 @@ const serviceImages = [
 
 export default function ServiciosPage() {
   return (
-    <div className="bg-[#0B0B0B]">
+    <div className="bg-[#1A1A1A] text-white font-body">
       {/* Hero */}
       <section className="relative h-[65vh] min-h-[500px] flex items-center overflow-hidden">
         <div className="absolute inset-0 -z-20">
@@ -59,8 +59,8 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* Services List with Pure Industrial Style */}
-      <section className="py-24 bg-gradient-to-b from-[#0A0A0A] via-[#050505] to-black">
+      {/* Services List - Warm White Intercalated Section */}
+      <section className="py-24 bg-[#F4F1EC]">
         <div className="container mx-auto px-4 md:px-12 lg:px-20">
           <div className="space-y-32">
             {SERVICIOS.map((servicio, index) => (
@@ -74,24 +74,24 @@ export default function ServiciosPage() {
                 <div className={`${index % 2 === 1 ? "lg:order-2" : "lg:order-1"}`}>
                   <FadeIn delay={200} direction={index % 2 === 1 ? "left" : "right"}>
                     <div className="flex items-center gap-4 mb-8">
-                      <div className="bg-[#FFD100] text-black w-14 h-14 flex items-center justify-center p-3 shadow-lg">
+                      <div className="bg-[#1A1A1A] text-[#FFD100] w-14 h-14 flex items-center justify-center p-3 shadow-lg">
                         {iconMap[servicio.icon] || <Building size={32} />}
                       </div>
                       <div>
-                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase leading-none">
+                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1A1A] uppercase leading-none">
                           {servicio.titulo}
                         </h2>
                         <div className="w-12 h-1 bg-[#FFD100] mt-3" />
                       </div>
                     </div>
                     
-                    <p className="font-body text-lg text-white/70 mb-8 leading-relaxed">
+                    <p className="font-body text-lg text-black/70 mb-8 leading-relaxed">
                       {servicio.descripcion}
                     </p>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                       {servicio.items.map((item) => (
-                        <div key={item} className="flex items-center gap-3 font-body text-white/80 group">
+                        <div key={item} className="flex items-center gap-3 font-body text-black/80 group">
                           <span className="w-1.5 h-1.5 bg-[#FFD100] transition-transform group-hover:scale-150" />
                           <span className="text-sm tracking-wide">{item}</span>
                         </div>
@@ -100,7 +100,7 @@ export default function ServiciosPage() {
 
                     <Link
                       href={`/servicios/${servicio.slug}`}
-                      className="inline-flex items-center gap-3 font-body font-bold text-sm uppercase text-[#FFD100] hover:text-white transition-colors group"
+                      className="inline-flex items-center gap-3 font-body font-bold text-sm uppercase text-[#1A1A1A] hover:text-[#FFD100] transition-colors group"
                     >
                       Explorar detalles
                       <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
@@ -108,22 +108,22 @@ export default function ServiciosPage() {
                   </FadeIn>
                 </div>
 
-                {/* Industrial Image Card with Glassmorphism */}
+                {/* Industrial Image Card */}
                 <div className={`${index % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}>
                   <FadeIn delay={400} direction="up">
-                    <div className="group relative aspect-[4/3] rounded-sm overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm p-2 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
+                    <div className="group relative aspect-[4/3] rounded-sm overflow-hidden border border-black/10 bg-black/5 p-2 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
                       <div className="relative w-full h-full overflow-hidden">
                         <Image
                           src={serviceImages[index]}
                           alt={servicio.titulo}
                           fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90"
+                          className="object-cover transition-transform duration-700 group-hover:scale-110 brightness-90 group-hover:brightness-100"
                         />
                         {/* Lightened Overlay for Visual Clarity */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-40" />
                         
                         {/* Interactive Corner Accent */}
-                        <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#FFD100]/50 group-hover:border-[#FFD100] transition-colors" />
+                        <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#1A1A1A]/20 group-hover:border-[#FFD100] transition-colors" />
                       </div>
                     </div>
                   </FadeIn>
@@ -134,8 +134,8 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* Corporate Technical Footer Banner */}
-      <section className="py-24 border-t border-white/10 bg-black overflow-hidden relative">
+      {/* Corporate Technical Footer Banner - Dark Carbon */}
+      <section className="py-24 border-t border-white/10 bg-[#111111] overflow-hidden relative">
         <div className="container mx-auto px-4 md:px-12 lg:px-20 text-center relative z-10">
           <FadeIn delay={0} direction="up">
             <h2 className="font-display text-4xl md:text-6xl font-bold uppercase tracking-tight text-white mb-6">
@@ -145,17 +145,19 @@ export default function ServiciosPage() {
               Combinamos ingeniería de precisión con logística pesada para entregar resultados excepcionales en todo el país.
             </p>
             <Link
-              href="/contacto"
-              className="inline-flex items-center gap-4 bg-[#FFD100] text-black font-body font-bold py-5 px-10 text-sm tracking-widest uppercase hover:bg-white transition-all shadow-xl hover:-translate-y-1"
+              href="https://wa.link/ocm4yr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-4 bg-[#FFD100] text-[#1A1A1A] font-body font-bold py-5 px-10 text-sm tracking-widest uppercase hover:bg-white transition-all shadow-xl hover:-translate-y-1"
             >
-              Solicitar Presupuesto Técnico
+              Solicitar Presupuesto por WhatsApp
               <ArrowRight size={20} />
             </Link>
           </FadeIn>
         </div>
         
         {/* Abstract Background Detail */}
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#FFD100]/5 blur-[120px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FFD100]/5 blur-[150px] rounded-full pointer-events-none" />
       </section>
     </div>
   )

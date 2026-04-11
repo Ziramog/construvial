@@ -21,14 +21,14 @@ export function ServicesGrid() {
   const [activeTab, setActiveTab] = useState(0)
 
   return (
-    <section id="servicios" className="py-24 bg-[#0B0B0B] text-white overflow-hidden">
+    <section id="servicios" className="py-24 bg-[#F4F1EC] text-[#1A1A1A] overflow-hidden">
       <div className="container mx-auto px-4 md:px-12 lg:px-20">
         <div className="mb-16">
           <FadeIn delay={0} direction="up">
             <span className="font-body text-[#FFD100] text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">
               Nuestras Capacidades
             </span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-white uppercase leading-[0.9] mb-2">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-[#1A1A1A] uppercase leading-[0.9] mb-2">
               Soluciones <br /> <span className="text-[#FFD100]">Integrales</span>
             </h2>
             <div className="w-20 h-[3px] bg-[#FFD100] mt-8" />
@@ -38,16 +38,16 @@ export function ServicesGrid() {
         {/* Desktop Tab System */}
         <div className="hidden lg:block relative min-h-[600px]">
           {/* Tabs */}
-          <div className="flex border-b border-white/10 mb-12">
+          <div className="flex border-b border-black/10 mb-12">
             {SERVICIOS.map((servicio, index) => (
               <button
                 key={servicio.slug}
                 onClick={() => setActiveTab(index)}
                 className={`relative flex-1 py-8 px-4 text-left font-display text-lg uppercase tracking-wider transition-all duration-300 ${
-                  activeTab === index ? "text-white" : "text-white/40 hover:text-white/70"
+                  activeTab === index ? "text-[#1A1A1A]" : "text-black/40 hover:text-black/70"
                 }`}
               >
-                <span className="block text-[#FFD100] text-[10px] mb-2 opacity-50">0{index + 1}</span>
+                <span className="block text-[#FFD100] text-[10px] mb-2 opacity-50 font-bold">0{index + 1}</span>
                 {servicio.titulo}
                 {/* Active Indicator Line */}
                 {activeTab === index && (
@@ -63,7 +63,7 @@ export function ServicesGrid() {
           </div>
 
           {/* Tab Content */}
-          <div className="relative overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm shadow-2xl" style={{ minHeight: '550px' }}>
+          <div className="relative overflow-hidden border border-black/10 bg-[#1A1A1A] p-2 shadow-2xl" style={{ minHeight: '550px' }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -78,13 +78,13 @@ export function ServicesGrid() {
                     src={serviceImages[activeTab] || serviceImages[0]}
                     alt={SERVICIOS[activeTab].titulo}
                     fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-105 brightness-90"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
                 </div>
                 
-                <div className="col-span-2 p-12 lg:p-16 flex flex-col justify-center bg-black/40">
-                  <h3 className="font-display text-4xl lg:text-5xl uppercase mb-8 text-white leading-tight">
+                <div className="col-span-2 p-12 lg:p-16 flex flex-col justify-center bg-[#1A1A1A]">
+                  <h3 className="font-display text-4xl lg:text-5xl uppercase mb-8 text-white leading-tight font-bold">
                     {SERVICIOS[activeTab].titulo}
                   </h3>
                   <p className="font-body text-white/60 text-lg leading-relaxed mb-10">
@@ -103,7 +103,7 @@ export function ServicesGrid() {
                   <div className="mt-auto">
                     <Link
                       href={`/servicios/${SERVICIOS[activeTab].slug}`}
-                      className="inline-flex items-center gap-3 text-[#FFD100] font-body font-bold text-sm uppercase hover:text-white transition-all group"
+                      className="inline-flex items-center gap-3 text-[#FFD100] font-body font-bold text-sm uppercase hover:text-white transition-all group tracking-widest"
                     >
                       Explorar Servicio
                       <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
@@ -121,18 +121,18 @@ export function ServicesGrid() {
             const isActive = activeTab === index
             
             return (
-              <div key={servicio.slug} className="bg-white/5 border border-white/10 overflow-hidden">
+              <div key={servicio.slug} className="bg-white border border-black/10 overflow-hidden shadow-sm">
                 <button
                   onClick={() => setActiveTab(isActive ? -1 : index)}
                   className={`w-full text-left py-6 px-8 font-display text-lg uppercase tracking-wider flex justify-between items-center transition-all ${
-                    isActive ? "bg-white/10 text-[#FFD100]" : "text-white/60 hover:text-white"
+                    isActive ? "bg-[#1A1A1A] text-[#FFD100]" : "text-black/60 hover:text-black"
                   }`}
                 >
                   <span className="flex items-center gap-4">
-                    <span className="text-[10px] text-white/30 font-body">0{index + 1}</span>
+                    <span className="text-[10px] text-black/30 font-body">0{index + 1}</span>
                     {servicio.titulo}
                   </span>
-                  <span className={`text-2xl transition-transform duration-300 ${isActive ? "rotate-45 text-[#FFD100]" : "text-white/20"}`}>
+                  <span className={`text-2xl transition-transform duration-300 ${isActive ? "rotate-45 text-[#FFD100]" : "text-black/20"}`}>
                     +
                   </span>
                 </button>
@@ -153,13 +153,13 @@ export function ServicesGrid() {
                           className="object-cover brightness-75"
                         />
                       </div>
-                      <div className="p-8 bg-black/40">
+                      <div className="p-8 bg-[#1A1A1A]">
                         <p className="font-body text-white/70 text-base leading-relaxed mb-8">
                           {servicio.descripcion}
                         </p>
                         <Link
                           href={`/servicios/${servicio.slug}`}
-                          className="inline-flex items-center gap-2 text-[#FFD100] font-body font-bold text-sm uppercase hover:text-white transition-colors"
+                          className="inline-flex items-center gap-2 text-[#FFD100] font-body font-bold text-sm uppercase hover:text-white transition-colors tracking-widest"
                         >
                           Ver detalles
                           <ArrowRight size={16} />

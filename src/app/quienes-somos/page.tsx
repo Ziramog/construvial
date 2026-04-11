@@ -23,11 +23,11 @@ const timelineHitos = [
 
 export default function QuienesSomosPage() {
   return (
-    <div className="bg-black text-white font-body">
+    <div className="bg-[#1A1A1A] text-white font-body">
       {/* Hero — Extreme Industrial Style */}
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Background Texture/Pattern */}
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" style={{
+        <div className="absolute inset-0 z-0 opacity-10 pointer-events-none" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
         }} />
         
@@ -58,13 +58,10 @@ export default function QuienesSomosPage() {
             </div>
           </FadeIn>
         </div>
-        
-        {/* Bottom Fade out */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
       </section>
 
-      {/* Historia — Storytelling with High-End Assets */}
-      <section className="py-24 bg-black relative">
+      {/* Historia — Industrial Dark Section */}
+      <section className="py-24 bg-[#111111] relative border-t border-white/5">
         <div className="container mx-auto px-4 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div>
@@ -78,7 +75,7 @@ export default function QuienesSomosPage() {
                   Décadas de <br /> <span className="text-[#FFD100]">Experiencia</span>
                 </h2>
               </FadeIn>
-              <div className="space-y-8 text-gray-300 font-body text-lg leading-relaxed">
+              <div className="space-y-8 text-white/60 font-body text-lg leading-relaxed">
                 <FadeIn delay={200} direction="up">
                   <p>
                     <strong className="text-white text-xl">Construvial S.A.</strong> fue fundada hace más de 35 años en Río Tercero, Córdoba, con la visión de convertirse en el brazo ejecutor de la infraestructura más crítica del país.
@@ -106,7 +103,7 @@ export default function QuienesSomosPage() {
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75 group-hover:brightness-90"
                   />
-                  {/* Clearer Cinematic Overlay */}
+                  {/* Cinematic Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40" />
                   
                   {/* Corner Accent */}
@@ -118,8 +115,8 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* Timeline with Industrial Glow */}
-      <section className="py-24 bg-[#050505] border-y border-white/5">
+      {/* Timeline with Industrial Accent */}
+      <section className="py-24 bg-[#1A1A1A] border-y border-white/5">
         <div className="container mx-auto px-4 md:px-12 lg:px-20">
           <FadeIn delay={0} direction="left">
             <span className="font-body text-[#FFD100] text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">
@@ -133,23 +130,20 @@ export default function QuienesSomosPage() {
           </FadeIn>
 
           <div className="relative">
-            {/* Horizontal line with glow */}
             <div className="hidden lg:block absolute top-[2.1rem] left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFD100]/20 to-transparent" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
               {timelineHitos.map((hito, idx) => (
                 <FadeIn key={hito.año} delay={idx * 100} direction="up">
                   <div className="relative group">
-                    {/* Dot on timeline */}
                     <div className="hidden lg:flex items-center gap-4 mb-6">
                       <div className="w-4 h-4 rounded-full bg-[#FFD100] relative z-10 ring-4 ring-black shadow-[0_0_15px_rgba(255,209,0,0.5)] group-hover:scale-125 transition-transform" />
                     </div>
 
                     <span className="font-display text-4xl text-[#FFD100] block mb-4 group-hover:translate-x-1 transition-transform">{hito.año}</span>
                     <h3 className="font-display text-lg text-white uppercase mb-3 leading-tight tracking-wide">{hito.titulo}</h3>
-                    <p className="font-body text-gray-500 text-sm leading-relaxed">{hito.descripcion}</p>
+                    <p className="font-body text-white/40 text-sm leading-relaxed">{hito.descripcion}</p>
                     
-                    {/* Hover indicator */}
                     <div className="mt-4 w-0 h-[2px] bg-[#FFD100] group-hover:w-full transition-all duration-500" />
                   </div>
                 </FadeIn>
@@ -159,23 +153,23 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* Stats band Refined */}
-      <div className="relative z-10 border-y border-white/10">
+      {/* Stats band */}
+      <div className="relative z-10 border-y border-white/10 bg-[#111111]">
         <Stats />
       </div>
 
-      {/* Misión / Visión / Valores — Glassmorphic Dark Cards */}
-      <section className="py-24 bg-black relative">
+      {/* Misión / Visión / Valores — Warm White Intercalated Section */}
+      <section className="py-24 bg-[#F4F1EC] relative">
         <div className="container mx-auto px-4 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {/* Misión */}
             <FadeIn delay={100} direction="up">
-              <div className="h-full bg-white/5 backdrop-blur-xl border border-white/10 p-10 lg:p-12 hover:border-[#FFD100]/50 transition-all group">
-                <div className="bg-[#FFD100] text-black w-14 h-14 flex items-center justify-center mb-8 shadow-xl">
+              <div className="h-full bg-[#1A1A1A] p-10 lg:p-12 border border-black/10 hover:border-[#FFD100]/50 transition-all group shadow-2xl">
+                <div className="bg-[#FFD100] text-[#1A1A1A] w-14 h-14 flex items-center justify-center mb-8 shadow-xl">
                   <Target size={30} strokeWidth={1.5} />
                 </div>
                 <h3 className="font-display text-3xl text-white uppercase mb-6 tracking-tight">Misión</h3>
-                <p className="font-body text-gray-400 text-lg leading-relaxed group-hover:text-gray-300 transition-colors">
+                <p className="font-body text-white/50 text-lg leading-relaxed group-hover:text-white/80 transition-colors">
                   Ejecutar obras de infraestructura con los más altos estándares de calidad, seguridad y responsabilidad ambiental, contribuyendo al desarrollo estructural del país.
                 </p>
               </div>
@@ -183,12 +177,12 @@ export default function QuienesSomosPage() {
 
             {/* Visión */}
             <FadeIn delay={200} direction="up">
-              <div className="h-full bg-white/5 backdrop-blur-xl border border-white/10 p-10 lg:p-12 hover:border-[#FFD100]/50 transition-all group">
-                <div className="bg-[#FFD100] text-black w-14 h-14 flex items-center justify-center mb-8 shadow-xl">
+              <div className="h-full bg-[#1A1A1A] p-10 lg:p-12 border border-black/10 hover:border-[#FFD100]/50 transition-all group shadow-2xl">
+                <div className="bg-[#FFD100] text-[#1A1A1A] w-14 h-14 flex items-center justify-center mb-8 shadow-xl">
                   <Eye size={30} strokeWidth={1.5} />
                 </div>
                 <h3 className="font-display text-3xl text-white uppercase mb-6 tracking-tight">Visión</h3>
-                <p className="font-body text-gray-400 text-lg leading-relaxed group-hover:text-gray-300 transition-colors">
+                <p className="font-body text-white/50 text-lg leading-relaxed group-hover:text-white/80 transition-colors">
                   Ser la constructora líder en Argentina, reconocida por la excelencia técnica en megaproyectos y por la innovación constante en logística pesada.
                 </p>
               </div>
@@ -196,12 +190,12 @@ export default function QuienesSomosPage() {
 
             {/* Valores */}
             <FadeIn delay={300} direction="up">
-              <div className="h-full bg-white/5 backdrop-blur-xl border border-white/10 p-10 lg:p-12 hover:border-[#FFD100]/50 transition-all group">
-                <div className="bg-[#FFD100] text-black w-14 h-14 flex items-center justify-center mb-8 shadow-xl">
+              <div className="h-full bg-[#1A1A1A] p-10 lg:p-12 border border-black/10 hover:border-[#FFD100]/50 transition-all group shadow-2xl">
+                <div className="bg-[#FFD100] text-[#1A1A1A] w-14 h-14 flex items-center justify-center mb-8 shadow-xl">
                   <ShieldCheck size={30} strokeWidth={1.5} />
                 </div>
                 <h3 className="font-display text-3xl text-white uppercase mb-6 tracking-tight">Valores</h3>
-                <ul className="font-body text-gray-400 space-y-4 text-base lg:text-lg">
+                <ul className="font-body text-white/50 space-y-4 text-base lg:text-lg">
                   {[
                     "Compromiso con la Calidad Total",
                     "Seguridad Operacional Absoluta",
@@ -222,11 +216,11 @@ export default function QuienesSomosPage() {
       </section>
 
       {/* Equipo — Human Capital with Industrial Backdrop */}
-      <section className="py-24 bg-[#050505] relative overflow-hidden">
+      <section className="py-24 bg-[#111111] relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-12 lg:px-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <FadeIn delay={300} direction="left">
-              <div className="group relative aspect-[4/5] overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm p-2 shadow-2xl order-2 lg:order-1 hover:border-[#FFD100]/50 transition-all">
+              <div className="group relative aspect-[4/5] overflow-hidden border border-white/10 bg-[#1A1A1A] p-2 shadow-2xl order-2 lg:order-1 hover:border-[#FFD100]/50 transition-all">
                 <div className="relative w-full h-full overflow-hidden">
                   <Image
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAadCB83L-xrCKmnM9p2R9IGPmIbErSDKj1HU35D9nD5UJPw3Ch9TbJIKJrTQfTavk_EcFpLq9TT5UCFjzY2SuEEYTROUULZmhZF4rTcQP_h9RRAv8xEetY4KHiVsdAfveLx_xtLhuuVaBqQe4-MlbA-jIph4YQtuNHtM4fBRX6UUeNYUOUJGP0xg22EmQPCVGwANFXbQNkMmYfbVmmFpei23u3UiaAjo1dWihb996W0MwGCubRwMbgdp33Q9j5cUOpc3yhv716"
@@ -250,7 +244,7 @@ export default function QuienesSomosPage() {
                   80 <span className="text-[#FFD100]">Especialistas</span>
                 </h2>
               </FadeIn>
-              <div className="space-y-6 text-gray-300 font-body text-lg leading-relaxed">
+              <div className="space-y-6 text-white/50 font-body text-lg leading-relaxed">
                 <FadeIn delay={200} direction="up">
                   <p>
                     Contamos con una fuerza laboral compuesta por ingenieros, técnicos altamente especializados y operarios de maquinaria pesada.
@@ -262,7 +256,9 @@ export default function QuienesSomosPage() {
                   </p>
                 </FadeIn>
                 <Link
-                  href="/contacto"
+                  href="https://wa.link/ocm4yr"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-4 text-[#FFD100] font-body font-bold text-sm uppercase tracking-widest mt-6 group"
                 >
                   Unirse al equipo
@@ -274,13 +270,13 @@ export default function QuienesSomosPage() {
         </div>
       </section>
 
-      {/* Client Logos with Dark Theme Integration */}
-      <div className="bg-black py-12 border-t border-white/5">
+      {/* Client Logos */}
+      <div className="bg-[#1A1A1A] py-12 border-t border-white/5">
         <ClientLogos />
       </div>
 
       {/* Final CTA — Pure Industrial Power */}
-      <section className="py-24 bg-black border-t border-white/10 relative overflow-hidden">
+      <section className="py-24 bg-[#111111] border-t border-white/10 relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-12 lg:px-20 text-center relative z-10">
           <FadeIn delay={0} direction="up">
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-white uppercase tracking-tighter mb-8 font-bold leading-none">
@@ -288,14 +284,16 @@ export default function QuienesSomosPage() {
             </h2>
           </FadeIn>
           <FadeIn delay={200} direction="up">
-            <p className="font-body text-gray-400 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-white/40 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
               Estamos listos para desplegar nuestra capacidad operativa y técnica al servicio de tu próximo desafío de infraestructura.
             </p>
           </FadeIn>
           <FadeIn delay={400} direction="up">
             <Link
-              href="/contacto"
-              className="inline-flex items-center gap-4 bg-[#FFD100] text-black font-body font-bold py-6 px-12 text-sm tracking-[0.3em] uppercase hover:bg-white transition-all shadow-[0_0_30px_rgba(255,209,0,0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] active:scale-95"
+              href="https://wa.link/ocm4yr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-4 bg-[#FFD100] text-[#1A1A1A] font-body font-bold py-6 px-12 text-sm tracking-[0.3em] uppercase hover:bg-white transition-all shadow-[0_0_30px_rgba(255,209,0,0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] active:scale-95"
             >
               Contactar Dirección Técnica
               <ArrowRight size={22} />
@@ -303,7 +301,7 @@ export default function QuienesSomosPage() {
           </FadeIn>
         </div>
         
-        {/* Absolute Background Detail */}
+        {/* Background Detail */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FFD100]/5 blur-[150px] rounded-full pointer-events-none" />
       </section>
     </div>

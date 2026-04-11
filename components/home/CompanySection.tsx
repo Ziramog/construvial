@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export function CompanySection() {
   return (
-    <section id="empresa" className="py-24 bg-black text-white overflow-hidden relative">
+    <section id="empresa" className="py-24 bg-[#1A1A1A] text-white overflow-hidden relative">
       {/* Background Detail */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/20 to-transparent pointer-events-none" />
       
@@ -18,17 +18,17 @@ export function CompanySection() {
               <span className="font-body text-[#FFD100] text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">
                 Nuestra Historia
               </span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-white uppercase leading-[0.9] mb-8">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-white uppercase leading-[0.9] mb-8 font-bold">
                 35 Años <br /> <span className="text-[#FFD100]">Construyendo</span> <br /> Argentina
               </h2>
               <div className="w-20 h-[3px] bg-[#FFD100] mb-12" />
             </FadeIn>
 
             <FadeIn delay={200} direction="up">
-              <p className="font-body text-gray-300 text-lg leading-relaxed mb-6">
+              <p className="font-body text-white/60 text-lg leading-relaxed mb-6">
                 Desde 1989, Construvial S.A. se ha consolidado como un referente indiscutido en la ejecución de obras viales, civiles y de gran envergadura.
               </p>
-              <p className="font-body text-gray-300 text-lg leading-relaxed mb-10">
+              <p className="font-body text-white/60 text-lg leading-relaxed mb-10">
                 Afrontamos cada proyecto con la máxima solvencia técnica, respaldados por una flota de equipos de última generación y un equipo humano comprometido con la excelencia estructural y la seguridad técnica.
               </p>
             </FadeIn>
@@ -37,7 +37,7 @@ export function CompanySection() {
               <div className="flex flex-wrap gap-6">
                 <Link
                   href="/quienes-somos"
-                  className="inline-flex items-center justify-center gap-3 bg-[#FFD100] text-black font-body font-bold text-sm uppercase tracking-widest px-10 py-5 hover:bg-white transition-all shadow-xl hover:-translate-y-1 group"
+                  className="inline-flex items-center justify-center gap-3 bg-[#FFD100] text-[#1A1A1A] font-body font-bold text-sm uppercase tracking-widest px-10 py-5 hover:bg-white transition-all shadow-xl hover:-translate-y-1 group"
                 >
                   Nuestra Trayectoria
                   <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
@@ -52,7 +52,7 @@ export function CompanySection() {
                 <div className="relative aspect-[4/5] rounded-sm overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm p-3 shadow-2xl">
                   <div className="relative w-full h-full overflow-hidden">
                     <Image
-                       src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80"
+                       src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&w=1200&q=80"
                        alt="Equipo de Construvial trabajando en obra"
                        fill
                        className="object-cover brightness-90 hover:scale-105 transition-transform duration-1000"

@@ -87,7 +87,7 @@ export default function EquiposPage() {
   return (
     <>
       {/* Hero — with watermark number */}
-      <section className="relative h-[55vh] min-h-[420px] flex items-center justify-center overflow-hidden bg-[#0A1628]">
+      <section className="relative h-[55vh] min-h-[420px] flex items-center justify-center overflow-hidden bg-[#1A1A1A]">
         <span className="absolute font-display text-[20vw] text-white/[0.03] leading-none select-none pointer-events-none">
           40+
         </span>
@@ -109,7 +109,7 @@ export default function EquiposPage() {
       <EquiposClient equipos={mockEquipos} />
 
       {/* CTA */}
-      <section className="py-20 bg-[#0A1628] border-t border-white/10">
+      <section className="py-20 bg-[#111111] border-t border-white/10">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="font-display text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">
             ¿Necesitás equipos para tu obra?

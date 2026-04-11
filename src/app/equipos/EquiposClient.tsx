@@ -24,7 +24,7 @@ function EquipoRow({ equipo, index }: { equipo: Equipo; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay: index * 0.06, duration: 0.5 }}
-      className="group border-b border-white/10 py-8 lg:py-10 hover:bg-white/[0.02] transition-colors duration-300 -mx-4 md:-mx-6 px-4 md:px-6"
+      className="group border-b border-black/10 py-8 lg:py-10 hover:bg-black/[0.03] transition-colors duration-300 -mx-4 md:-mx-6 px-4 md:px-6"
     >
       <div className="flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-10">
         {/* Image */}
@@ -56,10 +56,10 @@ function EquipoRow({ equipo, index }: { equipo: Equipo; index: number }) {
                     </span>
                   )}
                 </div>
-                <h3 className="font-display text-3xl text-white uppercase leading-tight">
+                <h3 className="font-display text-3xl text-[#1A1A1A] uppercase leading-tight">
                   {equipo.nombre}
                 </h3>
-                <p className="font-body text-gray-400 text-sm mt-2 max-w-xl leading-relaxed">
+                <p className="font-body text-black/50 text-sm mt-2 max-w-xl leading-relaxed">
                   {equipo.descripcion}
                 </p>
               </div>
@@ -69,26 +69,26 @@ function EquipoRow({ equipo, index }: { equipo: Equipo; index: number }) {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
               {equipo.specs.capacidad !== "—" && (
                 <div>
-                  <p className="font-body text-gray-500 text-xs uppercase tracking-wider">Capacidad</p>
-                  <p className="font-mono text-white text-sm mt-1">{equipo.specs.capacidad}</p>
+                  <p className="font-body text-black/40 text-xs uppercase tracking-wider">Capacidad</p>
+                  <p className="font-mono text-[#1A1A1A] text-sm mt-1">{equipo.specs.capacidad}</p>
                 </div>
               )}
               {equipo.specs.peso !== "—" && (
                 <div>
-                  <p className="font-body text-gray-500 text-xs uppercase tracking-wider">Peso</p>
-                  <p className="font-mono text-white text-sm mt-1">{equipo.specs.peso}</p>
+                  <p className="font-body text-black/40 text-xs uppercase tracking-wider">Peso</p>
+                  <p className="font-mono text-[#1A1A1A] text-sm mt-1">{equipo.specs.peso}</p>
                 </div>
               )}
               {equipo.specs.potencia !== "—" && (
                 <div>
-                  <p className="font-body text-gray-500 text-xs uppercase tracking-wider">Potencia</p>
-                  <p className="font-mono text-white text-sm mt-1">{equipo.specs.potencia}</p>
+                  <p className="font-body text-black/40 text-xs uppercase tracking-wider">Potencia</p>
+                  <p className="font-mono text-[#1A1A1A] text-sm mt-1">{equipo.specs.potencia}</p>
                 </div>
               )}
               {equipo.specs.ano !== "—" && (
                 <div>
-                  <p className="font-body text-gray-500 text-xs uppercase tracking-wider">Año</p>
-                  <p className="font-mono text-white text-sm mt-1">{equipo.specs.ano}</p>
+                  <p className="font-body text-black/40 text-xs uppercase tracking-wider">Año</p>
+                  <p className="font-mono text-[#1A1A1A] text-sm mt-1">{equipo.specs.ano}</p>
                 </div>
               )}
             </div>
@@ -132,18 +132,18 @@ export function EquiposClient({ equipos }: { equipos: Equipo[] }) {
   }, {} as Record<string, number>)
 
   return (
-    <section className="py-20 bg-[#0D1B2A]">
+    <section className="py-20 bg-[#F4F1EC]">
       <div className="container mx-auto px-4 md:px-6">
         {/* Filter tabs with counts */}
-        <div className="flex flex-wrap gap-0 border-b border-white/10 mb-12">
+        <div className="flex flex-wrap gap-0 border-b border-black/10 mb-12">
           {tipos.map((tipo) => (
             <button
               key={tipo}
               onClick={() => setActiveTipo(tipo)}
               className={`font-body text-sm font-medium px-5 py-3 relative transition-colors duration-200 ${
                 activeTipo === tipo
-                  ? "text-[#FFD100]"
-                  : "text-gray-500 hover:text-white"
+                  ? "text-[#1A1A1A]"
+                  : "text-black/40 hover:text-black/80"
               }`}
             >
               {tipo} ({counts[tipo]})
@@ -167,7 +167,7 @@ export function EquiposClient({ equipos }: { equipos: Equipo[] }) {
 
           {filteredEquipos.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-gray-500 text-lg font-body">No hay equipos en esta categoría.</p>
+              <p className="text-black/40 text-lg font-body">No hay equipos en esta categoría.</p>
             </div>
           )}
         </motion.div>
