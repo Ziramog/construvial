@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 
 export function CompanySection() {
   return (
-    <section id="empresa" className="py-24 bg-[#0B1F3A] text-white overflow-hidden relative">
+    <section id="empresa" className="py-24 bg-black text-white overflow-hidden relative">
       {/* Background Detail */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/20 to-transparent pointer-events-none" />
       

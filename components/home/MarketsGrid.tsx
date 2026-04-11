@@ -37,7 +37,7 @@ const markets = [
 
 export function MarketsGrid() {
   return (
-    <section id="mercados" className="py-24 bg-[#050D19] overflow-hidden">
+    <section id="mercados" className="py-24 bg-[#050505] overflow-hidden">
       <div className="container mx-auto px-4 md:px-12 lg:px-20">
         <div className="mb-16">
           <FadeIn delay={0} direction="up">

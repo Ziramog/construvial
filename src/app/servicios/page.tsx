@@ -59,8 +59,8 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* Services List with Dark Industrial Style */}
-      <section className="py-24 bg-gradient-to-b from-[#0B1F3A] via-[#050D19] to-black">
+      {/* Services List with Pure Industrial Style */}
+      <section className="py-24 bg-gradient-to-b from-[#0A0A0A] via-[#050505] to-black">
         <div className="container mx-auto px-4 md:px-12 lg:px-20">
           <div className="space-y-32">
             {SERVICIOS.map((servicio, index) => (

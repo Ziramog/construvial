@@ -85,7 +85,7 @@ export function ContactSection() {
           {/* Right Column: Contact Info (5 cols) */}
           <div className="lg:col-span-5 flex">
             <FadeIn delay={300} direction="left" className="w-full h-full">
-              <div className="bg-gradient-to-br from-[#0B1F3A] to-black text-white p-8 md:p-12 h-full flex flex-col justify-center border border-white/10 shadow-2xl relative overflow-hidden group">
+              <div className="bg-gradient-to-br from-[#0A0A0A] to-black text-white p-8 md:p-12 h-full flex flex-col justify-center border border-white/10 shadow-2xl relative overflow-hidden group">
                 {/* Decorative background element */}
                 <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#FFD100]/5 blur-[80px] rounded-full pointer-events-none" />
                 

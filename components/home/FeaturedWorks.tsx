@@ -26,7 +26,7 @@ const mockWorks = [
 
 export function FeaturedWorks() {
   return (
-    <section id="proyectos" className="py-24 bg-gradient-to-b from-[#0B0B0B] to-[#0B1F3A] text-white overflow-hidden">
+    <section id="proyectos" className="py-24 bg-gradient-to-b from-[#0B0B0B] to-black text-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-12 lg:px-20">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
