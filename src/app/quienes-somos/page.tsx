@@ -5,7 +5,7 @@ import { constructMetadata } from "@/lib/metadata"
 import { Stats } from "@/components/home/Stats"
 import { ClientLogos } from "@/components/home/ClientLogos"
 import { FadeIn } from "@/components/ui/FadeIn"
-import { ArrowRight, Target, Eye, ShieldCheck, Heart, Users, HardHat, Rocket } from "lucide-react"
+import { ArrowRight, Target, Eye, ShieldCheck } from "lucide-react"
 
 export const metadata: Metadata = constructMetadata({
   title: "Quiénes Somos | Construvial S.A.",
