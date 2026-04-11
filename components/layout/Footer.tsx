@@ -86,15 +86,17 @@ export function Footer() {
           {/* Column 4: Certificaciones y Redes */}
           <div className="flex flex-col gap-6">
             <h3 className="font-display text-2xl uppercase tracking-wider text-white mb-2">Certificaciones</h3>
-            <div className="flex gap-4 items-center">
-              <div className="w-20 h-20 bg-white p-2">
-                <Image src="/iso-9001.png" alt="ISO 9001" width={80} height={80} className="object-contain w-full h-full opacity-60 grayscale" />
+            <div className="flex flex-col gap-3 font-body text-sm text-[#acadad]">
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-[#FFD100]" />
+                <span>ISO 9001 - Gestión de Calidad</span>
               </div>
-               <div className="w-20 h-20 bg-white p-2">
-                <Image src="/iso-14001.png" alt="ISO 14001" width={80} height={80} className="object-contain w-full h-full opacity-60 grayscale" />
+              <div className="flex items-center gap-3">
+                <span className="w-2 h-2 bg-[#FFD100]" />
+                <span>ISO 14001 - Gestión Ambiental</span>
               </div>
             </div>
-            
+
             <h3 className="font-display text-xl uppercase tracking-wider text-white mt-4 mb-1">Redes Sociales</h3>
             <div className="flex items-center gap-4">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-[#1A1A1A] p-3 text-white hover:bg-[#FFD100] hover:text-[#1A1A1A] transition-colors">

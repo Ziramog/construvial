@@ -28,7 +28,7 @@ const mockEquipos = [
   {
     nombre: "Rodillo Compactador",
     tipo: "Vial",
-    descripcion: "Rodillo vibratorio de tambro liso para compactación de suelos y aglomerados.",
+    descripcion: "Rodillo vibratorio de tambor liso para compactación de suelos y aglomerados.",
     specs: { capacidad: "—", peso: "12 Tn", potencia: "—", ano: "2019" },
     disponibleParaAlquiler: true,
     imagen: "https://picsum.photos/id/302/600/400",
