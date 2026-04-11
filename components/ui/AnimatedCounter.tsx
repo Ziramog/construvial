@@ -43,7 +43,7 @@ export function AnimatedCounter({ value, suffix = "", duration = 2000, className
   }, [isInView, value, duration])
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={className} suppressHydrationWarning>
       {count}{suffix}
     </span>
   )

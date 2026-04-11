@@ -30,12 +30,12 @@ export function ClientLogos() {
           </FadeIn>
         </div>
 
-        {/* Client tiles */}
+        {/* Client tiles - Improved visual design */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3">
           {CLIENTES.map((cliente, idx) => (
             <FadeIn key={cliente} delay={idx * 20} direction="up">
-              <div className="group border border-white/10 p-4 sm:p-5 flex items-center justify-center hover:bg-[#FFD100]/10 hover:border-[#FFD100]/30 transition-all duration-300">
-                <span className="font-display text-base sm:text-lg text-gray-400 group-hover:text-white transition-colors duration-300 text-center leading-tight">
+              <div className="group border border-white/10 p-4 sm:p-5 flex items-center justify-center hover:border-[#FFD100]/50 hover:bg-[#FFD100]/5 transition-all duration-300 cursor-default">
+                <span className="font-display text-base sm:text-lg text-gray-400 group-hover:text-white transition-colors duration-300 text-center leading-tight font-medium tracking-wide">
                   {cliente}
                 </span>
               </div>

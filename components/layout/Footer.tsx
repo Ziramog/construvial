@@ -70,8 +70,7 @@ export function Footer() {
               <li className="flex items-start gap-4">
                 <Phone size={20} className="text-[#FFD100] shrink-0" />
                 <div className="flex flex-col">
-                  <span>{CONTACT.phone1}</span>
-                  <span>{CONTACT.phone2}</span>
+                  <span>{CONTACT.phone1} · {CONTACT.phone2}</span>
                 </div>
               </li>
               <li className="flex items-start gap-4">
@@ -125,10 +124,6 @@ export function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-6">
             <Link href="/legal/privacidad" className="hover:text-white transition-colors">Política de Privacidad</Link>
             <Link href="/legal/terminos" className="hover:text-white transition-colors">Términos de Servicio</Link>
-            <div className="flex items-center gap-3">
-              <span>Diseño:</span>
-              <Image src="/Construvial-LogoNegro-300x138.png" alt="Construvial Logo" width={60} height={28} className="brightness-0 invert opacity-50" />
-            </div>
           </div>
         </div>
       </div>

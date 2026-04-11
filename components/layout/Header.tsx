@@ -19,11 +19,12 @@ export function Header() {
   }, [])
 
   const navLinks = [
-    { name: "Servicios", href: "/#servicios" },
-    { name: "Mercados", href: "/#mercados" },
-    { name: "Proyectos", href: "/#proyectos" },
-    { name: "Empresa", href: "/#empresa" },
-    { name: "Contacto", href: "/#contacto" },
+    { name: "Quiénes Somos", href: "/quienes-somos" },
+    { name: "Servicios", href: "/servicios" },
+    { name: "Obras", href: "/obras" },
+    { name: "Equipos", href: "/equipos" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contacto", href: "/contacto" },
   ]
 
   return (
@@ -70,7 +71,7 @@ export function Header() {
           {/* CTA - Right */}
           <div className="hidden lg:flex items-center">
             <Link
-              href="/#contacto"
+              href="/contacto"
               className="bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-sm px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:bg-yellow-400"
             >
               Solicitar Presupuesto
@@ -106,7 +107,7 @@ export function Header() {
           ))}
           <div className="w-16 h-1 bg-white/10 my-2 sm:my-4" />
           <Link
-            href="/#contacto"
+            href="/contacto"
             className="w-full text-center bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
             onClick={() => setIsMobileMenuOpen(false)}
           >
