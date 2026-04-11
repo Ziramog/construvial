@@ -31,14 +31,14 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-[#1A1A1A] border-b border-white/10 shadow-lg ${
-        isScrolled ? "py-4 sm:py-6" : "py-6 sm:py-10"
+        isScrolled ? "py-2 sm:py-3" : "py-3 sm:py-5"
       }`}
     >
       <div className="w-full h-full px-4 sm:px-6 md:px-8 xl:px-12 relative z-10 flex flex-col justify-center">
         <div className="flex items-center justify-between">
 
-          {/* Official Logo - 2.5x Bigger */}
-          <Link href="/" className="z-50 relative h-24 w-72 sm:h-28 sm:w-80" onClick={() => setIsMobileMenuOpen(false)}>
+          {/* Official Logo */}
+          <Link href="/" className="z-50 relative h-12 w-44 sm:h-14 sm:w-52" onClick={() => setIsMobileMenuOpen(false)}>
             <Image
               src="/Archivo/CONSTRUVIAL_logo.png"
               alt="Construvial Logo"
