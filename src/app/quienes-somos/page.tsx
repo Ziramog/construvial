@@ -106,8 +106,8 @@ export default function QuienesSomosPage() {
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-110 brightness-75 group-hover:brightness-90"
                   />
-                  {/* Cinematic Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
+                  {/* Clearer Cinematic Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40" />
                   
                   {/* Corner Accent */}
                   <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#FFD100] opacity-30 group-hover:opacity-100 transition-opacity" />
@@ -234,7 +234,7 @@ export default function QuienesSomosPage() {
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-105 brightness-90"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-40" />
                 </div>
               </div>
             </FadeIn>

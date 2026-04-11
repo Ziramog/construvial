@@ -40,8 +40,8 @@ export default function ServiciosPage() {
             priority
             className="object-cover"
           />
-          {/* Dark Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+          {/* Subtle Overlay Gradient for Clarity */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent opacity-40" />
         </div>
         
         <div className="container mx-auto px-4 md:px-12 lg:px-20">
@@ -119,8 +119,8 @@ export default function ServiciosPage() {
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110 brightness-75 group-hover:brightness-90"
                         />
-                        {/* Dark Overlay for Text Readability/Aesthetic */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                        {/* Lightened Overlay for Visual Clarity */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-40" />
                         
                         {/* Interactive Corner Accent */}
                         <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#FFD100]/50 group-hover:border-[#FFD100] transition-colors" />
