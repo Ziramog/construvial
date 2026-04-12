@@ -172,6 +172,19 @@ export function ServicesGrid() {
             )
           })}
         </div>
+
+        {/* CTA intermedio entre servicios y portafolio */}
+        <div className="bg-[#facc15] py-8 px-6 text-center mt-16 lg:mt-24 shadow-xl border border-black/5">
+          <p className="font-display text-[#0a0a0a] text-3xl md:text-4xl tracking-wide mb-4 mt-0 font-bold">
+            ¿Tu proyecto requiere una solución específica?
+          </p>
+          <Link href="/contacto"
+             className="inline-flex items-center gap-2 bg-[#0a0a0a] text-[#facc15]
+                        font-body font-semibold text-sm tracking-widest uppercase
+                        px-8 py-4 hover:bg-[#1f1f1f] transition-colors shadow-lg">
+            Hablar con un especialista →
+          </Link>
+        </div>
       </div>
     </section>
   )

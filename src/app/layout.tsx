@@ -1,21 +1,20 @@
 import type { Metadata } from "next"
-import { Space_Grotesk, Inter } from "next/font/google"
+import { Bebas_Neue, DM_Sans } from "next/font/google"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton"
+import { MobileCTA } from "@/components/ui/MobileCTA"
 import { constructMetadata } from "@/lib/metadata"
 import "./globals.css"
 
-// Space Grotesk — display font for titles, numbers, labels (Industrial aesthetic)
-const spaceGrotesk = Space_Grotesk({
+const bebasNeue = Bebas_Neue({
+  weight: "400",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 })
 
-// Inter — utility body font for text, nav, buttons, specs
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body",
@@ -30,12 +29,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="es" className={`${bebasNeue.variable} ${dmSans.variable}`}>
       <body className="font-body antialiased selection:bg-[#FFD100] selection:text-black">
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <MobileCTA />
       </body>
     </html>
   )

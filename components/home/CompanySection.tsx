@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FadeIn } from "@/components/ui/FadeIn"
-import { ArrowRight } from "lucide-react"
 
 export function CompanySection() {
   return (
@@ -35,13 +34,20 @@ export function CompanySection() {
 
             <FadeIn delay={300} direction="up">
               <div className="flex flex-wrap gap-6">
-                <Link
-                  href="/quienes-somos"
-                  className="inline-flex items-center justify-center gap-3 bg-[#facc15] text-[#0a0a0a] font-body font-bold text-sm uppercase tracking-widest px-10 py-5 hover:bg-white transition-all shadow-xl hover:-translate-y-1 group"
-                >
-                  Nuestra Trayectoria
-                  <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-                </Link>
+                <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="/quienes-somos"
+                    className="font-body text-sm tracking-widest uppercase text-[#facc15] border-b border-[#facc15] pb-1 hover:opacity-70 transition-opacity inline-flex items-center gap-2"
+                  >
+                    Ver nuestra trayectoria completa →
+                  </Link>
+                  <Link
+                    href="/obras"
+                    className="font-body text-sm tracking-widest uppercase text-white/60 border-b border-white/30 pb-1 hover:text-white hover:border-white transition-all inline-flex items-center gap-2"
+                  >
+                    Ver las 500 obras →
+                  </Link>
+                </div>
               </div>
             </FadeIn>
           </div>

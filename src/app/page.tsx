@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Hero } from "@/components/home/Hero"
 import { Stats } from "@/components/home/Stats"
-import { ClientLogos } from "@/components/home/ClientLogos"
+import { ClientMarquee } from "@/components/home/ClientMarquee"
 import { ServicesGrid } from "@/components/home/ServicesGrid"
 import { CTABanner } from "@/components/home/CTABanner"
 import { CompanySection } from "@/components/home/CompanySection"
@@ -18,7 +18,7 @@ export default function HomePage() {
     <>
       <Hero />
       <Stats />
-      <ClientLogos />
+      <ClientMarquee />
       <ServicesGrid />
       <CTABanner />
       <CompanySection />

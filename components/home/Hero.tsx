@@ -96,8 +96,10 @@ export function Hero() {
               quality={85}
             />
           )}
-          {/* Subtle overlay for readability - neutral industrial depth */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent opacity-60" />
+          {/* CAPA 1: Gradient solo en la zona del texto (izq) */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+          {/* CAPA 2: Gradient inferior para CTAs */}
+          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/70 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
@@ -117,18 +119,27 @@ export function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.15, duration: 0.4 }}
-              className="font-body text-[#facc15] text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 drop-shadow-md"
+              className="font-body text-[#facc15] text-xs tracking-[0.3em] uppercase mb-4"
+              style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
             >
               Desde 1989 · Córdoba, Argentina
             </motion.p>
 
-            {/* Headline with drop shadow for clarity */}
-            <h1 className="font-display text-[clamp(26px,7vw,96px)] leading-[0.92] text-white uppercase mb-3 sm:mb-4 whitespace-pre-line drop-shadow-xl">
+            {/* Headline with text shadow for clear visibility */}
+            <h1
+              className="font-display text-[clamp(64px,8vw,112px)] leading-[0.95] tracking-[0.02em] text-white uppercase mb-4 whitespace-pre-line"
+              style={{
+                textShadow: "0 2px 20px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.8)",
+              }}
+            >
               {slide.headline}
             </h1>
 
             {/* Subtitle with drop shadow */}
-            <p className="font-body text-gray-200 text-sm sm:text-base md:text-lg max-w-xl mb-5 sm:mb-6 leading-relaxed drop-shadow-lg">
+            <p
+              className="font-body text-white/90 text-lg md:text-xl max-w-xl mb-6 leading-relaxed"
+              style={{ textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
+            >
               {slide.subtitle}
             </p>
 
@@ -136,18 +147,18 @@ export function Hero() {
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
                 href={slide.ctaLink}
-                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#facc15] text-[#0a0a0a] font-body font-bold px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 group shadow-lg"
+                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#facc15] text-[#0a0a0a] font-body font-bold text-sm tracking-widest uppercase px-8 py-4 hover:bg-yellow-400 active:bg-yellow-500 transition-colors duration-200 group"
               >
                 {slide.cta}
-                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+                <span className="text-lg group-hover:translate-x-1 transition-transform duration-200">→</span>
               </Link>
               <Link
                 href="https://wa.link/ocm4yr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 border-2 border-white/40 text-white font-body font-medium px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:border-[#facc15] hover:text-[#facc15] active:bg-white/10 transition-all duration-200"
+                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 border border-white/60 text-white font-body font-medium px-8 py-4 text-sm tracking-widest uppercase hover:border-white hover:bg-white/10 active:bg-white/20 transition-all duration-200"
               >
-                Solicitar Presupuesto
+                03571 421350
               </Link>
             </div>
           </motion.div>
