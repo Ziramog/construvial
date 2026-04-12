@@ -12,7 +12,7 @@ const slides = [
     subtitle: "Más de 35 años construyendo infraestructura vial y civil en Argentina",
     cta: "Explorar Servicios",
     ctaLink: "/servicios",
-    image: "/hero-slide-1.jpg",
+    image: "/media/hero/desktop/hero-slide-1.jpg",
     alt: "Galpón corporativo extendido en 4K con flota masiva de maquinaria vial",
   },
   {
@@ -20,7 +20,7 @@ const slides = [
     subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones volcadores",
     cta: "Conocer Nuestro Equipamiento",
     ctaLink: "/equipos",
-    image: "/hero-slide-2.jpg",
+    image: "/media/hero/desktop/hero-slide-2.jpg",
     alt: "Maquinaria pesada trabajando de manera eficiente en proyecto de infraestructura",
   },
   {
@@ -28,7 +28,7 @@ const slides = [
     subtitle: "Rutas, autopistas, pavimentaciones y mantenimiento vial con los más altos estándares",
     cta: "Ver Proyectos Viales",
     ctaLink: "/obras",
-    image: "/Two_machines_moving_202604112021.mp4",
+    image: "/media/hero/video/hero-bg.mp4",
     isVideo: true,
     alt: "Maquinaria vial trabajando en pavimentación",
   },

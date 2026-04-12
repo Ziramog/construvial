@@ -13,7 +13,7 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <div className="relative h-14 w-52 mb-4">
               <Image
-                src="/Archivo/CONSTRUVIAL_logo.png"
+                src="/media/brand/logo-white.png"
                 alt="Construvial Logo"
                 fill
                 className="object-contain object-left"

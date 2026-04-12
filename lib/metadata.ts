@@ -10,7 +10,7 @@ interface DefaultMetadataProps {
 export const defaultMetadata = {
   title: 'Construvial S.A. | Empresa Constructora Vial y Civil | Córdoba, Argentina',
   description: '35 años ejecutando obras viales, civiles, metálicas y electromecánicas. 500 obras finalizadas. Alquiler de equipos. Río Tercero, Córdoba.',
-  image: '/og-image.jpg',
+  image: '/media/brand/og-image.jpg',
   url: 'https://construvialsa.com.ar'
 }
 

@@ -68,7 +68,7 @@ export function Header() {
           {/* Official Logo */}
           <Link href="/" className="z-50 relative h-12 w-44 sm:h-14 sm:w-52" onClick={() => setIsMobileMenuOpen(false)}>
             <Image
-              src="/Archivo/CONSTRUVIAL_logo.png"
+              src="/media/brand/logo-white.png"
               alt="Construvial Logo"
               fill
               className="object-contain object-left"
