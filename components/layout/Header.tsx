@@ -1,14 +1,33 @@
 "use client"
 
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
+
+const SERVICIOS_LINKS = [
+  { href: '/servicios/ingenieria-civil',     label: 'Ingeniería Civil' },
+  { href: '/servicios/movimiento-suelos',    label: 'Movimiento de Suelos' },
+  { href: '/servicios/alquiler-equipos',     label: 'Alquiler de Equipos' },
+  { href: '/servicios/logistica',            label: 'Logística y Distribución' },
+  { href: '/servicios/departamento-tecnico', label: 'Departamento Técnico' },
+]
+
+const NAV_LINKS = [
+  { name: "Quiénes Somos", href: "/quienes-somos" },
+  { name: "Obras", href: "/obras" },
+  { name: "Equipos", href: "/equipos" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contacto", href: "/contacto" },
+]
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [servOpen, setServOpen] = useState(false)
+  const [mobileServOpen, setMobileServOpen] = useState(false)
+  const servRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -19,14 +38,23 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
-    { name: "Quiénes Somos", href: "/quienes-somos" },
-    { name: "Servicios", href: "/servicios" },
-    { name: "Obras", href: "/obras" },
-    { name: "Equipos", href: "/equipos" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contacto", href: "/contacto" },
-  ]
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (servRef.current && !servRef.current.contains(e.target as Node)) {
+        setServOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handler)
+    return () => document.removeEventListener("mousedown", handler)
+  }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+    setMobileServOpen(false)
+    setServOpen(false)
+  }, [pathname])
 
   return (
     <header
@@ -50,7 +78,50 @@ export function Header() {
 
           {/* Desktop Nav - Centered */}
           <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 font-body">
-            {navLinks.map((link) => (
+            {/* Servicios dropdown */}
+            <div ref={servRef} className="relative group">
+              <button
+                onClick={() => setServOpen(!servOpen)}
+                className={`flex items-center gap-1 text-sm tracking-wider uppercase transition-colors duration-300 font-bold ${
+                  pathname.startsWith('/servicios')
+                    ? "text-white"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                Servicios
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${servOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              {/* Hover underline */}
+              <span className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${pathname.startsWith('/servicios') ? "w-full" : ""}`} />
+
+              {servOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 bg-[#1A1A1A] border border-white/10 shadow-2xl overflow-hidden z-50">
+                  {SERVICIOS_LINKS.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      onClick={() => setServOpen(false)}
+                      className="block px-6 py-4 text-sm text-white/70 hover:text-white hover:bg-white/5 border-b border-white/5 last:border-0 transition-colors font-body tracking-wide"
+                    >
+                      {s.label}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/servicios"
+                    onClick={() => setServOpen(false)}
+                    className="block px-6 py-4 text-sm font-bold text-[#FFD100] hover:bg-white/5 transition-colors font-body tracking-wide uppercase"
+                  >
+                    Ver todos los servicios →
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Rest of nav */}
+            {NAV_LINKS.map((link) => (
               <div key={link.name} className="relative group">
                 <Link
                   href={link.href}
@@ -84,6 +155,7 @@ export function Header() {
           <button
             className="lg:hidden p-2 relative z-50 text-white transition-colors duration-300 hover:text-[#FFD100]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Abrir menú"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -96,8 +168,43 @@ export function Header() {
           isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
         }`}
       >
-        <div className="flex-1 flex flex-col items-center justify-center gap-6 sm:gap-8 p-6 sm:p-8">
-          {navLinks.map((link) => (
+        <div className="flex-1 flex flex-col items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 overflow-y-auto">
+          {/* Servicios expandable section */}
+          <div className="w-full max-w-xs text-center">
+            <button
+              onClick={() => setMobileServOpen(!mobileServOpen)}
+              className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200 flex items-center justify-center gap-2 w-full"
+            >
+              Servicios
+              <ChevronDown
+                size={20}
+                className={`transition-transform duration-200 ${mobileServOpen ? 'rotate-180' : ''}`}
+              />
+            </button>
+            {mobileServOpen && (
+              <div className="mt-3 space-y-2">
+                {SERVICIOS_LINKS.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    className="block py-2 text-sm text-white/60 hover:text-[#FFD100] transition-colors font-body tracking-wide"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {s.label}
+                  </Link>
+                ))}
+                <Link
+                  href="/servicios"
+                  className="block py-2 text-sm font-bold text-[#FFD100] transition-colors font-body tracking-wide uppercase"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Ver todos →
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {NAV_LINKS.map((link) => (
             <Link
               key={link.name}
               href={link.href}
@@ -112,7 +219,7 @@ export function Header() {
             href="https://wa.link/ocm4yr"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full text-center bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
+            className="w-full max-w-xs text-center bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Solicitar Presupuesto

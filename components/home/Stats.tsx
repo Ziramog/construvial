@@ -1,9 +1,16 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { FadeIn } from "@/components/ui/FadeIn"
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter"
 import { STATS } from "@/lib/constants"
 
+const AnimatedCounter = dynamic(
+  () => import('@/components/ui/AnimatedCounter').then(mod => mod.AnimatedCounter),
+  {
+    ssr: false,
+    loading: () => <span>0</span>,
+  }
+)
 
 export function Stats() {
   return (

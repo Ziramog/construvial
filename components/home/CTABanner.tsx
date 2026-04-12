@@ -1,45 +1,55 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/Button"
+'use client'
 
-interface CTABannerProps {
-  title?: string
-  subtitle?: string
-  buttonText?: string
-  buttonLink?: string
-  className?: string
-}
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowRight, Phone } from 'lucide-react'
 
-export function CTABanner({
-  title = "¿Tenés un proyecto en mente?",
-  subtitle = "Contactanos y te ayudamos a hacerlo realidad. Nuestro equipo está listo para asesorarte.",
-  buttonText = "Contactanos ahora",
-  buttonLink = "/contacto",
-  className,
-}: CTABannerProps) {
+export function CTABanner() {
   return (
-    <section className={`bg-gradient-to-r from-primary to-dark text-white py-16 md:py-20 relative overflow-hidden ${className}`}>
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+    <section className="py-20 bg-[#1A1A1A] relative overflow-hidden">
+      {/* Accent top line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-[#FFD100]" />
+
+      {/* Decorative pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-8 right-16 w-64 h-64 border border-white rounded-full" />
+        <div className="absolute -bottom-16 left-8 w-96 h-96 border border-white rounded-full" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold uppercase tracking-wide mb-4">
-            {title}
-          </h2>
-          <p className="font-body text-lg text-gray-200 mb-8">
-            {subtitle}
+      <div className="relative max-w-4xl mx-auto px-6 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-[#FFD100] text-sm font-bold tracking-widest uppercase mb-4 font-body">
+            ¿Tenés un proyecto?
           </p>
-          <Button asChild size="lg" className="text-lg font-bold px-8 bg-accent hover:bg-accent/90">
-            <Link href={buttonLink}>
-              {buttonText}
-              <ArrowRight className="ml-2 h-5 w-5" />
+          <h2 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold text-white uppercase leading-tight mb-6">
+            Hablemos.
+          </h2>
+          <p className="text-white/50 text-lg mb-10 max-w-xl mx-auto font-body leading-relaxed">
+            35 años de experiencia respaldan cada presupuesto. Respondemos en menos de 24 horas.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contacto"
+              className="flex items-center gap-3 bg-[#FFD100] hover:bg-white text-[#1A1A1A] font-body font-bold text-sm uppercase tracking-widest px-10 py-5 transition-all shadow-xl hover:-translate-y-1 group"
+            >
+              Solicitar presupuesto
+              <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
             </Link>
-          </Button>
-        </div>
+            <a
+              href="tel:+543571421350"
+              className="flex items-center gap-3 border-2 border-white/20 hover:border-[#FFD100] text-white/80 hover:text-[#FFD100] font-body font-medium text-sm uppercase tracking-widest px-10 py-5 transition-all"
+            >
+              <Phone size={16} />
+              03571 421350
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

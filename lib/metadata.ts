@@ -21,6 +21,7 @@ export function constructMetadata({
   url = defaultMetadata.url
 }: DefaultMetadataProps = {}): Metadata {
   return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://construvialsa.com.ar'),
     title,
     description,
     keywords: ['constructora vial cordoba', 'obras civiles argentina', 'alquiler equipos viales', 'empresa constructora cordoba'],
@@ -34,6 +35,6 @@ export function constructMetadata({
       type: 'website',
     },
     robots: { index: true, follow: true },
-    alternates: { canonical: url },
+    alternates: { canonical: '/' },
   }
 }
