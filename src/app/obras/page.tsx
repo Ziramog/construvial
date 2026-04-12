@@ -75,12 +75,24 @@ const mockWorks = [
   },
 ]
 
+interface SanityObra {
+  _id: string
+  titulo: string
+  slug?: { current: string }
+  categoria?: string
+  cliente?: string
+  imagenDesktop?: string
+  imagenMobile?: string
+  videoDesktop?: string
+  videoMobile?: string
+}
+
 export const revalidate = 60 // Revalidate Sanity data every 60s
 
 export default async function ObrasPage() {
   const sanityWorksRaw = await getAllObras()
   
-  const sanityWorks = sanityWorksRaw.map((s: any) => ({
+  const sanityWorks = sanityWorksRaw.map((s: SanityObra) => ({
     slug: s.slug?.current || s._id,
     title: s.titulo,
     category: s.categoria || "viales",

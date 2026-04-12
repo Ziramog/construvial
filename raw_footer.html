@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CONSTRUVIAL S.A. | Precision Brutalism</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(52, 57, 72, 0.6);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#150f00",
+                      "on-primary-fixed": "#161b29",
+                      "on-primary-fixed-variant": "#424656",
+                      "error-container": "#93000a",
+                      "secondary": "#c6c6c6",
+                      "surface-tint": "#c2c6d8",
+                      "on-secondary-fixed": "#1b1b1b",
+                      "on-surface": "#dee2f5",
+                      "on-tertiary-container": "#967900",
+                      "on-error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#c6c6c6",
+                      "tertiary-fixed-dim": "#eec200",
+                      "on-secondary-fixed-variant": "#474747",
+                      "on-tertiary-fixed": "#231b00",
+                      "tertiary-fixed": "#ffe083",
+                      "on-surface-variant": "#c6c6cc",
+                      "surface": "#0e1320",
+                      "primary-fixed": "#dee2f5",
+                      "on-tertiary": "#3c2f00",
+                      "secondary-fixed": "#e2e2e2",
+                      "primary-fixed-dim": "#c2c6d8",
+                      "surface-container-highest": "#303443",
+                      "inverse-primary": "#595e6e",
+                      "tertiary": "#eec200",
+                      "surface-container-low": "#161b29",
+                      "on-secondary-container": "#b5b5b5",
+                      "primary-container": "#0a0f1c",
+                      "error": "#ffb4ab",
+                      "surface-variant": "#303443",
+                      "surface-dim": "#0e1320",
+                      "inverse-surface": "#dee2f5",
+                      "on-primary-container": "#777b8c",
+                      "outline": "#909096",
+                      "background": "#0e1320",
+                      "surface-container-high": "#252a38",
+                      "surface-container-lowest": "#090e1b",
+                      "on-secondary": "#303030",
+                      "surface-bright": "#343948",
+                      "on-primary": "#2b303e",
+                      "on-tertiary-fixed-variant": "#574500",
+                      "outline-variant": "#46464c",
+                      "on-error": "#690005",
+                      "primary": "#c2c6d8",
+                      "surface-container": "#1a1f2d",
+                      "secondary-container": "#474747",
+                      "inverse-on-surface": "#2b303e",
+                      "on-background": "#dee2f5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-tertiary selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0a0f1c] dark:bg-[#0a0f1c] shadow-2xl shadow-black/50">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#c2c6d8] text-2xl" data-icon="construction">construction</span>
+<span class="text-xl font-bold text-white uppercase tracking-tighter font-['Space_Grotesk']">CONSTRUVIAL S.A.</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#eec200] font-['Space_Grotesk'] uppercase tracking-widest text-sm font-bold" href="#">Empresa</a>
+<a class="text-[#c2c6d8] hover:text-[#eec200] transition-colors duration-300 font-['Space_Grotesk'] uppercase tracking-widest text-sm" href="#">Servicios</a>
+<a class="text-[#c2c6d8] hover:text-[#eec200] transition-colors duration-300 font-['Space_Grotesk'] uppercase tracking-widest text-sm" href="#">ISO 9001</a>
+<a class="text-[#c2c6d8] hover:text-[#eec200] transition-colors duration-300 font-['Space_Grotesk'] uppercase tracking-widest text-sm" href="#">ISO 14001</a>
+</nav>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-[#c2c6d8]" data-icon="menu">menu</span>
+</div>
+</div>
+<div class="bg-[#161b29] h-[1px] w-full"></div>
+</header>
+<main class="pt-24 pb-12">
+<!-- Spec-Sheet Header -->
+<section class="max-w-7xl mx-auto px-8 mb-16">
+<div class="border border-outline-variant/10 p-4 flex flex-wrap gap-6 items-center">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Documento</span>
+<span class="text-xs text-primary/60 font-mono">CV-2024-ARCH-01</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/20"></div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Proyecto</span>
+<span class="text-xs text-primary/60 uppercase">Infraestructura Vial Nacional</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/20 hidden sm:block"></div>
+<div class="flex flex-col hidden sm:flex">
+<span class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Fecha</span>
+<span class="text-xs text-primary/60">Octubre 2024</span>
+</div>
+</div>
+</section>
+<!-- Hero Display Section -->
+<section class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 items-end">
+<div class="lg:col-span-8">
+<h1 class="font-headline text-5xl md:text-7xl font-bold text-white leading-[0.9] tracking-tighter mb-8">
+                    CONSTRUYENDO EL <span class="text-tertiary">FUTURO VIAL</span> DE ARGENTINA.
+                </h1>
+<p class="text-on-surface-variant text-lg max-w-xl leading-relaxed">
+                    Ingeniería de precisión y ejecución de alto impacto. Lideramos el sector con más de tres décadas de experiencia en obras estratégicas.
+                </p>
+</div>
+<div class="lg:col-span-4 flex justify-end">
+<div class="relative w-full aspect-square bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700" data-alt="Modern construction machinery at a massive highway construction site under dramatic sunset lighting with high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVYX3eJxZ6If05LuoJk2NItCF3aJ3LFzAErZ8-AmlGVRp6hxCiitSBU1xihMt58BbyHdl3bbRUEbg-57wlo8fJ_OVxljSqjAdhTAEv0W2YMVaqu93XQ8sW-pJFIei2lPLN9F8xLky5C8DkDrXaQmZDtt-vne0tM44zT6nisAlupaTT71t3t_6XmNC0I36LCRGaHY1CoPv_Sg0eQpAFdxqUE3PfdAxE2L1oWHmrhWnTP_0mJ6u4mNiGhgo29FqF3VhyfuhW_JlTMo4"/>
+<div class="absolute inset-0 border-[16px] border-surface"></div>
+</div>
+</div>
+</section>
+<!-- Content Placeholder -->
+<section class="bg-surface-container-low py-24 mb-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-high p-12 border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6" data-icon="precision_manufacturing">precision_manufacturing</span>
+<h3 class="text-xl font-bold text-white mb-4 uppercase tracking-tight">Equipamiento Propio</h3>
+<p class="text-on-surface-variant text-sm">Flota de última tecnología para movimientos de suelos a gran escala y pavimentación técnica.</p>
+</div>
+<div class="bg-surface-container-high p-12 border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6" data-icon="architecture">architecture</span>
+<h3 class="text-xl font-bold text-white mb-4 uppercase tracking-tight">Ingeniería Civil</h3>
+<p class="text-on-surface-variant text-sm">Diseño y planificación de infraestructuras complejas con normativas internacionales de calidad.</p>
+</div>
+<div class="bg-surface-container-high p-12 border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-6" data-icon="verified">verified</span>
+<h3 class="text-xl font-bold text-white mb-4 uppercase tracking-tight">Gestión Certificada</h3>
+<p class="text-on-surface-variant text-sm">Compromiso inquebrantable con el medio ambiente y la calidad operativa bajo normas ISO.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Floating WhatsApp Style) -->
+<div class="fixed bottom-8 right-8 flex flex-col gap-4 z-50">
+<a class="bg-[#eec200] p-4 rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 text-[#3c2f00]" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</a>
+<a class="bg-[#eec200] p-4 rounded-full flex items-center justify-center shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:scale-110 active:scale-95 transition-all duration-300 text-[#3c2f00]" href="#">
+<span class="material-symbols-outlined" data-icon="phone">phone</span>
+</a>
+</div>
+<!-- Footer -->
+<footer class="bg-[#090e1b] dark:bg-[#090e1b] w-full border-t-4 border-[#eec200]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
+<!-- Branding Column -->
+<div class="space-y-6">
+<div class="text-2xl font-black text-white mb-2 font-headline tracking-tighter">
+                    CONSTRUVIAL<span class="text-tertiary">.</span>
+</div>
+<p class="text-[#c6c6cc] text-sm leading-relaxed font-body">
+                    Más de 35 años construyendo infraestructura vial en Argentina. Excelencia operativa y compromiso con el desarrollo nacional.
+                </p>
+<!-- Mobile Accordion Trigger Placeholder Concept (Visualized as sections in mobile via grid) -->
+</div>
+<!-- Empresa Column -->
+<div class="space-y-6">
+<h4 class="text-white font-bold uppercase tracking-widest text-sm font-headline border-b border-outline-variant/20 pb-2">Empresa</h4>
+<ul class="space-y-3">
+<li><a class="text-[#c6c6cc] hover:translate-x-1 hover:text-[#eec200] transition-all duration-200 text-sm uppercase tracking-wider block" href="#">Quiénes Somos</a></li>
+<li><a class="text-[#c6c6cc] hover:translate-x-1 hover:text-[#eec200] transition-all duration-200 text-sm uppercase tracking-wider block" href="#">Proyectos</a></li>
+<li><a class="text-[#c6c6cc] hover:translate-x-1 hover:text-[#eec200] transition-all duration-200 text-sm uppercase tracking-wider block" href="#">Equipamiento</a></li>
+<li><a class="text-[#c6c6cc] hover:translate-x-1 hover:text-[#eec200] transition-all duration-200 text-sm uppercase tracking-wider block" href="#">Soluciones</a></li>
+</ul>
+</div>
+<!-- Servicios Column -->
+<div class="space-y-6">
+<h4 class="text-white font-bold uppercase tracking-widest text-sm font-headline border-b border-outline-variant/20 pb-2">Servicios</h4>
+<ul class="space-y-3">
+<li><a class="text-[#c6c6cc] hover:translate-x-1 hover:text-[#eec200] transition-all duration-200 text-sm uppercase tracking-wider block" href="#">Ingeniería Civil</a></li>
+<li><a class="text-[#c6c6cc] hover:translate-x-1 hover:text-[#eec200] transition-all duration-200 text-sm uppercase tracking-wider block" href="#">Movimiento de Suelos</a></li>
+<li><a class="text-[#c6c6cc] hover:translate-x-1 hover:text-[#eec200] transition-all duration-200 text-sm uppercase tracking-wider block" href="#">Alquiler de Equipos</a></li>
+<li><a class="text-[#c6c6cc] hover:translate-x-1 hover:text-[#eec200] transition-all duration-200 text-sm uppercase tracking-wider block" href="#">Logística y Distribución</a></li>
+</ul>
+</div>
+<!-- Contact Column -->
+<div class="space-y-6">
+<h4 class="text-white font-bold uppercase tracking-widest text-sm font-headline border-b border-outline-variant/20 pb-2">Contacto</h4>
+<div class="space-y-4">
+<div class="flex items-start gap-3 group">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="location_on">location_on</span>
+<span class="text-[#c6c6cc] text-xs leading-tight">Ángel V. Peñaloza 1154,<br/>Río Tercero, Córdoba</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="call">call</span>
+<div class="flex flex-col">
+<span class="text-[#c6c6cc] text-xs">03571 421350</span>
+<span class="text-[#c6c6cc] text-xs">03571 423514</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="mail">mail</span>
+<span class="text-[#c6c6cc] text-xs">info@construvialsa.com.ar</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Certifications Section -->
+<div class="bg-[#0e1320] py-8">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-tertiary font-bold uppercase tracking-widest text-xs font-headline">Certificaciones Internacionales</div>
+<div class="flex gap-8">
+<div class="flex items-center gap-3 border border-outline-variant/20 px-4 py-2">
+<span class="material-symbols-outlined text-white text-xl" data-icon="verified">verified</span>
+<span class="text-white font-bold text-[10px] tracking-tighter">ISO 9001:2015</span>
+</div>
+<div class="flex items-center gap-3 border border-outline-variant/20 px-4 py-2">
+<span class="material-symbols-outlined text-white text-xl" data-icon="eco">eco</span>
+<span class="text-white font-bold text-[10px] tracking-tighter">ISO 14001:2015</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="border-t border-outline-variant/10 py-8">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[#c6c6cc] text-[10px] uppercase tracking-widest font-label">
+                    © 2026 Construvial S.A. Todos los derechos reservados. Precision Brutalism in Infrastructure.
+                </p>
+<div class="flex gap-6">
+<a class="text-[#c6c6cc] hover:text-white text-[10px] uppercase tracking-widest transition-colors" href="#">Privacidad</a>
+<a class="text-[#c6c6cc] hover:text-white text-[10px] uppercase tracking-widest transition-colors" href="#">Términos</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
