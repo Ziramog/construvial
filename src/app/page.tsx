@@ -2,10 +2,10 @@ import type { Metadata } from "next"
 import { Hero } from "@/components/home/Hero"
 import { Stats } from "@/components/home/Stats"
 import { ClientMarquee } from "@/components/home/ClientMarquee"
-import { ServicesGrid } from "@/components/home/ServicesGrid"
-import { CTABanner } from "@/components/home/CTABanner"
-import { CompanySection } from "@/components/home/CompanySection"
-import { ContactSection } from "@/components/home/ContactSection"
+import { CompanyBand } from "@/components/home/CompanyBand"
+import { ServicesCards } from "@/components/home/ServicesCards"
+import { EquiposCarousel } from "@/components/home/EquiposCarousel"
+import { CTAFinal } from "@/components/home/CTAFinal"
 import { constructMetadata } from "@/lib/metadata"
 
 export const metadata: Metadata = constructMetadata({
@@ -19,10 +19,10 @@ export default function HomePage() {
       <Hero />
       <Stats />
       <ClientMarquee />
-      <ServicesGrid />
-      <CTABanner />
-      <CompanySection />
-      <ContactSection />
+      <CompanyBand />
+      <ServicesCards />
+      <EquiposCarousel />
+      <CTAFinal />
     </>
   )
 }
