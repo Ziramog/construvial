@@ -7,22 +7,34 @@ interface WorkCardProps {
   category: string
   client: string
   image: string
+  video?: string
   slug: string
   index: number
 }
 
-export function WorkCard({ title, category, client, image, slug, index }: WorkCardProps) {
+export function WorkCard({ title, category, client, image, video, slug, index }: WorkCardProps) {
   const num = String(index + 1).padStart(3, "0")
 
   return (
     <Link href={`/obras/${slug}`} className="group block relative overflow-hidden">
-      <div className="relative aspect-[4/3]">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
-        />
+      <div className="relative aspect-[4/3] bg-black">
+        {video ? (
+          <video
+            src={video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        )}
         {/* Overlay gradient only at bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
 

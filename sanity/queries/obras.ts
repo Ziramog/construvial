@@ -12,7 +12,10 @@ export const obrasQuery = groq`*[_type == "obra"] | order(anio desc) {
   ubicacion,
   anio,
   destacada,
-  "imagenPrincipal": imagenPrincipal.asset->url,
+  "imagenDesktop": imagenDesktop.asset->url,
+  "imagenMobile": imagenMobile.asset->url,
+  "videoDesktop": videoDesktop.asset->url,
+  "videoMobile": videoMobile.asset->url,
   "galeria": galeria[].asset->url
 }`
 
@@ -27,7 +30,10 @@ export const obraBySlugQuery = groq`*[_type == "obra" && slug.current == $slug][
   ubicacion,
   anio,
   destacada,
-  "imagenPrincipal": imagenPrincipal.asset->url,
+  "imagenDesktop": imagenDesktop.asset->url,
+  "imagenMobile": imagenMobile.asset->url,
+  "videoDesktop": videoDesktop.asset->url,
+  "videoMobile": videoMobile.asset->url,
   "galeria": galeria[].asset->url
 }`
 
@@ -38,7 +44,10 @@ export const featuredObrasQuery = groq`*[_type == "obra" && destacada == true] |
   slug,
   cliente,
   categoria,
-  "imagenPrincipal": imagenPrincipal.asset->url
+  "imagenDesktop": imagenDesktop.asset->url,
+  "imagenMobile": imagenMobile.asset->url,
+  "videoDesktop": videoDesktop.asset->url,
+  "videoMobile": videoMobile.asset->url
 }`
 
 // Get obras by category
@@ -48,7 +57,10 @@ export const obrasByCategoryQuery = groq`*[_type == "obra" && categoria == $cate
   slug,
   cliente,
   categoria,
-  "imagenPrincipal": imagenPrincipal.asset->url
+  "imagenDesktop": imagenDesktop.asset->url,
+  "imagenMobile": imagenMobile.asset->url,
+  "videoDesktop": videoDesktop.asset->url,
+  "videoMobile": videoMobile.asset->url
 }`
 
 export async function getAllObras() {
@@ -66,3 +78,4 @@ export async function getFeaturedObras() {
 export async function getObrasByCategory(categoria: string) {
   return client.fetch(obrasByCategoryQuery, { categoria })
 }
+

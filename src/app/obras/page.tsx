@@ -1,13 +1,14 @@
 import type { Metadata } from "next"
 import { constructMetadata } from "@/lib/metadata"
 import { WorksGrid } from "@/components/obras/WorksGrid"
+import { getAllObras } from "@/sanity/queries/obras"
 
 export const metadata: Metadata = constructMetadata({
   title: "Obras | Construvial S.A.",
   description: "Conocé nuestro portfolio de más de 500 obras finalizadas: viales, civiles, industriales y electromecánicas en todo el país.",
 })
 
-// Mock data - replace with Sanity data when CMS is connected
+// Fallback Mock data - this will be shown at the bottom
 const mockWorks = [
   {
     slug: "pavimentacion-ruta-6",
@@ -74,7 +75,23 @@ const mockWorks = [
   },
 ]
 
-export default function ObrasPage() {
+export const revalidate = 60 // Revalidate Sanity data every 60s
+
+export default async function ObrasPage() {
+  const sanityWorksRaw = await getAllObras()
+  
+  const sanityWorks = sanityWorksRaw.map((s: any) => ({
+    slug: s.slug?.current || s._id,
+    title: s.titulo,
+    category: s.categoria || "viales",
+    client: s.cliente || "Construvial S.A.",
+    image: s.imagenDesktop || s.imagenMobile || "/media/obras/placeholder.jpg",
+    video: s.videoDesktop || s.videoMobile || undefined
+  }))
+
+  // Fusion: First show real works from CMS, then fill with mock works
+  const combinedWorks = [...sanityWorks, ...mockWorks]
+
   return (
     <>
       {/* Hero — with watermark number */}
@@ -101,7 +118,7 @@ export default function ObrasPage() {
       {/* Works Grid */}
       <section className="py-20 bg-[#F4F1EC]">
         <div className="container mx-auto px-4 md:px-6">
-          <WorksGrid works={mockWorks} className="mt-8" />
+          <WorksGrid works={combinedWorks} className="mt-8" />
         </div>
       </section>
     </>

@@ -10,6 +10,7 @@ interface Work {
   category: string
   client: string
   image: string
+  video?: string
 }
 
 interface WorksGridProps {
