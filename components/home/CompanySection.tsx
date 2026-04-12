@@ -5,9 +5,9 @@ import { ArrowRight } from "lucide-react"
 
 export function CompanySection() {
   return (
-    <section id="empresa" className="py-24 bg-[#1A1A1A] text-white overflow-hidden relative">
+    <section id="empresa" className="py-24 bg-gradient-to-b from-[#0a0a0a] to-[#141414] text-white overflow-hidden relative">
       {/* Background Detail */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-black/20 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#0a0a0a]/20 to-transparent pointer-events-none" />
       
       <div className="container mx-auto px-4 md:px-12 lg:px-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
@@ -15,13 +15,13 @@ export function CompanySection() {
           {/* Left Column: Text & CTA */}
           <div className="w-full lg:w-1/2">
             <FadeIn delay={0} direction="up">
-              <span className="font-body text-[#FFD100] text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">
+              <span className="font-body text-[#facc15] text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">
                 Nuestra Historia
               </span>
               <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-white uppercase leading-[0.9] mb-8 font-bold">
-                35 Años <br /> <span className="text-[#FFD100]">Construyendo</span> <br /> Argentina
+                35 Años <br /> <span className="text-[#facc15]">Construyendo</span> <br /> Argentina
               </h2>
-              <div className="w-20 h-[3px] bg-[#FFD100] mb-12" />
+              <div className="w-20 h-[3px] bg-[#facc15] mb-12" />
             </FadeIn>
 
             <FadeIn delay={200} direction="up">
@@ -37,7 +37,7 @@ export function CompanySection() {
               <div className="flex flex-wrap gap-6">
                 <Link
                   href="/quienes-somos"
-                  className="inline-flex items-center justify-center gap-3 bg-[#FFD100] text-[#1A1A1A] font-body font-bold text-sm uppercase tracking-widest px-10 py-5 hover:bg-white transition-all shadow-xl hover:-translate-y-1 group"
+                  className="inline-flex items-center justify-center gap-3 bg-[#facc15] text-[#0a0a0a] font-body font-bold text-sm uppercase tracking-widest px-10 py-5 hover:bg-white transition-all shadow-xl hover:-translate-y-1 group"
                 >
                   Nuestra Trayectoria
                   <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
@@ -58,7 +58,7 @@ export function CompanySection() {
                        className="object-cover brightness-90 hover:scale-105 transition-transform duration-1000"
                     />
                     {/* Decorative Elements */}
-                    <div className="absolute -bottom-1 -right-1 w-32 h-32 border-b-4 border-r-4 border-[#FFD100]/30 pointer-events-none" />
+                    <div className="absolute -bottom-1 -right-1 w-32 h-32 border-b-4 border-r-4 border-[#facc15]/30 pointer-events-none" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>

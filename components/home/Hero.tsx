@@ -96,8 +96,8 @@ export function Hero() {
               quality={85}
             />
           )}
-          {/* Subtle overlay for readability - much clearer view */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50" />
+          {/* Subtle overlay for readability - neutral industrial depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent opacity-60" />
         </motion.div>
       </AnimatePresence>
 
@@ -117,7 +117,7 @@ export function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.15, duration: 0.4 }}
-              className="font-body text-[#FFD100] text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 drop-shadow-md"
+              className="font-body text-[#facc15] text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4 drop-shadow-md"
             >
               Desde 1989 · Córdoba, Argentina
             </motion.p>
@@ -136,7 +136,7 @@ export function Hero() {
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Link
                 href={slide.ctaLink}
-                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#FFD100] text-black font-body font-bold px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 group shadow-lg"
+                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 bg-[#facc15] text-[#0a0a0a] font-body font-bold px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:bg-yellow-400 active:bg-yellow-500 transition-all duration-200 group shadow-lg"
               >
                 {slide.cta}
                 <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
@@ -145,7 +145,7 @@ export function Hero() {
                 href="https://wa.link/ocm4yr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 border-2 border-white/40 text-white font-body font-medium px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:border-[#FFD100] hover:text-[#FFD100] active:bg-white/10 transition-all duration-200"
+                className="w-full sm:w-auto flex-1 sm:flex-none inline-flex items-center justify-center gap-2 sm:gap-3 border-2 border-white/40 text-white font-body font-medium px-5 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm tracking-wider uppercase hover:border-[#facc15] hover:text-[#facc15] active:bg-white/10 transition-all duration-200"
               >
                 Solicitar Presupuesto
               </Link>

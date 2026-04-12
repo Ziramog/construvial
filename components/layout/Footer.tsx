@@ -10,12 +10,12 @@ export function Footer() {
   if (pathname.startsWith('/studio')) return null
 
   return (
-    <footer className="bg-[#090e1b] w-full border-t-4 border-[#FFD100]">
+    <footer className="bg-gradient-to-b from-[#0a0a0a] to-[#141414] w-full border-t-4 border-[#facc15]">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-16 max-w-7xl mx-auto">
         {/* Branding Column */}
         <div className="space-y-6">
           <div className="text-2xl font-black text-white mb-2 font-display tracking-tighter">
-            CONSTRUVIAL<span className="text-[#FFD100]">.</span>
+            CONSTRUVIAL<span className="text-[#facc15]">.</span>
           </div>
           <p className="text-[#c6c6cc] text-sm leading-relaxed font-body">
             Más de 35 años construyendo infraestructura vial en Argentina. Excelencia operativa y compromiso con el desarrollo nacional.
@@ -56,14 +56,14 @@ export function Footer() {
               <span className="text-[#c6c6cc] text-xs leading-tight">{CONTACT.address}</span>
             </div>
             <div className="flex items-center gap-3">
-              <Phone size={18} className="text-[#FFD100] shrink-0" />
+              <Phone size={18} className="text-[#facc15] shrink-0" />
               <div className="flex flex-col">
                 <span className="text-[#c6c6cc] text-xs">{CONTACT.phone1}</span>
                 <span className="text-[#c6c6cc] text-xs">{CONTACT.phone2}</span>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Mail size={18} className="text-[#FFD100] shrink-0" />
+              <Mail size={18} className="text-[#facc15] shrink-0" />
               <a href={`mailto:${CONTACT.email}`} className="text-[#c6c6cc] text-xs hover:text-white transition-colors">{CONTACT.email}</a>
             </div>
           </div>
@@ -71,7 +71,7 @@ export function Footer() {
       </div>
 
       {/* Certifications Section */}
-      <div className="bg-[#0e1320] py-8 border-t border-white/5">
+      <div className="bg-white/5 py-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-[#c6c6cc] font-bold uppercase tracking-widest text-xs font-display">Certificaciones Internacionales</div>
           <div className="flex gap-4 flex-wrap justify-center md:gap-8">

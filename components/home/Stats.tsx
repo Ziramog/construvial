@@ -31,9 +31,8 @@ export function Stats() {
           {STATS.map((stat, index) => (
             <FadeIn key={index} delay={index * 100} direction="up">
               <div className="flex flex-col items-center text-center">
-                <div className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#1A1A1A] leading-none flex items-baseline">
+                <div className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#0a0a0a] leading-none flex items-baseline">
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-
                 </div>
                 <p className="font-body text-[#4a3f00] text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] mt-2 sm:mt-3 leading-relaxed font-medium">
                   {stat.label}

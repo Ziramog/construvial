@@ -60,7 +60,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-[#1A1A1A] border-b border-white/10 shadow-lg ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-[#0a0a0a] border-b border-white/5 shadow-2-xl ${
         isScrolled ? "py-2 sm:py-3" : "py-3 sm:py-5"
       }`}
     >
@@ -100,7 +100,7 @@ export function Header() {
               <span className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${pathname.startsWith('/servicios') ? "w-full" : ""}`} />
 
               {servOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 bg-[#1A1A1A] border border-white/10 shadow-2xl overflow-hidden z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 bg-[#0a0a0a] border border-white/5 shadow-2xl overflow-hidden z-50">
                   {SERVICIOS_LINKS.map((s) => (
                     <Link
                       key={s.href}
@@ -147,7 +147,7 @@ export function Header() {
               href="https://wa.link/ocm4yr"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-sm px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:bg-yellow-400"
+              className="bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-sm px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:bg-yellow-400"
             >
               Solicitar Presupuesto
             </Link>
@@ -166,7 +166,7 @@ export function Header() {
 
       {/* Mobile Nav */}
       <div
-        className={`lg:hidden fixed inset-0 bg-[#1A1A1A] z-40 flex flex-col transition-all duration-300 ease-in-out ${
+        className={`lg:hidden fixed inset-0 bg-[#0a0a0a] z-40 flex flex-col transition-all duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
         }`}
       >
@@ -221,7 +221,7 @@ export function Header() {
             href="https://wa.link/ocm4yr"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full max-w-xs text-center bg-[#FFD100] text-[#1A1A1A] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
+            className="w-full max-w-xs text-center bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Solicitar Presupuesto

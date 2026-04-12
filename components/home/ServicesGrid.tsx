@@ -21,14 +21,14 @@ export function ServicesGrid() {
   const [activeTab, setActiveTab] = useState(0)
 
   return (
-    <section id="servicios" className="py-24 bg-[#F4F1EC] text-[#1A1A1A] overflow-hidden">
+    <section id="servicios" className="py-24 bg-[#f5f5f4] text-[#0a0a0a] overflow-hidden">
       <div className="container mx-auto px-4 md:px-12 lg:px-20">
         <div className="mb-16">
           <FadeIn delay={0} direction="up">
             <span className="font-body text-[#FFD100] text-xs sm:text-sm tracking-[0.3em] uppercase mb-4 block">
               Nuestras Capacidades
             </span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-[#1A1A1A] uppercase leading-[0.9] mb-2">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-7xl text-[#0a0a0a] uppercase leading-[0.9] mb-2">
               Soluciones <br /> <span className="text-[#FFD100]">Integrales</span>
             </h2>
             <div className="w-20 h-[3px] bg-[#FFD100] mt-8" />
@@ -44,7 +44,7 @@ export function ServicesGrid() {
                 key={servicio.slug}
                 onClick={() => setActiveTab(index)}
                 className={`relative flex-1 py-8 px-4 text-left font-display text-lg uppercase tracking-wider transition-all duration-300 ${
-                  activeTab === index ? "text-[#1A1A1A]" : "text-black/40 hover:text-black/70"
+                  activeTab === index ? "text-[#0a0a0a]" : "text-black/40 hover:text-black/70"
                 }`}
               >
                 <span className="block text-[#FFD100] text-[10px] mb-2 opacity-50 font-bold">0{index + 1}</span>
@@ -63,7 +63,7 @@ export function ServicesGrid() {
           </div>
 
           {/* Tab Content */}
-          <div className="relative overflow-hidden border border-black/10 bg-[#1A1A1A] p-2 shadow-2xl" style={{ minHeight: '550px' }}>
+          <div className="relative overflow-hidden border border-black/5 bg-[#0a0a0a] p-2 shadow-2xl" style={{ minHeight: '550px' }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
@@ -83,7 +83,7 @@ export function ServicesGrid() {
                   <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
                 </div>
                 
-                <div className="col-span-2 p-12 lg:p-16 flex flex-col justify-center bg-[#1A1A1A]">
+                <div className="col-span-2 p-12 lg:p-16 flex flex-col justify-center bg-[#0a0a0a]">
                   <h3 className="font-display text-4xl lg:text-5xl uppercase mb-8 text-white leading-tight font-bold">
                     {SERVICIOS[activeTab].titulo}
                   </h3>
@@ -125,7 +125,7 @@ export function ServicesGrid() {
                 <button
                   onClick={() => setActiveTab(isActive ? -1 : index)}
                   className={`w-full text-left py-6 px-8 font-display text-lg uppercase tracking-wider flex justify-between items-center transition-all ${
-                    isActive ? "bg-[#1A1A1A] text-[#FFD100]" : "text-black/60 hover:text-black"
+                    isActive ? "bg-[#0a0a0a] text-[#facc15]" : "text-black/60 hover:text-black"
                   }`}
                 >
                   <span className="flex items-center gap-4">
@@ -153,7 +153,7 @@ export function ServicesGrid() {
                           className="object-cover brightness-75"
                         />
                       </div>
-                      <div className="p-8 bg-[#1A1A1A]">
+                      <div className="p-8 bg-[#0a0a0a]">
                         <p className="font-body text-white/70 text-base leading-relaxed mb-8">
                           {servicio.descripcion}
                         </p>

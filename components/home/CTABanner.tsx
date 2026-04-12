@@ -6,9 +6,9 @@ import { ArrowRight, Phone } from 'lucide-react'
 
 export function CTABanner() {
   return (
-    <section className="py-20 bg-[#1A1A1A] relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-[#0a0a0a] to-[#141414] relative overflow-hidden">
       {/* Accent top line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-[#FFD100]" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-[#facc15]" />
 
       {/* Decorative pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -36,7 +36,7 @@ export function CTABanner() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contacto"
-              className="flex items-center gap-3 bg-[#FFD100] hover:bg-white text-[#1A1A1A] font-body font-bold text-sm uppercase tracking-widest px-10 py-5 transition-all shadow-xl hover:-translate-y-1 group"
+              className="flex items-center gap-3 bg-[#facc15] hover:bg-white text-[#0a0a0a] font-body font-bold text-sm uppercase tracking-widest px-10 py-5 transition-all shadow-xl hover:-translate-y-1 group"
             >
               Solicitar presupuesto
               <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
