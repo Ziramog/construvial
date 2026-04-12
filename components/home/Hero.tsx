@@ -20,7 +20,8 @@ const slides = [
     subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones volcadores",
     cta: "Conocer Nuestro Equipamiento",
     ctaLink: "/equipos",
-    image: "/media/hero/desktop/hero-slide-2.jpg",
+    image: "/media/hero/desktop/hero-slide-2.mp4",
+    isVideo: true,
     alt: "Maquinaria pesada trabajando de manera eficiente en proyecto de infraestructura",
   },
   {
