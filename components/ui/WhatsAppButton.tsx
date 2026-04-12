@@ -4,10 +4,12 @@ import { useState } from "react"
 import { MessageCircle } from "lucide-react"
 import { CONTACT } from "@/lib/constants"
 import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 export function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false)
   const [hovered, setHovered] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +19,7 @@ export function WhatsAppButton() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  if (!isVisible) return null
+  if (pathname.startsWith('/studio') || !isVisible) return null
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">

@@ -56,6 +56,8 @@ export function Header() {
     setServOpen(false)
   }, [pathname])
 
+  if (pathname.startsWith('/studio')) return null
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-[#1A1A1A] border-b border-white/10 shadow-lg ${
