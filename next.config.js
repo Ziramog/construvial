@@ -1,15 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'construvial.vercel.app' }],
-        destination: 'https://construvialsa.com.ar/:path*',
-        permanent: true,
-      },
-    ]
-  },
+  // NOTE: Enable this redirect ONLY after construvialsa.com.ar DNS + SSL is configured in Vercel
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/:path*',
+  //       has: [{ type: 'host', value: 'construvial.vercel.app' }],
+  //       destination: 'https://construvialsa.com.ar/:path*',
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'cdn.sanity.io' },
