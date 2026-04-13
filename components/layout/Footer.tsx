@@ -1,8 +1,9 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { MapPin, Phone, Mail, ShieldCheck, Leaf } from "lucide-react"
+import { MapPin, Phone, Mail, ShieldCheck, Leaf, ExternalLink } from "lucide-react"
 import { CONTACT } from "@/lib/constants"
+import { StyledGoogleMap } from "@/components/ui/StyledGoogleMap"
 
 export function Footer() {
   const pathname = usePathname()
@@ -21,7 +22,7 @@ export function Footer() {
             className="h-12 w-auto object-contain"
           />
           <p className="text-[#c6c6cc] text-sm leading-relaxed font-body">
-            Más de 35 años construyendo infraestructura vial en Argentina. Excelencia operativa y compromiso con el desarrollo nacional.
+            Más de 35 años ejecutando obras de infraestructura en Argentina con precisión y experiencia comprobada.
           </p>
 
           {/* Social Media */}
@@ -54,51 +55,55 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Contact Column */}
+        {/* Contact Column — improved layout */}
         <div className="space-y-6">
           <h4 className="text-[#FFD100] font-bold uppercase tracking-widest text-sm font-display border-b border-white/10 pb-2">Contacto</h4>
-          <div className="space-y-4 font-body">
+          <div className="space-y-5 font-body">
+            {/* Address — clickable to open maps */}
+            <a href="https://maps.app.goo.gl/vvPgrXHtUwWU7Ea79"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="flex items-start gap-3 group block">
+              <MapPin size={18} className="text-[#FFD100] mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="text-[#c6c6cc] text-xs leading-relaxed group-hover:text-white transition-colors">{CONTACT.address}</span>
+            </a>
+
+            {/* Phones — clickable */}
             <div className="flex items-start gap-3">
-              <MapPin size={18} className="text-[#FFD100] mt-0.5 shrink-0" />
-              <span className="text-[#c6c6cc] text-xs leading-tight">{CONTACT.address}</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Phone size={18} className="text-[#facc15] shrink-0" />
-              <div className="flex flex-col gap-0.5">
+              <Phone size={18} className="text-[#facc15] mt-0.5 shrink-0" />
+              <div className="flex flex-col gap-1">
                 <a href={`tel:${CONTACT.phone1.replace(/\s/g, '')}`} className="text-[#c6c6cc] text-xs hover:text-white transition-colors">{CONTACT.phone1}</a>
                 <a href={`tel:${CONTACT.phone2.replace(/\s/g, '')}`} className="text-[#c6c6cc] text-xs hover:text-white transition-colors">{CONTACT.phone2}</a>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <Mail size={18} className="text-[#facc15] shrink-0" />
-              <a href={`mailto:${CONTACT.email}`} className="text-[#c6c6cc] text-xs hover:text-white transition-colors">{CONTACT.email}</a>
+
+            {/* Email — clickable */}
+            <div className="flex items-start gap-3">
+              <Mail size={18} className="text-[#facc15] mt-0.5 shrink-0" />
+              <a href={`mailto:${CONTACT.email}`} className="text-[#c6c6cc] text-xs hover:text-white transition-colors break-all">{CONTACT.email}</a>
             </div>
           </div>
         </div>
 
-        {/* Google Maps Column — spans 2 cols */}
-        <div className="md:col-span-2 space-y-3">
+        {/* Google Maps Column — spans 2 cols, improved */}
+        <div className="md:col-span-2 space-y-4">
           <h4 className="text-white/50 font-bold uppercase tracking-widest text-xs font-display border-b border-white/10 pb-2">Ubicación</h4>
-          <div className="w-full h-52 md:h-56 overflow-hidden border border-white/10">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3273.8!2d-64.3010544!3d-32.2029349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95cd6319c76431f1%3A0x80a3106ee98bc03b!2sConstruvial%20Sa!5e0!3m2!1ses!2sar!4v1"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: 'grayscale(100%) contrast(90%) brightness(80%)' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación Construvial — Ángel V. Peñaloza 1154, Río Tercero"
-            />
+
+          {/* Map container with hover effect */}
+          <div className="w-full h-56 md:h-60 overflow-hidden border border-white/10 rounded-sm transition-all duration-500 hover:scale-[1.02] hover:border-[#facc15]/30 hover:shadow-lg hover:shadow-[#facc15]/5">
+            <StyledGoogleMap />
           </div>
+
+          {/* CTA — improved outline button */}
           <a
             href="https://maps.app.goo.gl/vvPgrXHtUwWU7Ea79"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#facc15] text-[10px] uppercase tracking-widest hover:underline font-body"
+            className="inline-flex items-center gap-2 text-[#facc15] text-[12px] uppercase tracking-wider font-semibold hover:text-white hover:bg-white/5 border border-[#facc15]/30 px-4 py-2.5 hover:border-white/30 transition-all duration-300 font-body"
           >
-            <MapPin size={12} />
-            Ver en Google Maps →
+            <MapPin size={14} />
+            Ver en Google Maps
+            <ExternalLink size={12} />
           </a>
         </div>
 

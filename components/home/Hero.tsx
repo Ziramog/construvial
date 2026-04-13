@@ -6,7 +6,19 @@ import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-const slides = [
+interface Slide {
+  headline: string
+  subtitle: string
+  cta: string
+  ctaLink: string
+  image: string
+  isVideo?: boolean
+  mobileImage?: string
+  isMobileVideo?: boolean
+  alt: string
+}
+
+const slides: Slide[] = [
   {
     headline: "Ejecución eficiente.\nSin desvíos.\nSin demoras.",
     subtitle: "Reducimos tiempos y errores en obra con ingeniería propia, flota certificada y 35 años de trayectoria comprobada",
@@ -15,6 +27,7 @@ const slides = [
     image: "/media/hero/desktop/hero-slide-1.jpg",
     mobileImage: "/media/hero/mobile/hero-mobile-01.mp4",
     isMobileVideo: true,
+    isVideo: false,
     alt: "Galpón corporativo especializado con flota de maquinaria vial",
   },
   {
@@ -24,6 +37,8 @@ const slides = [
     ctaLink: "/equipos",
     image: "/media/hero/desktop/hero-slide-2.mp4",
     isVideo: true,
+    mobileImage: undefined,
+    isMobileVideo: undefined,
     alt: "Maquinaria pesada trabajando de manera eficiente en proyecto de infraestructura",
   },
   {
@@ -33,6 +48,8 @@ const slides = [
     ctaLink: "/obras",
     image: "/media/hero/video/hero-bg.mp4",
     isVideo: true,
+    mobileImage: undefined,
+    isMobileVideo: undefined,
     alt: "Maquinaria vial trabajando en pavimentación",
   },
   {
@@ -41,6 +58,9 @@ const slides = [
     cta: "Hablar con nosotros",
     ctaLink: "/contacto",
     image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=85",
+    isVideo: false,
+    mobileImage: undefined,
+    isMobileVideo: undefined,
     alt: "Equipo de construcción trabajando en obra civil",
   },
 
