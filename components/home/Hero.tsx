@@ -118,14 +118,18 @@ export function Hero() {
               loop
               muted
               playsInline
-              className={`object-cover object-center w-full h-full ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
+              className={`object-cover object-center w-full h-full ${
+                (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
+              }`}
             />
           ) : (
             <Image
               src={currentMedia}
               alt={slide.alt || "Background image"}
               fill
-              className={`object-cover object-center ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
+              className={`object-cover object-center ${
+                (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
+              }`}
               priority={current === 0 || current === 1}
               sizes="100vw"
               quality={85}
