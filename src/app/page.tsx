@@ -5,6 +5,7 @@ import { ClientMarquee } from "@/components/home/ClientMarquee"
 import { CompanyBand } from "@/components/home/CompanyBand"
 import { ServicesCards } from "@/components/home/ServicesCards"
 import { EquiposCarousel } from "@/components/home/EquiposCarousel"
+import { ObrasSection } from "@/components/home/ObrasSection"
 import { CTAFinal } from "@/components/home/CTAFinal"
 import { constructMetadata } from "@/lib/metadata"
 
@@ -21,6 +22,7 @@ export default function HomePage() {
       <Stats />
       <ServicesCards />
       <EquiposCarousel />
+      <ObrasSection />
       <ClientMarquee />
       <CTAFinal />
     </>
