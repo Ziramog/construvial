@@ -10,11 +10,11 @@ export function CompanyBand() {
     offset: ["start end", "end start"],
   })
 
-  // Different speeds for parallax depth (max 12px movement)
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -12])
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -8])
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -10])
-  const y4 = useTransform(scrollYProgress, [0, 1], [0, -6])
+  // Different speeds for parallax depth (max 30-50px movement - noticeable)
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -40])
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -30])
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -50])
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, -35])
 
   const collageImages = [
     { src: "/media/soluciones-integradas/01.png", aspect: "aspect-[3/4]" },
