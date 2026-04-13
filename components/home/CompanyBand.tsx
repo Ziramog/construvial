@@ -7,7 +7,6 @@ export function CompanyBand() {
     { src: "/media/soluciones-integradas/01.png", alt: "Infraestructura industrial avanzada" },
     { src: "/media/soluciones-integradas/02.png", alt: "Maquinaria vial especializada" },
     { src: "/media/soluciones-integradas/03.png", alt: "Procesos de construcción técnica" },
-    { src: "/media/soluciones-integradas/04.png", alt: "Control de calidad en obra" },
   ]
 
   const containerVariants: Variants = {
@@ -15,19 +14,19 @@ export function CompanyBand() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
       },
     },
   }
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut",
+        duration: 0.8,
+        ease: [0.22, 1, 0.36, 1], // Custom premium cubic-bezier
       },
     },
   }
@@ -38,7 +37,7 @@ export function CompanyBand() {
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" />
       
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative z-10 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 relative z-10 items-center">
         
         {/* Texto izquierda */}
         <div className="flex flex-col items-start lg:pr-12">
@@ -67,19 +66,19 @@ export function CompanyBand() {
           </motion.div>
         </div>
 
-        {/* Dynamic Collage Right */}
+        {/* Dynamic Bold Collage Right */}
         <motion.div 
-          className="relative h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] w-full"
+          className="relative h-[450px] sm:h-[550px] md:h-[650px] lg:h-[750px] w-full"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* Main Large Image - Focal Point */}
+          {/* 1. Main HERO Image (MID LAYER - z-20) */}
           <motion.div 
             variants={itemVariants}
-            className="absolute left-0 top-[10%] w-[65%] aspect-[4/5] z-20 rounded-xl overflow-hidden shadow-2xl grayscale-[0.2] hover:grayscale-0 transition-all duration-500"
-            whileHover={{ scale: 1.02, y: -5 }}
+            className="absolute left-0 top-[15%] w-[85%] aspect-[16/10] z-20 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5"
+            whileHover={{ scale: 1.01, transition: { duration: 0.4 } }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
@@ -89,11 +88,11 @@ export function CompanyBand() {
             />
           </motion.div>
 
-          {/* Secondary Image 1 - Top Right Overlap */}
+          {/* 2. Secondary Floating Front (FRONT LAYER - z-30) - Aggressive Overlap */}
           <motion.div 
             variants={itemVariants}
-            className="absolute right-0 top-0 w-[45%] aspect-square z-10 rounded-xl overflow-hidden shadow-xl grayscale-[0.4] hover:grayscale-0 transition-all duration-500"
-            whileHover={{ scale: 1.03, zIndex: 30 }}
+            className="absolute right-[-5%] top-[45%] w-[45%] aspect-[4/5] z-30 rounded-2xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-2 border-[#0a0a0a] hover:z-40 transition-all"
+            whileHover={{ y: -10, scale: 1.05, transition: { duration: 0.4 } }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
@@ -103,11 +102,11 @@ export function CompanyBand() {
             />
           </motion.div>
 
-          {/* Secondary Image 2 - Bottom Right Offset */}
+          {/* 3. Third Background Support (BACK LAYER - z-10) - Subtle Asymmetry */}
           <motion.div 
             variants={itemVariants}
-            className="absolute right-[5%] bottom-[5%] w-[40%] aspect-[3/4] z-30 rounded-xl overflow-hidden shadow-2xl grayscale-[0.3] hover:grayscale-0 transition-all duration-500 border-2 border-[#0a0a0a]"
-            whileHover={{ scale: 1.03, y: -5 }}
+            className="absolute right-[10%] top-[-5%] w-[55%] aspect-square z-10 rounded-2xl overflow-hidden shadow-xl opacity-80 grayscale-[0.5] hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+            whileHover={{ scale: 1.02 }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
@@ -117,30 +116,19 @@ export function CompanyBand() {
             />
           </motion.div>
 
-          {/* Decorative small element / 4th image - Optional back layer */}
-          <motion.div 
-            variants={itemVariants}
-            className="absolute left-[40%] bottom-0 w-[25%] aspect-square z-0 rounded-xl overflow-hidden opacity-40 blur-[1px] grayscale"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
-              src={collageImages[3].src} 
-              alt={collageImages[3].alt}
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
+          {/* Background Decorative glow */}
+          <div className="absolute top-[20%] left-[20%] w-64 h-64 bg-[#facc15]/10 blur-[120px] rounded-full pointer-events-none z-0" />
         </motion.div>
       </div>
 
-      {/* Mobile Stack Fallback CSS (handled by Tailwind responsive classes usually, 
-          but here we kept the absolute layout. Let's make it more mobile-friendly below) */}
       <style jsx>{`
         @media (max-width: 1023px) {
-          .relative.h-[350px] {
+          .relative.h-[450px], .relative.h-[550px], .relative.h-[650px], .relative.h-[750px] {
             height: auto !important;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 2rem;
+            padding-top: 2rem;
           }
           .absolute {
             position: relative !important;
@@ -152,10 +140,13 @@ export function CompanyBand() {
             aspect-ratio: 16/9 !important;
             opacity: 1 !important;
             filter: none !important;
+            transform: none !important;
+            margin-right: 0 !important;
           }
         }
       `}</style>
     </section>
   )
 }
+
 
