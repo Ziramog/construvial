@@ -14,9 +14,12 @@ export function Footer() {
 
         {/* Branding + Social Column */}
         <div className="space-y-6">
-          <div className="text-2xl font-black text-white mb-2 font-display tracking-tighter">
-            CONSTRUVIAL<span className="text-[#facc15]">.</span>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/media/brand/logo-white.png"
+            alt="Construvial S.A."
+            className="h-12 w-auto object-contain"
+          />
           <p className="text-[#c6c6cc] text-sm leading-relaxed font-body">
             Más de 35 años construyendo infraestructura vial en Argentina. Excelencia operativa y compromiso con el desarrollo nacional.
           </p>
