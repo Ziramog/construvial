@@ -39,7 +39,12 @@ export function Stats() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-4">
           {STATS.map((stat, index) => (
-            <FadeIn key={index} delay={index * 100} direction="up">
+            <FadeIn 
+              key={index} 
+              delay={index * 100} 
+              direction="up"
+              className={index === 4 ? "hidden sm:block" : ""}
+            >
               <div className="flex flex-col items-center text-center">
                 <div className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#0a0a0a] leading-none flex items-baseline">
                   <AnimatedCounter target={stat.value} suffix={stat.suffix} />
