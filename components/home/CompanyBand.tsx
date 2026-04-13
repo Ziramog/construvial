@@ -48,7 +48,7 @@ export function CompanyBand() {
           <div className="flex flex-col gap-4 lg:gap-6 mt-12 lg:mt-24">
             <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden">
               <Image 
-                src="/media/Soluciones Integradas/01.png" 
+                src="/media/soluciones-integradas/01.png" 
                 alt="Proyecto Construvial 1" 
                 fill 
                 className="object-cover transition-transform duration-700 hover:scale-105"
@@ -57,7 +57,7 @@ export function CompanyBand() {
             </div>
             <div className="relative w-full aspect-[1/1] rounded-sm overflow-hidden">
               <Image 
-                src="/media/Soluciones Integradas/02.png" 
+                src="/media/soluciones-integradas/02.png" 
                 alt="Proyecto Construvial 2" 
                 fill 
                 className="object-cover transition-transform duration-700 hover:scale-105"
@@ -70,7 +70,7 @@ export function CompanyBand() {
           <div className="flex flex-col gap-4 lg:gap-6">
             <div className="relative w-full aspect-[1/1] rounded-sm overflow-hidden">
               <Image 
-                src="/media/Soluciones Integradas/03.png" 
+                src="/media/soluciones-integradas/03.png" 
                 alt="Proyecto Construvial 3" 
                 fill 
                 className="object-cover transition-transform duration-700 hover:scale-105"
@@ -79,7 +79,7 @@ export function CompanyBand() {
             </div>
             <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden">
               <Image 
-                src="/media/Soluciones Integradas/04.png" 
+                src="/media/soluciones-integradas/04.png" 
                 alt="Proyecto Construvial 4" 
                 fill 
                 className="object-cover transition-transform duration-700 hover:scale-105"
