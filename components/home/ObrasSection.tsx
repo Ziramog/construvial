@@ -3,10 +3,8 @@
 export function ObrasSection() {
   return (
     <section className="relative bg-[#0a0a0a] py-24 px-6">
-      {/* Smooth transition FROM the white Equipos section above */}
-      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-white to-transparent pointer-events-none" />
       {/* Smooth transition TO the ClientMarquee (light #F5F7FA) below */}
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#f5f5f4] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#f5f7fa] to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 

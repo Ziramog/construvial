@@ -3,10 +3,8 @@
 export function EquiposCarousel() {
   return (
     <section className="relative bg-white py-24 px-6">
-      {/* Smooth transition FROM the black Servicios section above */}
-      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#0a0a0a] to-transparent pointer-events-none" />
       {/* Smooth transition TO the black Obras section below */}
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
