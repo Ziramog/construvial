@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 export function CompanyBand() {
   const collageImages = [
@@ -10,7 +10,7 @@ export function CompanyBand() {
     { src: "/media/soluciones-integradas/04.png", alt: "Control de calidad en obra" },
   ]
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -20,7 +20,7 @@ export function CompanyBand() {
     },
   }
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
