@@ -10,11 +10,16 @@ interface FadeInProps {
   duration?: number
 }
 
-export function FadeIn({ children, className = "", delay = 0, direction = "up", duration = 600 }: FadeInProps) {
+export function FadeIn({ children, className = "", delay = 0, direction = "up", duration = 400 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  // Check reduced motion safely (works in client only)
+  const [isReducedMotion, setIsReducedMotion] = useState(false)
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    setIsReducedMotion(mediaQuery.matches)
+
     const el = ref.current
     if (!el) return
 
@@ -25,7 +30,7 @@ export function FadeIn({ children, className = "", delay = 0, direction = "up", 
           observer.unobserve(el)
         }
       },
-      { threshold: 0.1, rootMargin: "-50px" }
+      { threshold: 0.1, rootMargin: "0px" } // Removed negative root margin for faster trigger
     )
 
     observer.observe(el)
@@ -33,10 +38,19 @@ export function FadeIn({ children, className = "", delay = 0, direction = "up", 
   }, [])
 
   const translate = {
-    up: "translateY(30px)",
-    left: "translateX(-30px)",
-    right: "translateX(30px)",
+    up: "translateY(20px)", // Reduced from 30px to 20px for subtlety
+    left: "translateX(-20px)",
+    right: "translateX(20px)",
     none: "none",
+  }
+
+  // If reduced motion is preferred, render immediately without animations
+  if (isReducedMotion) {
+    return (
+      <div className={className} style={{ opacity: 1, transform: "none" }}>
+        {children}
+      </div>
+    )
   }
 
   return (
@@ -46,7 +60,8 @@ export function FadeIn({ children, className = "", delay = 0, direction = "up", 
       style={{
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? "none" : translate[direction],
-        transition: `opacity ${duration}ms ease ${delay}ms, transform ${duration}ms ease ${delay}ms`,
+        // Changed to ease-out (more natural for entering elements)
+        transition: `opacity ${duration}ms ease-out ${delay}ms, transform ${duration}ms ease-out ${delay}ms`,
       }}
     >
       {children}
