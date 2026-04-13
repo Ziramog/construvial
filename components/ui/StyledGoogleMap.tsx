@@ -2,19 +2,38 @@
 
 import { useEffect, useRef, useState, useCallback } from "react"
 
-// Google Maps style JSON — dark grayscale with road contrast
+// Google Maps style JSON — premium dark grayscale with road contrast
 const mapStyles = [
   {
     elementType: "geometry",
-    stylers: [{ color: "#1d1d1d" }],
+    stylers: [{ color: "#1a1a1a" }],
   },
   {
     elementType: "labels.text.fill",
-    stylers: [{ color: "#8a8a8a" }],
+    stylers: [{ color: "#7a7a7a" }],
   },
   {
     elementType: "labels.text.stroke",
-    stylers: [{ color: "#1d1d1d" }],
+    stylers: [{ color: "#1a1a1a" }],
+  },
+  {
+    featureType: "administrative",
+    elementType: "geometry.stroke",
+    stylers: [{ color: "#2a2a2a" }],
+  },
+  {
+    featureType: "administrative",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#6a6a6a" }],
+  },
+  {
+    featureType: "landscape",
+    elementType: "geometry.fill",
+    stylers: [{ color: "#1e1e1e" }],
+  },
+  {
+    featureType: "poi",
+    stylers: [{ visibility: "off" }],
   },
   {
     featureType: "road",
@@ -24,12 +43,26 @@ const mapStyles = [
   {
     featureType: "road",
     elementType: "geometry.stroke",
-    stylers: [{ color: "#1d1d1d" }],
+    stylers: [{ color: "#1a1a1a" }],
   },
   {
     featureType: "road",
     elementType: "labels.text.fill",
-    stylers: [{ color: "#aaaaaa" }],
+    stylers: [{ color: "#9a9a9a" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry",
+    stylers: [{ color: "#333333" }],
+  },
+  {
+    featureType: "road.highway",
+    elementType: "geometry.stroke",
+    stylers: [{ color: "#222222" }],
+  },
+  {
+    featureType: "transit",
+    stylers: [{ visibility: "off" }],
   },
   {
     featureType: "water",
@@ -37,20 +70,23 @@ const mapStyles = [
     stylers: [{ color: "#0e0e0e" }],
   },
   {
-    featureType: "poi",
-    stylers: [{ visibility: "off" }],
-  },
-  {
-    featureType: "transit",
-    stylers: [{ visibility: "off" }],
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#5a5a5a" }],
   },
 ]
 
-// Custom yellow marker SVG
+// Custom yellow marker SVG — branded
 const yellowMarkerSVG = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="44" viewBox="0 0 32 44">
-    <path d="M16 0C7.16 0 0 7.16 0 16c0 12 16 28 16 28s16-16 16-28C32 7.16 24.84 0 16 0z" fill="#facc15"/>
-    <circle cx="16" cy="16" r="7" fill="#0a0a0a"/>
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="56" viewBox="0 0 40 56">
+    <defs>
+      <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
+      </filter>
+    </defs>
+    <path d="M20 0C8.95 0 0 8.95 0 20c0 15 20 36 20 36s20-21 20-36C40 8.95 31.05 0 20 0z" fill="#facc15" filter="url(#shadow)"/>
+    <circle cx="20" cy="20" r="8" fill="#0a0a0a"/>
+    <circle cx="20" cy="20" r="4" fill="#facc15"/>
   </svg>
 `
 
@@ -64,7 +100,10 @@ const StyledMapFallback = () => {
       src={mapUrl}
       width="100%"
       height="100%"
-      style={{ border: 0, filter: "grayscale(100%) contrast(110%) brightness(75%)" }}
+      style={{
+        border: 0,
+        filter: "grayscale(100%) contrast(115%) brightness(70%) saturate(0)",
+      }}
       allowFullScreen
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
@@ -97,20 +136,21 @@ export function StyledGoogleMap() {
     // Create custom marker icon from SVG
     const markerIcon = {
       url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(yellowMarkerSVG),
-      scaledSize: new google.maps.Size(32, 44),
-      anchor: new google.maps.Point(16, 44),
+      scaledSize: new google.maps.Size(40, 56),
+      anchor: new google.maps.Point(20, 56),
     }
 
     const map = new google.maps.Map(mapRef.current, {
       center: location,
       zoom: 15,
       styles: mapStyles,
-      disableDefaultUI: false,
+      disableDefaultUI: true,
       zoomControl: true,
       streetViewControl: false,
       mapTypeControl: false,
       fullscreenControl: false,
       scaleControl: false,
+      gestureHandling: "greedy",
     })
 
     // Custom yellow marker
@@ -119,6 +159,7 @@ export function StyledGoogleMap() {
       map: map,
       icon: markerIcon,
       title: "Construvial S.A.",
+      animation: google.maps.Animation.DROP,
     })
   }, [])
 
@@ -159,8 +200,7 @@ export function StyledGoogleMap() {
   return (
     <div
       ref={mapRef}
-      className="w-full h-full min-h-[240px]"
-      style={{ borderRadius: "2px" }}
+      className="w-full h-full min-h-[256px]"
     />
   )
 }
