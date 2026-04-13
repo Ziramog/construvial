@@ -15,9 +15,8 @@ const SERVICIOS_LINKS = [
 ]
 
 const NAV_LINKS = [
-  { name: "Quiénes Somos", href: "/quienes-somos" },
-  { name: "Obras", href: "/obras" },
   { name: "Equipos", href: "/equipos" },
+  { name: "Obras", href: "/obras" },
   { name: "Blog", href: "/blog" },
   { name: "Contacto", href: "/contacto" },
 ]
@@ -82,6 +81,21 @@ export function Header() {
 
           {/* Desktop Nav - Centered */}
           <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 font-body">
+            {/* Quiénes Somos first */}
+            <div className="relative group">
+              <Link
+                href="/quienes-somos"
+                className={`text-sm tracking-wider uppercase transition-colors duration-300 font-bold ${
+                  pathname === "/quienes-somos"
+                    ? "text-white"
+                    : "text-white/60 hover:text-white"
+                }`}
+              >
+                Quiénes Somos
+              </Link>
+              <span className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${pathname === "/quienes-somos" ? "w-full" : ""}`} />
+            </div>
+
             {/* Servicios dropdown */}
             <div ref={servRef} className="relative group">
               <button
@@ -173,6 +187,15 @@ export function Header() {
         }`}
       >
         <div className="flex-1 flex flex-col items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 overflow-y-auto">
+          {/* Quiénes Somos first on mobile */}
+          <Link
+            href="/quienes-somos"
+            className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Quiénes Somos
+          </Link>
+
           {/* Servicios expandable section */}
           <div className="w-full max-w-xs text-center">
             <button
