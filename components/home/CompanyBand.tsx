@@ -17,17 +17,44 @@ export function CompanyBand() {
           {/* Título */}
           <h2 className="font-display text-white uppercase leading-tight mb-4"
               style={{ fontSize: 'clamp(36px, 4vw, 56px)' }}>
-            Construimos la infraestructura<br/>
-            <span className="text-[#facc15]">que Argentina necesita.</span>
+            Ejecución con estándar<br/>
+            <span className="text-[#facc15]">industrial</span>
           </h2>
           
-          {/* Descripción — breve, contundente */}
-          <p className="font-body text-white/60 text-base leading-relaxed 
-                        max-w-xl">
-            Empresa constructora especializada en obras viales, civiles, 
-            metálicas y electromecánicas. Sector público y privado. 
-            500 obras ejecutadas en 40 ciudades del país.
+          {/* Subtítulo */}
+          <p className="font-body text-white/80 text-lg leading-relaxed max-w-xl mb-8 font-medium">
+            Convertimos proyectos complejos en ejecuciones eficientes mediante procesos definidos, maquinaria propia y control técnico en cada etapa.
           </p>
+
+          {/* 3 Bloques (Párrafos separados con títulos claros) */}
+          <div className="max-w-xl space-y-6">
+            <div>
+              <h3 className="font-display text-[#facc15] tracking-widest uppercase text-sm mb-1">
+                Ingeniería y planificación
+              </h3>
+              <p className="font-body text-white/60 text-sm leading-relaxed">
+                Analizamos cada proyecto para anticipar riesgos, optimizar recursos y asegurar una ejecución precisa desde el inicio.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="font-display text-[#facc15] tracking-widest uppercase text-sm mb-1">
+                Equipos y tecnología
+              </h3>
+              <p className="font-body text-white/60 text-sm leading-relaxed">
+                Operamos con maquinaria propia y equipos certificados, adaptándonos a cada tipo de obra y condición de terreno.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="font-display text-[#facc15] tracking-widest uppercase text-sm mb-1">
+                Control y cumplimiento
+              </h3>
+              <p className="font-body text-white/60 text-sm leading-relaxed">
+                Supervisamos cada etapa con estándares estrictos, garantizando calidad y cumplimiento de plazos.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* CTA derecha */}
