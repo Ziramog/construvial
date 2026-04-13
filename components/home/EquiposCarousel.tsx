@@ -24,7 +24,7 @@ export function EquiposCarousel() {
         <div className="flex flex-col items-start">
           <div className="w-16 h-1 bg-[#facc15] mb-6" />
           <p className="font-body text-[#0a0a0a]/50 text-xs tracking-[0.3em] uppercase mb-4 font-bold">
-            Flota propia, sin demoras
+            40+ equipos propios, listos para operar
           </p>
           <h2 className="font-display text-[#0a0a0a] uppercase leading-none mb-8"
               style={{ fontSize: 'clamp(48px, 6vw, 80px)' }}>

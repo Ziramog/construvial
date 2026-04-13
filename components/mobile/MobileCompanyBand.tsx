@@ -25,12 +25,12 @@ export function MobileCompanyBand() {
         {/* Body text - short blocks */}
         <FadeIn direction="up" delay={200}>
           <p className="text-white/70 text-[16px] leading-[1.7]">
-            Controlamos cada etapa del proceso: ingeniería propia, maquinaria sin terceros y experiencia operativa comprobada.
+            Controlamos cada etapa: ingeniería propia, maquinaria sin intermediarios, 35 años de trayectoria.
           </p>
         </FadeIn>
         <FadeIn direction="up" delay={250}>
           <p className="text-white/70 text-[16px] leading-[1.7]">
-            Así garantizamos obras a tiempo, dentro del presupuesto y con la calidad que exigís.
+            Un solo responsable. Sin excusas. Sin sobrecostos sorpresa.
           </p>
         </FadeIn>
 

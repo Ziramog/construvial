@@ -33,7 +33,7 @@ export function MobileClientMarquee() {
       {/* Credibility heading */}
       <div className="text-center mb-8 px-5">
         <p className="text-[13px] tracking-[0.2em] uppercase text-[#0a0a0a]/70 mb-2 font-bold">
-          Empresas líderes confían en nosotros
+          Más de 24 empresas líderes, de YPF a INVAP/NASA, confían en nosotros
         </p>
         <p className="text-[11px] tracking-[0.15em] uppercase text-[#0a0a0a]/40">
           Sector público y privado · Energía · Industria · Infraestructura

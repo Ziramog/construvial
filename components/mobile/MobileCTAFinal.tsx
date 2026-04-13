@@ -15,7 +15,7 @@ export function MobileCTAFinal() {
 
         {/* Subtitle */}
         <p className="text-[#facc15] text-[16px] mb-8 tracking-wide font-semibold text-center relative z-10">
-          Hacelo realidad con quien cumple plazos y estándares.
+          Hacelo realidad con quien ya entregó 500 obras en 35 años.
         </p>
         <p className="text-white/60 text-[14px] text-center mb-8 relative z-10">
           Presupuesto sin compromiso. Respuesta en menos de 24hs.

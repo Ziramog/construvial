@@ -8,8 +8,8 @@ interface DefaultMetadataProps {
 }
 
 export const defaultMetadata = {
-  title: 'Construvial S.A. | Empresa Constructora Vial y Civil | Córdoba, Argentina',
-  description: '35 años ejecutando obras viales, civiles, metálicas y electromecánicas. 500 obras finalizadas. Alquiler de equipos. Río Tercero, Córdoba.',
+  title: 'Construvial S.A. | Constructora Vial y Civil en Córdoba · 500+ Obras · 35 Años',
+  description: '35 años ejecutando obras viales, civiles y electromecánicas con ISO 9001. 500+ obras. Flota propia de 40+ equipos. Río Tercero, Córdoba.',
   image: '/media/brand/og-image.jpg',
   url: 'https://construvialsa.com.ar'
 }
@@ -24,7 +24,7 @@ export function constructMetadata({
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://construvialsa.com.ar'),
     title,
     description,
-    keywords: ['constructora vial cordoba', 'obras civiles argentina', 'alquiler equipos viales', 'empresa constructora cordoba'],
+    keywords: ['constructora vial cordoba', 'obras civiles argentina', 'alquiler equipos viales', 'empresa constructora cordoba', 'constructora ISO 9001 argentina', 'movimiento de suelos cordoba', 'alquiler maquinaria pesada', 'pavimentacion rutas argentina'],
     openGraph: {
       title,
       description,

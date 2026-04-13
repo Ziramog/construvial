@@ -35,7 +35,7 @@ export function CompanyBand() {
               Ejecución eficiente<br className="hidden lg:block" /> sin intermediarios
             </h2>
             <p className="font-body text-white/70 text-[17px] md:text-lg leading-relaxed font-medium mb-12">
-              Controlamos cada etapa del proceso: ingeniería propia, maquinaria sin terceros y experiencia operativa comprobada. Así garantizamos obras a tiempo, dentro del presupuesto y con la calidad que exigís.
+              Controlamos cada etapa: ingeniería propia, maquinaria sin intermediarios, 35 años de trayectoria. Un solo responsable. Sin excusas. Sin sobrecostos sorpresa.
             </p>
             <a href="/quienes-somos"
                className="inline-flex items-center gap-3 text-white font-body text-sm tracking-widest uppercase hover:text-[#facc15] transition-colors duration-300 group">

@@ -14,7 +14,7 @@ export function CTAFinal() {
         </h2>
 
         <p className="font-body text-[#facc15] text-lg mb-10 tracking-wide font-medium relative z-10">
-          Hacelo realidad con quien cumple plazos y estándares.<br className="hidden sm:block" />
+          Hacelo realidad con quien ya entregó 500 obras en 35 años.<br className="hidden sm:block" />
           <span className="text-white/60">Presupuesto sin compromiso. Respuesta en menos de 24hs.</span>
         </p>
 

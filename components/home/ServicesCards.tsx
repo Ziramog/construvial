@@ -18,7 +18,7 @@ export function ServicesCards() {
             <span className="text-[#facc15]">tu obra necesita</span>
           </h2>
           <p className="font-body text-white/60 text-[17px] leading-relaxed mb-10 max-w-lg">
-            Ingeniera civil, movimiento de suelos, equipos certificados y logística especializada. Un solo interlocutor, menos coordinación, más eficiencia en cada etapa de tu proyecto.
+            Ingeniería civil, movimiento de suelos, equipos certificados y logística especializada. Un solo responsable para toda tu obra: menos coordinar, más ejecutar.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="/servicios"

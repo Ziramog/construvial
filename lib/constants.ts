@@ -13,7 +13,7 @@ export const STATS = [
   { value: 35, suffix: '', label: 'Años de experiencia' },
   { value: 500, suffix: '+', label: 'Obras finalizadas' },
   { value: 30, suffix: 'K', label: 'Metros cuadrados' },
-  { value: 80, suffix: '', label: 'Personas capacitadas' },
+  { value: 80, suffix: '', label: 'Profesionales en obra' },
   { value: 40, suffix: '', label: 'Ciudades con presencia' },
 ]
 

@@ -20,7 +20,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    headline: "Ejecución eficiente.\nSin desvíos.\nSin demoras.",
+    headline: "Ejecución eficiente.\nSin desvíos.\nSin excusas.",
     subtitle: "Reducimos tiempos y errores en obra con ingeniería propia, flota certificada y 35 años de trayectoria comprobada",
     cta: "Solicitar presupuesto",
     ctaLink: "/contacto",
@@ -31,8 +31,8 @@ const slides: Slide[] = [
     alt: "Galpón corporativo especializado con flota de maquinaria vial",
   },
   {
-    headline: "Equipos listos\npara operar\nsin demoras",
-    subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones — disponibles cuando los necesitás",
+    headline: "Equipos listos\npara operar\ncuando los necesités",
+    subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones. Sin intermediarios, tu obra nunca se detiene.",
     cta: "Ver equipamiento",
     ctaLink: "/equipos",
     image: "/media/hero/desktop/hero-slide-2.mp4",
@@ -43,7 +43,7 @@ const slides: Slide[] = [
   },
   {
     headline: "Obras que\ncumplen plazos\ny estándares",
-    subtitle: "Rutas, autopistas, pavimentaciones y mantenimiento vial ejecutados con los más altos estándares de calidad",
+    subtitle: "Rutas, autopistas y pavimentaciones con ISO 9001 y 500+ obras que siguen en pie.",
     cta: "Ver proyectos",
     ctaLink: "/obras",
     image: "/media/hero/video/hero-bg.mp4",

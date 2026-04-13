@@ -31,7 +31,7 @@ export function MobileServices() {
         </FadeIn>
         <FadeIn direction="up" delay={250}>
           <p className="text-white/60 text-[16px] leading-[1.7]">
-            Un solo interlocutor, menos coordinación, más eficiencia en cada etapa de tu proyecto.
+            Un solo responsable para toda tu obra: menos coordinar, más ejecutar.
           </p>
         </FadeIn>
 

@@ -15,7 +15,7 @@ const contactItems = [
   {
     icon: <MapPin size={22} />,
     label: "Dirección",
-    content: <><p className="font-body text-white/60 text-sm">Ángel V. Peñaloza 1154<br />Río Tercero, Córdoba, Argentina</p></>,
+    content: <><p className="font-body text-white/60 text-sm">Ruta 36 Km 711<br />Almafuerte, Córdoba, Argentina</p></>,
   },
   {
     icon: <Phone size={22} />,

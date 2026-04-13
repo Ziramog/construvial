@@ -75,6 +75,10 @@ export function ContactSection() {
                   Enviar Requerimiento
                   <ArrowRight size={20} />
                 </button>
+
+                <p className="text-center text-white/30 text-[11px] font-body mt-4 tracking-wide">
+                  Te respondemos en menos de 24 horas hábiles.
+                </p>
               </form>
             </FadeIn>
           </div>

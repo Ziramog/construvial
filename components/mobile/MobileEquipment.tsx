@@ -10,7 +10,7 @@ export function MobileEquipment() {
         <FadeIn direction="up">
           <div className="w-12 h-1 bg-[#facc15] mb-4" />
           <p className="text-[#0a0a0a]/50 text-[11px] tracking-[0.25em] uppercase font-bold mb-3">
-            Flota propia, sin demoras
+            40+ equipos propios, listos para operar
           </p>
         </FadeIn>
 

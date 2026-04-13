@@ -35,7 +35,7 @@ export function ClientMarquee() {
       <div className="text-center mb-10">
         <p className="font-body text-xs tracking-[0.3em] uppercase
                       text-[#0a0a0a]/60 mb-2 font-semibold">
-          Empresas líderes confían en nosotros
+          Más de 24 empresas líderes, de YPF a INVAP/NASA, confían en nosotros
         </p>
         <p className="font-body text-[10px] tracking-[0.2em] uppercase
                       text-[#0a0a0a]/40">
