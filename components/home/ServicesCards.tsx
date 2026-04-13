@@ -1,5 +1,7 @@
 "use client"
 
+import { FadeIn } from "@/components/ui/FadeIn"
+
 export function ServicesCards() {
   return (
     <section className="relative bg-[#0a0a0a] py-32 px-6">
@@ -38,19 +40,21 @@ export function ServicesCards() {
           </div>
         </div>
 
-        {/* Right — Video */}
-        <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm">
-          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-          <video
-            src="/media/servicios/desktop/construvial.mov"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-        </div>
+        {/* Right — Video with entrance */}
+        <FadeIn direction="up" scale delay={200}>
+          <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm">
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <video
+              src="/media/servicios/desktop/construvial.mov"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+          </div>
+        </FadeIn>
 
       </div>
     </section>

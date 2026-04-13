@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
@@ -18,14 +18,15 @@ interface Equipo {
 const tipos = ["Todos", "Vial", "Transporte", "Carretón", "Logística"]
 
 function EquipoRow({ equipo, index }: { equipo: Equipo; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay: index * 0.06, duration: 0.5 }}
-      className="group border-b border-black/10 py-8 lg:py-10 hover:bg-black/[0.03] transition-colors duration-300 -mx-4 md:-mx-6 px-4 md:px-6"
-    >
+  const [isReducedMotion, setIsReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
+    setIsReducedMotion(mq.matches)
+  }, [])
+
+  const RowContent = () => (
+    <div className="group border-b border-black/10 py-8 lg:py-10 hover:bg-black/[0.03] transition-colors duration-300 -mx-4 md:-mx-6 px-4 md:px-6">
       <div className="flex flex-col lg:flex-row lg:items-stretch gap-6 lg:gap-10">
         {/* Image */}
         <div className="relative w-full lg:w-[35%] aspect-[16/10] lg:aspect-auto overflow-hidden">
@@ -109,6 +110,19 @@ function EquipoRow({ equipo, index }: { equipo: Equipo; index: number }) {
           )}
         </div>
       </div>
+    </div>
+  )
+
+  return isReducedMotion ? (
+    <RowContent />
+  ) : (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: index * 0.06, duration: 0.5 }}
+    >
+      <RowContent />
     </motion.div>
   )
 }

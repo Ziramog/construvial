@@ -8,9 +8,11 @@ interface FadeInProps {
   delay?: number
   direction?: "up" | "left" | "right" | "none"
   duration?: number
+  /** Add a subtle scale entrance: 0.98 → 1 */
+  scale?: boolean
 }
 
-export function FadeIn({ children, className = "", delay = 0, direction = "up", duration = 400 }: FadeInProps) {
+export function FadeIn({ children, className = "", delay = 0, direction = "up", duration = 400, scale = false }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   // Check reduced motion safely (works in client only)
@@ -44,6 +46,11 @@ export function FadeIn({ children, className = "", delay = 0, direction = "up", 
     none: "none",
   }
 
+  const scaleValue = scale ? "scale(0.98)" : "none"
+  const initialTransform = scale
+    ? `${translate[direction]} ${scaleValue}`
+    : translate[direction]
+
   // If reduced motion is preferred, render immediately without animations
   if (isReducedMotion) {
     return (
@@ -59,7 +66,7 @@ export function FadeIn({ children, className = "", delay = 0, direction = "up", 
       className={className}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "none" : translate[direction],
+        transform: isVisible ? "none" : initialTransform,
         // Changed to ease-out (more natural for entering elements)
         transition: `opacity ${duration}ms ease-out ${delay}ms, transform ${duration}ms ease-out ${delay}ms`,
       }}

@@ -70,6 +70,8 @@ const slides: Slide[] = [
 export function Hero() {
   const [current, setCurrent] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
+  const [scrollY, setScrollY] = useState(0)
+  const [isReducedMotion, setIsReducedMotion] = useState(false)
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length)
@@ -87,6 +89,32 @@ export function Hero() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  // Reduced motion check
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
+    setIsReducedMotion(mq.matches)
+    const handler = (e: MediaQueryListEvent) => setIsReducedMotion(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+
+  // Scroll listener for parallax (throttled via rAF)
+  useEffect(() => {
+    if (isReducedMotion) return
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrollY(window.scrollY)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isReducedMotion])
+
   // Auto-advance every 6 seconds
   useEffect(() => {
     const timer = setInterval(next, 6000)
@@ -94,23 +122,30 @@ export function Hero() {
   }, [next])
 
   const slide = slides[current]
-  
+
   // Decide media based on screen size
   const currentMedia = (isMobile && slide.mobileImage) ? slide.mobileImage : slide.image
   const currentIsVideo = (isMobile && slide.mobileImage) ? (slide.isMobileVideo ?? slide.isVideo) : slide.isVideo
 
+  // Parallax: max 10px, rate 0.1
+  const parallaxY = isReducedMotion ? 0 : Math.min(scrollY * 0.1, 10)
+
   return (
     <section id="hero" className="relative h-screen min-h-[600px] w-full overflow-hidden">
-      {/* Background images */}
+      {/* Background images with subtle parallax */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={`${current}-${isMobile}`} // Re-animate if screen size changes source
+          key={`${current}-${isMobile}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="absolute inset-0"
         >
+          <div
+            style={{ transform: `translateY(${parallaxY}px)`, willChange: 'transform' }}
+            className="absolute inset-0 -top-4"
+          >
           {currentIsVideo ? (
             <video
               src={currentMedia}
@@ -118,7 +153,7 @@ export function Hero() {
               loop
               muted
               playsInline
-              className={`object-cover object-center w-full h-full ${
+              className={`object-cover object-center w-full h-[calc(100%+30px)] ${
                 (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
               }`}
             />
@@ -135,6 +170,7 @@ export function Hero() {
               quality={85}
             />
           )}
+          </div>
           {/* CAPA 1: Gradient solo en la zona del texto (izq) */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
           {/* CAPA 2: Gradient inferior para CTAs */}

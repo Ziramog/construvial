@@ -11,12 +11,23 @@ interface CounterProps {
 
 export function AnimatedCounter({ target, suffix = '', duration = 2000, className = '' }: CounterProps) {
   const [count, setCount] = useState(0)
+  const [isReducedMotion, setIsReducedMotion] = useState(false)
   const ref = useRef<HTMLSpanElement>(null)
   const animatedRef = useRef(false)
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
+    setIsReducedMotion(mq.matches)
+  }, [])
+
+  useEffect(() => {
     const el = ref.current
     if (!el) return
+    // If reduced motion, skip animation and show final value immediately
+    if (isReducedMotion) {
+      setCount(target)
+      return
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -41,7 +52,7 @@ export function AnimatedCounter({ target, suffix = '', duration = 2000, classNam
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [target, duration])
+  }, [target, duration, isReducedMotion])
 
   return <span ref={ref} className={className}>{count}{suffix}</span>
 }

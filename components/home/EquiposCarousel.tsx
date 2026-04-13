@@ -1,24 +1,28 @@
 "use client"
 
+import { FadeIn } from "@/components/ui/FadeIn"
+
 export function EquiposCarousel() {
   return (
     <section className="relative bg-white py-32 px-6">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
-        {/* Left — Video (alternated from ServicesCards) */}
-        <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm">
-          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-          <video
-            src="/media/equipos/desktop/Loader_filling_truck_202604130031.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-        </div>
+        {/* Left — Video with entrance */}
+        <FadeIn direction="up" scale delay={200}>
+          <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm">
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <video
+              src="/media/equipos/desktop/Loader_filling_truck_202604130031.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+          </div>
+        </FadeIn>
 
         {/* Right — Text */}
         <div className="flex flex-col items-start">

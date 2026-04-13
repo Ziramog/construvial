@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { WorkCard } from "./WorkCard"
 import { WorkFilters } from "./WorkFilters"
+import { FadeIn } from "@/components/ui/FadeIn"
 
 interface Work {
   slug: string
@@ -49,12 +50,13 @@ export function WorksGrid({ works, className }: WorksGridProps) {
           const isLarge = cycleIndex === 0 || cycleIndex === 4
 
           return (
-            <div
-              key={work.slug}
-              className={isLarge ? "md:col-span-2" : ""}
-            >
-              <WorkCard {...work} index={index} />
-            </div>
+            <FadeIn key={work.slug} delay={index * 60} direction="up" scale>
+              <div
+                className={isLarge ? "md:col-span-2" : ""}
+              >
+                <WorkCard {...work} index={index} />
+              </div>
+            </FadeIn>
           )
         })}
       </div>

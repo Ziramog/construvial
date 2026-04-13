@@ -134,7 +134,7 @@ export default function QuienesSomosPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
               {timelineHitos.map((hito, idx) => (
-                <FadeIn key={hito.año} delay={idx * 100} direction="up">
+                <FadeIn key={hito.año} delay={idx * 80} direction="up" scale>
                   <div className="relative group">
                     <div className="hidden lg:flex items-center gap-4 mb-6">
                       <div className="w-4 h-4 rounded-full bg-[#FFD100] relative z-10 ring-4 ring-black shadow-[0_0_15px_rgba(255,209,0,0.5)] group-hover:scale-125 transition-transform" />

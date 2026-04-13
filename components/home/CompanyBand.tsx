@@ -1,17 +1,32 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 
 export function CompanyBand() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  })
+
+  // Different speeds for parallax depth (max 12px movement)
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -12])
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -8])
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -10])
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, -6])
+
   const collageImages = [
     { src: "/media/soluciones-integradas/01.png", aspect: "aspect-[3/4]" },
-    { src: "/media/soluciones-integradas/02.png", aspect: "aspect-auto" }, // "Full length" - no fixed crop
+    { src: "/media/soluciones-integradas/02.png", aspect: "aspect-auto" },
     { src: "/media/soluciones-integradas/03.png", aspect: "aspect-square" },
     { src: "/media/soluciones-integradas/04.png", aspect: "aspect-[3/4]" },
   ]
 
+  const parallaxValues = [y1, y2, y3, y4]
+
   return (
-    <section className="bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#141414] pt-[140px] pb-32 md:pt-[180px] md:pb-40 px-6 border-none relative overflow-hidden">
+    <section ref={ref} className="bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#141414] pt-[140px] pb-32 md:pt-[180px] md:pb-40 px-6 border-none relative overflow-hidden">
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" />
@@ -46,7 +61,7 @@ export function CompanyBand() {
         </div>
 
         {/* Collage derecha — 2 columnas, offset vertical */}
-        <motion.div 
+        <motion.div
           className="grid grid-cols-2 gap-3 lg:gap-4 lg:pl-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,38 +70,38 @@ export function CompanyBand() {
         >
           {/* Columna izquierda — desplazada hacia abajo */}
           <div className="flex flex-col gap-3 lg:gap-4 mt-8 sm:mt-12 md:mt-16">
-            <div className={`relative w-full ${collageImages[0].aspect} overflow-hidden rounded-sm group`}>
+            <motion.div className={`relative w-full ${collageImages[0].aspect} overflow-hidden rounded-sm group`} style={{ y: parallaxValues[0] }}>
               <img
                 src={collageImages[0].src}
                 alt="Proyecto Construvial 1"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-            </div>
-            <div className={`relative w-full ${collageImages[1].aspect} overflow-hidden rounded-sm group`}>
+            </motion.div>
+            <motion.div className={`relative w-full ${collageImages[1].aspect} overflow-hidden rounded-sm group`} style={{ y: parallaxValues[1] }}>
               <img
                 src={collageImages[1].src}
                 alt="Proyecto Construvial 2"
                 className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
               />
-            </div>
+            </motion.div>
           </div>
-          
+
           {/* Columna derecha */}
           <div className="flex flex-col gap-3 lg:gap-4">
-            <div className={`relative w-full ${collageImages[2].aspect} overflow-hidden rounded-sm group`}>
+            <motion.div className={`relative w-full ${collageImages[2].aspect} overflow-hidden rounded-sm group`} style={{ y: parallaxValues[2] }}>
               <img
                 src={collageImages[2].src}
                 alt="Proyecto Construvial 3"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-            </div>
-            <div className={`relative w-full ${collageImages[3].aspect} overflow-hidden rounded-sm group`}>
+            </motion.div>
+            <motion.div className={`relative w-full ${collageImages[3].aspect} overflow-hidden rounded-sm group`} style={{ y: parallaxValues[3] }}>
               <img
                 src={collageImages[3].src}
                 alt="Proyecto Construvial 4"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-            </div>
+            </motion.div>
           </div>
         </motion.div>
 

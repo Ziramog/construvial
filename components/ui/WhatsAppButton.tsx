@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation"
 export function WhatsAppButton() {
   const [isVisible, setIsVisible] = useState(false)
   const [hovered, setHovered] = useState(false)
+  const [isReducedMotion, setIsReducedMotion] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -17,6 +18,14 @@ export function WhatsAppButton() {
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)")
+    setIsReducedMotion(mq.matches)
+    const handler = (e: MediaQueryListEvent) => setIsReducedMotion(e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
   }, [])
 
   if (pathname.startsWith('/studio') || !isVisible) return null
@@ -34,7 +43,7 @@ export function WhatsAppButton() {
         ¡Chateá con nosotros!
       </div>
 
-      {/* Button with subtle pulse animation */}
+      {/* Button */}
       <a
         href={CONTACT.whatsapp}
         target="_blank"
@@ -48,13 +57,15 @@ export function WhatsAppButton() {
           transition-all duration-200
         "
       >
-        {/* Pulse ring */}
-        <span
-          className="absolute inset-0 rounded-full bg-[#25D366] opacity-40"
-          style={{
-            animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
-          }}
-        />
+        {/* Pulse ring - hidden for reduced motion */}
+        {!isReducedMotion && (
+          <span
+            className="absolute inset-0 rounded-full bg-[#25D366] opacity-40"
+            style={{
+              animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+            }}
+          />
+        )}
         <MessageCircle className="w-7 h-7 text-white fill-white relative z-10" />
       </a>
     </div>

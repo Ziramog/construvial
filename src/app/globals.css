@@ -47,6 +47,12 @@ html {
   html {
     scroll-behavior: auto;
   }
+  .animate-marquee {
+    animation: none;
+  }
+  .animate-marquee * {
+    animation: none;
+  }
 }
 
 body {
@@ -167,4 +173,10 @@ body {
 .marquee-track {
   display: flex;
   width: max-content;
+}
+
+/* Gentle floating animation for collage images */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
