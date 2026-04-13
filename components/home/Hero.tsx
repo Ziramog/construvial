@@ -99,7 +99,7 @@ export function Hero() {
           {/* CAPA 1: Gradient solo en la zona del texto (izq) */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
           {/* CAPA 2: Gradient inferior para CTAs */}
-          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/70 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000] via-[#000000]/80 to-transparent" />
         </motion.div>
       </AnimatePresence>
 

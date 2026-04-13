@@ -17,8 +17,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Stats />
       <CompanyBand />
+      <Stats />
       <ServicesCards />
       <EquiposCarousel />
       <ClientMarquee />

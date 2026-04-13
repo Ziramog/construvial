@@ -2,10 +2,7 @@
 
 export function CompanyBand() {
   return (
-    <section className="bg-gradient-to-b from-[#141414] via-[#0a0a0a] to-[#000000] pt-[140px] pb-24 md:pt-[180px] md:pb-32 px-6 border-none relative overflow-hidden">
-      
-      {/* Blend overlay from the yellow section above */}
-      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#FFD100]/10 to-transparent mix-blend-plus-lighter pointer-events-none" />
+    <section className="bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#141414] pt-[140px] pb-24 md:pt-[180px] md:pb-32 px-6 border-none relative overflow-hidden">
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
