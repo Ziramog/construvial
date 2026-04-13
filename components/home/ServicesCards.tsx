@@ -3,8 +3,6 @@
 export function ServicesCards() {
   return (
     <section className="relative bg-[#0a0a0a] py-24 px-6">
-      {/* Smooth transition TO the white Equipos section below */}
-      <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 

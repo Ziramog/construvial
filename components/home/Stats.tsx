@@ -15,10 +15,6 @@ const AnimatedCounter = dynamic(
 export function Stats() {
   return (
     <section id="stats" className="bg-[#FFD100] py-8 sm:py-10 md:py-14 relative overflow-hidden">
-      {/* Top blend from dark CompanyBand */}
-      <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-[#141414] to-transparent pointer-events-none z-10" />
-      {/* Bottom blend into dark Servicios */}
-      <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none z-10" />
       {/* Subtle diagonal pattern */}
       <div className="absolute inset-0 opacity-[0.06]" style={{
         backgroundImage: `repeating-linear-gradient(
