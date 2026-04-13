@@ -1,13 +1,18 @@
 "use client"
 
-import Image from "next/image"
-
 export function CompanyBand() {
+  const collageImages = [
+    { src: "/media/soluciones-integradas/01.png", aspect: "aspect-[4/5]" },
+    { src: "/media/soluciones-integradas/02.png", aspect: "aspect-[1/1]" },
+    { src: "/media/soluciones-integradas/03.png", aspect: "aspect-[1/1]" },
+    { src: "/media/soluciones-integradas/04.png", aspect: "aspect-[4/5]" },
+  ]
+
   return (
     <section className="bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#141414] pt-[140px] pb-24 md:pt-[180px] md:pb-32 px-6 border-none relative overflow-hidden">
       
       {/* Subtle texture overlay */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" />
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 relative z-10 items-center">
         
@@ -42,48 +47,44 @@ export function CompanyBand() {
           </a>
         </div>
 
-        {/* Collage derecha */}
-        <div className="grid grid-cols-2 gap-4 lg:gap-6 lg:pl-12">
-          {/* Columna Izquierda del collage (Offset) */}
-          <div className="flex flex-col gap-4 lg:gap-6 mt-12 lg:mt-24">
-            <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden">
-              <Image 
-                src="/media/soluciones-integradas/01.png" 
-                alt="Proyecto Construvial 1" 
-                fill 
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
+        {/* Collage derecha — 2 columnas, offset vertical */}
+        <div className="grid grid-cols-2 gap-3 lg:gap-4 lg:pl-8">
+          {/* Columna izquierda — desplazada hacia abajo */}
+          <div className="flex flex-col gap-3 lg:gap-4 mt-16">
+            <div className={`relative w-full ${collageImages[0].aspect} overflow-hidden rounded-sm`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={collageImages[0].src}
+                alt="Proyecto Construvial 1"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <div className="relative w-full aspect-[1/1] rounded-sm overflow-hidden">
-              <Image 
-                src="/media/soluciones-integradas/02.png" 
-                alt="Proyecto Construvial 2" 
-                fill 
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
+            <div className={`relative w-full ${collageImages[1].aspect} overflow-hidden rounded-sm`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={collageImages[1].src}
+                alt="Proyecto Construvial 2"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
           </div>
           
-          {/* Columna Derecha del collage */}
-          <div className="flex flex-col gap-4 lg:gap-6">
-            <div className="relative w-full aspect-[1/1] rounded-sm overflow-hidden">
-              <Image 
-                src="/media/soluciones-integradas/03.png" 
-                alt="Proyecto Construvial 3" 
-                fill 
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
+          {/* Columna derecha */}
+          <div className="flex flex-col gap-3 lg:gap-4">
+            <div className={`relative w-full ${collageImages[2].aspect} overflow-hidden rounded-sm`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={collageImages[2].src}
+                alt="Proyecto Construvial 3"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
-            <div className="relative w-full aspect-[4/5] rounded-sm overflow-hidden">
-              <Image 
-                src="/media/soluciones-integradas/04.png" 
-                alt="Proyecto Construvial 4" 
-                fill 
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
+            <div className={`relative w-full ${collageImages[3].aspect} overflow-hidden rounded-sm`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={collageImages[3].src}
+                alt="Proyecto Construvial 4"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
             </div>
           </div>
