@@ -2,7 +2,7 @@ export const CONTACT = {
   phone1: '03571 421350',
   phone2: '03571 423514',
   email: 'info@construvialsa.com.ar',
-  address: 'Ángel V. Peñaloza 1154, Río Tercero, Córdoba, Argentina',
+  address: 'Ruta 36 Km 711, Almafuerte, Córdoba, Argentina',
   whatsapp: 'https://wa.link/ocm4yr',
   instagram: 'https://www.instagram.com/construvial_sa/',
   facebook: 'https://www.facebook.com/profile.php?id=100068820263821',

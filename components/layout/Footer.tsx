@@ -81,7 +81,7 @@ export function Footer() {
           <h4 className="text-white/50 font-bold uppercase tracking-widest text-xs font-display border-b border-white/10 pb-2">Ubicación</h4>
           <div className="w-full h-52 md:h-56 overflow-hidden border border-white/10">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3377.7!2d-64.1143!3d-32.1728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9547b4e83e2b0001%3A0x1!2sAngel+V.+Penaloza+1154%2C+Rio+Tercero%2C+Cordoba%2C+Argentina!5e0!3m2!1ses!2sar!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3273.8!2d-64.3010544!3d-32.2029349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95cd6319c76431f1%3A0x80a3106ee98bc03b!2sConstruvial%20Sa!5e0!3m2!1ses!2sar!4v1"
               width="100%"
               height="100%"
               style={{ border: 0, filter: 'grayscale(100%) contrast(90%) brightness(80%)' }}
