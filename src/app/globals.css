@@ -125,6 +125,15 @@ body {
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
+
+  /* Mobile spacing utilities */
+  .section-mobile {
+    @apply py-12 px-5;
+  }
+
+  .section-mobile-lg {
+    @apply py-16 px-5;
+  }
 }
 
 @layer components {
