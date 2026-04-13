@@ -9,7 +9,7 @@ export function CompanyBand() {
   ]
 
   return (
-    <section className="bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#141414] pt-[140px] pb-24 md:pt-[180px] md:pb-32 px-6 border-none relative overflow-hidden">
+    <section className="bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#141414] pt-[140px] pb-32 md:pt-[180px] md:pb-40 px-6 border-none relative overflow-hidden">
       
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" />
@@ -23,20 +23,20 @@ export function CompanyBand() {
           <div className="w-16 h-1 bg-[#facc15] mb-6" />
 
           {/* Overline */}
-          <p className="font-body text-[#facc15] text-xs tracking-[0.3em] 
+          <p className="font-body text-[#facc15] text-xs tracking-[0.3em]
                         uppercase mb-8 font-bold">
-            Río Tercero, Córdoba · Est. 1989
+            Control total de principio a fin
           </p>
-          
+
           {/* Título unificado */}
           <h2 className="font-display text-white uppercase leading-[1.05] mb-10"
               style={{ fontSize: 'clamp(44px, 5.5vw, 72px)' }}>
-            Soluciones integradas<br className="hidden lg:block" /> para proyectos complejos
+            Ejecución eficiente<br className="hidden lg:block" /> sin intermediarios
           </h2>
-          
+
           {/* Párrafo unificado */}
           <p className="font-body text-white/70 text-[17px] md:text-lg leading-relaxed font-medium mb-12">
-            En CONSTRUVIAL ejecutamos obras con control total sobre cada etapa del proceso. Combinamos ingeniería, maquinaria propia y experiencia operativa para garantizar calidad, eficiencia y cumplimiento en proyectos de infraestructura de cualquier escala.
+            Controlamos cada etapa del proceso: ingeniería propia, maquinaria sin terceros y experiencia operativa comprobada. Así garantizamos obras a tiempo, dentro del presupuesto y con la calidad que exigís.
           </p>
 
           {/* CTA Solo texto */}

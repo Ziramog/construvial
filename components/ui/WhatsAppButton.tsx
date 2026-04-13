@@ -34,7 +34,7 @@ export function WhatsAppButton() {
         ¡Chateá con nosotros!
       </div>
 
-      {/* Button */}
+      {/* Button with subtle pulse animation */}
       <a
         href={CONTACT.whatsapp}
         target="_blank"
@@ -43,12 +43,19 @@ export function WhatsAppButton() {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="
-          w-14 h-14 rounded-full flex items-center justify-center shadow-lg
+          relative w-14 h-14 rounded-full flex items-center justify-center shadow-lg
           bg-[#25D366] hover:bg-[#1ebe5d] active:scale-95
           transition-all duration-200
         "
       >
-        <MessageCircle className="w-7 h-7 text-white fill-white" />
+        {/* Pulse ring */}
+        <span
+          className="absolute inset-0 rounded-full bg-[#25D366] opacity-40"
+          style={{
+            animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+          }}
+        />
+        <MessageCircle className="w-7 h-7 text-white fill-white relative z-10" />
       </a>
     </div>
   )

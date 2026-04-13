@@ -2,7 +2,7 @@
 
 export function EquiposCarousel() {
   return (
-    <section className="relative bg-white py-24 px-6">
+    <section className="relative bg-white py-32 px-6">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
@@ -24,22 +24,22 @@ export function EquiposCarousel() {
         <div className="flex flex-col items-start">
           <div className="w-16 h-1 bg-[#facc15] mb-6" />
           <p className="font-body text-[#0a0a0a]/50 text-xs tracking-[0.3em] uppercase mb-4 font-bold">
-            Flota Propia
+            Flota propia, sin demoras
           </p>
           <h2 className="font-display text-[#0a0a0a] uppercase leading-none mb-8"
               style={{ fontSize: 'clamp(48px, 6vw, 80px)' }}>
             Equipos<br/>
-            <span className="text-[#facc15]">Certificados</span>
+            <span className="text-[#facc15]">listos para operar</span>
           </h2>
           <p className="font-body text-[#0a0a0a]/60 text-[17px] leading-relaxed mb-10 max-w-lg">
-            Operamos con flota propia de maquinaria pesada certificada — motoniveladoras, excavadoras, compactadores, cargadoras y carretones adaptados a cada tipo de obra.
+            Maquinaria propia certificada — motoniveladoras, excavadoras, compactadores y cargadoras. Sin dependencia de terceros, sin retrasos por disponibilidad. Tu obra avanza cuando lo necesita.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="/equipos"
                className="inline-flex items-center justify-center gap-2 bg-[#0a0a0a] text-white
                           font-body font-semibold text-sm tracking-widest uppercase
                           px-8 py-4 hover:bg-[#facc15] hover:text-[#0a0a0a] transition-colors">
-              Ver catálogo completo →
+              Ver catálogo →
             </a>
             <a href="https://wa.link/ocm4yr"
                target="_blank"

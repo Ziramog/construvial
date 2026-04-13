@@ -2,7 +2,7 @@
 
 export function ObrasSection() {
   return (
-    <section className="relative bg-[#0a0a0a] py-24 px-6">
+    <section className="relative bg-[#0a0a0a] py-32 px-6">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
@@ -10,22 +10,19 @@ export function ObrasSection() {
         <div className="flex flex-col items-start">
           <div className="w-16 h-1 bg-[#facc15] mb-6" />
           <p className="font-body text-[#facc15] text-xs tracking-[0.3em] uppercase mb-4 font-bold">
-            Portafolio
+            Obras ejecutadas
           </p>
           <h2 className="font-display text-white uppercase leading-none mb-6"
               style={{ fontSize: 'clamp(48px, 6vw, 80px)' }}>
-            Obras
+            Obras que<br/>
+            <span className="text-[#facc15]">hablan por sí solas</span>
           </h2>
-          <h3 className="font-display text-white/60 uppercase leading-tight mb-8"
-              style={{ fontSize: 'clamp(18px, 2vw, 26px)' }}>
-            Proyectos que definen nuestro estándar
-          </h3>
           <p className="font-body text-white/60 text-[17px] leading-relaxed mb-10 max-w-lg">
-            Cada obra es el resultado de planificación precisa, ejecución eficiente y control total en cada etapa. Desde movimientos de gran escala hasta desarrollos estructurales complejos, entregamos resultados que cumplen y superan las exigencias del sector.
+            Planificación precisa, ejecución eficiente y control total en cada etapa. Más de 500 obras entregadas a tiempo, cumpliendo plazos y superando los estándares del sector.
           </p>
           <a href="/obras"
              className="inline-flex items-center gap-3 text-white font-body text-sm tracking-widest uppercase hover:text-[#facc15] transition-colors duration-300 group">
-            <span className="border-b border-white/30 group-hover:border-[#facc15] pb-1 transition-colors">Explorar proyectos</span>
+            <span className="border-b border-white/30 group-hover:border-[#facc15] pb-1 transition-colors">Ver proyectos</span>
             <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </div>

@@ -29,21 +29,27 @@ export function ClientMarquee() {
   const doubled = [...clients, ...clients]
 
   return (
-    <section className="bg-[#F5F7FA] py-14 overflow-hidden border-y border-black/5">
-      
+    <section className="bg-[#F5F7FA] py-20 overflow-hidden border-y border-black/5">
+
       {/* Label superior */}
-      <p className="font-body text-center text-xs tracking-[0.3em] uppercase 
-                    text-[#facc15] mb-10 font-bold">
-        Más de 35 años de confianza — Sector público y privado
-      </p>
+      <div className="text-center mb-10">
+        <p className="font-body text-xs tracking-[0.3em] uppercase
+                      text-[#0a0a0a]/60 mb-2 font-semibold">
+          Empresas líderes confían en nosotros
+        </p>
+        <p className="font-body text-[10px] tracking-[0.2em] uppercase
+                      text-[#0a0a0a]/40">
+          Sector público y privado · Energía · Industria · Infraestructura
+        </p>
+      </div>
 
       {/* Contenedor con fade lateral */}
       <div className="relative">
-        
+
         {/* Fade izquierdo */}
         <div className="absolute left-0 top-0 bottom-0 w-32 z-10
                         bg-gradient-to-r from-[#F5F7FA] to-transparent pointer-events-none" />
-        
+
         {/* Fade derecho */}
         <div className="absolute right-0 top-0 bottom-0 w-32 z-10
                         bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none" />
@@ -54,7 +60,7 @@ export function ClientMarquee() {
             <div
               key={`${client.name}-${i}`}
               className="flex items-center justify-center mx-10 flex-shrink-0
-                         opacity-80 hover:opacity-100 transition-opacity duration-300"
+                         opacity-100 hover:opacity-70 transition-opacity duration-300"
               style={{ minWidth: '120px', height: '64px' }}
             >
               <Image
@@ -62,17 +68,13 @@ export function ClientMarquee() {
                 alt={client.name}
                 width={140}
                 height={64}
-                className="object-contain max-h-16 w-auto mix-blend-multiply"
+                className="object-contain max-h-16 w-auto"
               />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Contador de clientes */}
-      <p className="font-body text-center text-xs text-[#0a0a0a]/40 mt-10 tracking-widest font-semibold">
-        19 EMPRESAS LÍDERES · ENERGÍA · INDUSTRIA · INFRAESTRUCTURA · ESTADO
-      </p>
     </section>
   )
 }

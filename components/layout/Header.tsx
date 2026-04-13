@@ -60,8 +60,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-[#0a0a0a] border-b border-white/5 shadow-2-xl ${
-        isScrolled ? "py-2 sm:py-3" : "py-3 sm:py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled
+          ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/10 shadow-xl py-2 sm:py-3"
+          : "bg-[#0a0a0a] border-b border-white/5 shadow-2xl py-3 sm:py-5"
       }`}
     >
       <div className="w-full h-full px-4 sm:px-6 md:px-8 xl:px-12 relative z-10 flex flex-col justify-center">
