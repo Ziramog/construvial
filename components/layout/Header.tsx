@@ -68,7 +68,7 @@ export function Header() {
         <div className="flex items-center justify-between">
 
           {/* Official Logo */}
-          <Link href="/" className="z-50 relative h-12 w-44 sm:h-14 sm:w-52" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link href="/" className="z-50 relative h-[62px] w-[229px] sm:h-[73px] sm:w-[270px]" onClick={() => setIsMobileMenuOpen(false)}>
             <Image
               src="/media/brand/logo-white.png"
               alt="Construvial Logo"
