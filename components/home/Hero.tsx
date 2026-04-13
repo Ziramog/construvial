@@ -13,7 +13,9 @@ const slides = [
     cta: "Solicitar presupuesto",
     ctaLink: "/contacto",
     image: "/media/hero/desktop/hero-slide-1.jpg",
-    alt: "Galpón corporativo extendido en 4K con flota masiva de maquinaria vial",
+    mobileImage: "/media/hero/mobile/hero-mobile-01.mp4",
+    isMobileVideo: true,
+    alt: "Galpón corporativo especializado con flota de maquinaria vial",
   },
   {
     headline: "Equipos listos\npara operar\nsin demoras",
@@ -47,6 +49,7 @@ const slides = [
 
 export function Hero() {
   const [current, setCurrent] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length)
@@ -56,6 +59,14 @@ export function Hero() {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
   }, [])
 
+  // Window resize handler for mobile detection
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   // Auto-advance every 6 seconds
   useEffect(() => {
     const timer = setInterval(next, 6000)
@@ -63,22 +74,26 @@ export function Hero() {
   }, [next])
 
   const slide = slides[current]
+  
+  // Decide media based on screen size
+  const currentMedia = (isMobile && slide.mobileImage) ? slide.mobileImage : slide.image
+  const currentIsVideo = (isMobile && slide.mobileImage) ? (slide.isMobileVideo ?? slide.isVideo) : slide.isVideo
 
   return (
     <section id="hero" className="relative h-screen min-h-[600px] w-full overflow-hidden">
       {/* Background images */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={current}
+          key={`${current}-${isMobile}`} // Re-animate if screen size changes source
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          {slide.isVideo ? (
+          {currentIsVideo ? (
             <video
-              src={slide.image}
+              src={currentMedia}
               autoPlay
               loop
               muted
@@ -87,7 +102,7 @@ export function Hero() {
             />
           ) : (
             <Image
-              src={slide.image}
+              src={currentMedia}
               alt={slide.alt || "Background image"}
               fill
               className={`object-cover object-center ${current === 0 || current === 1 ? '-scale-x-100' : ''}`}
