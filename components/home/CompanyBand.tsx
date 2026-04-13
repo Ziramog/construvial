@@ -2,27 +2,33 @@
 
 export function CompanyBand() {
   return (
-    <section className="bg-gradient-to-b from-[#0a0a0a] to-[#0a0a0a]/90 py-20 px-6 border-t border-white/5 relative">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
+    <section className="bg-gradient-to-b from-[#141414] via-[#0a0a0a] to-[#000000] pt-[140px] pb-24 md:pt-[180px] md:pb-32 px-6 border-none relative overflow-hidden">
+      
+      {/* Blend overlay from the yellow section above */}
+      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#FFD100]/10 to-transparent mix-blend-plus-lighter pointer-events-none" />
+      
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
+      
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row 
-                      items-center justify-between gap-12 relative z-10">
+                      items-start md:items-center justify-between gap-16 lg:gap-24 relative z-10">
         
         {/* Texto izquierda */}
         <div className="flex-1">
           {/* Overline */}
           <p className="font-body text-[#facc15] text-xs tracking-[0.3em] 
-                        uppercase mb-6 font-bold">
+                        uppercase mb-8 font-bold">
             Río Tercero, Córdoba · Est. 1989
           </p>
           
           {/* Título unificado */}
-          <h2 className="font-display text-white uppercase leading-[1.1] mb-8"
-              style={{ fontSize: 'clamp(40px, 5vw, 64px)' }}>
-            Soluciones integradas<br className="hidden md:block" /> para proyectos complejos
+          <h2 className="font-display text-white uppercase leading-[1.05] mb-10"
+              style={{ fontSize: 'clamp(44px, 5.5vw, 72px)' }}>
+            Soluciones integradas<br className="hidden lg:block" /> para proyectos complejos
           </h2>
           
           {/* Párrafo unificado */}
-          <p className="font-body text-white/70 text-[17px] leading-relaxed max-w-2xl font-medium">
+          <p className="font-body text-white/70 text-[17px] md:text-lg leading-relaxed max-w-2xl font-medium">
             En CONSTRUVIAL ejecutamos obras con control total sobre cada etapa del proceso. Combinamos ingeniería, maquinaria propia y experiencia operativa para garantizar calidad, eficiencia y cumplimiento en proyectos de infraestructura de cualquier escala.
           </p>
         </div>

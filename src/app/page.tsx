@@ -18,10 +18,10 @@ export default function HomePage() {
     <>
       <Hero />
       <Stats />
-      <ClientMarquee />
       <CompanyBand />
       <ServicesCards />
       <EquiposCarousel />
+      <ClientMarquee />
       <CTAFinal />
     </>
   )
