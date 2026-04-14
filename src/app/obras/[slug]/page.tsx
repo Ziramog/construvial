@@ -270,7 +270,7 @@ export default function ObraDetallePage({ params }: ObraDetallePageProps) {
                     <h3 className="font-display text-xl font-bold text-white mb-4 uppercase tracking-wide">¿Te interesa este proyecto?</h3>
                     <p className="font-body text-gray-400 text-sm mb-8 leading-relaxed">Combinamos excelencia técnica y compromiso en cada obra. Contactanos para conversar sobre tu próximo desafío.</p>
                     <Link
-                      href="https://wa.link/ocm4yr"
+                      href="https://wa.me/5493571578542"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-3 w-full bg-[#FFD100] text-[#1A1A1A] font-body font-bold py-4 text-xs tracking-widest uppercase hover:bg-white transition-all shadow-xl"

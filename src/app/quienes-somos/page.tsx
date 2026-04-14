@@ -256,7 +256,7 @@ export default function QuienesSomosPage() {
                   </p>
                 </FadeIn>
                 <Link
-                  href="https://wa.link/ocm4yr"
+                  href="https://wa.me/5493571578542"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-4 text-[#FFD100] font-body font-bold text-sm uppercase tracking-widest mt-6 group"
@@ -290,7 +290,7 @@ export default function QuienesSomosPage() {
           </FadeIn>
           <FadeIn delay={400} direction="up">
             <Link
-              href="https://wa.link/ocm4yr"
+              href="https://wa.me/5493571578542"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-4 bg-[#FFD100] text-[#1A1A1A] font-body font-bold py-6 px-12 text-sm tracking-[0.3em] uppercase hover:bg-white transition-all shadow-[0_0_30px_rgba(255,209,0,0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] active:scale-95"

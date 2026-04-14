@@ -99,7 +99,7 @@ function EquipoRow({ equipo, index }: { equipo: Equipo; index: number }) {
           {equipo.disponibleParaAlquiler && (
             <div className="mt-6">
               <Link
-                href="https://wa.link/ocm4yr"
+                href="https://wa.me/5493571578542"
                 target="_blank"
                 className="link-underline inline-flex items-center gap-2 text-[#FFD100] font-body text-sm hover:text-yellow-400 transition-colors group/link"
               >

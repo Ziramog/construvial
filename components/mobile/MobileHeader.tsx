@@ -138,7 +138,7 @@ export function MobileHeader() {
 
           {/* CTA - full width */}
           <Link
-            href="https://wa.link/ocm4yr"
+            href="https://wa.me/5493571578542"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full text-center bg-[#facc15] text-[#0a0a0a] font-bold tracking-wider uppercase text-[15px] px-6 py-[16px] shadow-lg active:scale-[0.98] transition-transform"

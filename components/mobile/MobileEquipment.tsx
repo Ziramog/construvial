@@ -58,7 +58,7 @@ export function MobileEquipment() {
                className="w-full inline-flex items-center justify-center gap-2 bg-[#0a0a0a] text-white font-bold text-[14px] tracking-wider uppercase px-6 py-[16px] hover:bg-[#facc15] hover:text-[#0a0a0a] active:scale-[0.98] transition-all">
               Ver catálogo →
             </a>
-            <a href="https://wa.link/ocm4yr"
+            <a href="https://wa.me/5493571578542"
                target="_blank"
                rel="noopener noreferrer"
                className="w-full inline-flex items-center justify-center gap-2 border-2 border-[#0a0a0a]/30 text-[#0a0a0a] font-semibold text-[14px] tracking-wider uppercase px-6 py-[16px] hover:border-[#0a0a0a] active:bg-[#0a0a0a]/5 transition-all">

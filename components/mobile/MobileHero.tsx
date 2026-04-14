@@ -208,7 +208,7 @@ export function MobileHero() {
               </Link>
               {!slide.singleCta && (
                 <Link
-                  href="https://wa.link/ocm4yr"
+                  href="https://wa.me/5493571578542"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 border-2 border-white/40 text-white font-semibold text-[14px] tracking-wider uppercase px-6 py-[12px] hover:border-white hover:bg-white/10 active:bg-white/20 active:scale-[0.98] transition-all duration-150"

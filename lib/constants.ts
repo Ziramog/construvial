@@ -3,7 +3,7 @@ export const CONTACT = {
   phone2: '03571 423514',
   email: 'info@construvialsa.com.ar',
   address: 'Ruta 36 Km 711, Almafuerte, Córdoba, Argentina',
-  whatsapp: 'https://wa.link/ocm4yr',
+  whatsapp: 'https://wa.me/5493571578542',
   instagram: 'https://www.instagram.com/construvial_sa/',
   facebook: 'https://www.facebook.com/profile.php?id=100068820263821',
   linkedin: 'https://www.linkedin.com/company/construvial-sa/',

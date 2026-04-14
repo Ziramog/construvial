@@ -161,7 +161,7 @@ export function Header() {
             {/* CTA - Right */}
             <div className="hidden lg:flex items-center">
               <Link
-                href="https://wa.link/ocm4yr"
+                href="https://wa.me/5493571578542"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-sm px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:bg-yellow-400"
@@ -258,7 +258,7 @@ export function Header() {
             ))}
             <div className="w-16 h-1 bg-white/10 my-2 sm:my-4" />
             <Link
-              href="https://wa.link/ocm4yr"
+              href="https://wa.me/5493571578542"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full max-w-xs text-center bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"

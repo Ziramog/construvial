@@ -66,7 +66,7 @@ export default function BlogPage() {
                   directamente.
                 </p>
                 <Link
-                  href="https://wa.link/ocm4yr"
+                  href="https://wa.me/5493571578542"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-[#FFD100] text-black font-body font-bold text-sm uppercase tracking-wider px-8 py-4 hover:bg-white transition-all shadow-xl"

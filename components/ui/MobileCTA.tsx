@@ -37,7 +37,7 @@ export function MobileCTA() {
          className="w-[40%] flex items-center justify-center bg-white/10 text-white font-body text-sm py-3 rounded-none font-medium tracking-wide transition-colors hover:bg-white/20">
         📞 Llamar
       </a>
-      <a href="https://wa.link/ocm4yr" target="_blank" rel="noopener noreferrer"
+      <a href="https://wa.me/5493571578542" target="_blank" rel="noopener noreferrer"
          className="w-[60%] flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body text-sm py-3 rounded-none font-semibold tracking-wide transition-colors hover:bg-yellow-400">
         <span>WhatsApp</span>
         <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">

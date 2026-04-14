@@ -58,7 +58,7 @@ export function MobileServices() {
                className="w-full inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-bold text-[14px] tracking-wider uppercase px-6 py-[16px] hover:bg-white active:bg-white/90 transition-colors">
               Ver servicios →
             </a>
-            <a href="https://wa.link/ocm4yr"
+            <a href="https://wa.me/5493571578542"
                target="_blank"
                rel="noopener noreferrer"
                className="w-full inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white font-semibold text-[14px] tracking-wider uppercase px-6 py-[16px] hover:border-white active:bg-white/10 transition-all">

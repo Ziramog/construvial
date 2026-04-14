@@ -118,7 +118,7 @@ export default function EquiposPage() {
             Contactanos y te asesoramos sobre la disponibilidad y tarifas de nuestra flota.
           </p>
           <a
-            href="https://wa.link/ocm4yr"
+            href="https://wa.me/5493571578542"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-[#FFD100] text-black font-body font-semibold px-8 py-4 hover:bg-yellow-400 transition-colors duration-200"

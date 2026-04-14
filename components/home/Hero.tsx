@@ -357,7 +357,7 @@ export function Hero() {
         {/* WA Floating Button (Hero Only) */}
         <div className="absolute right-4 sm:right-12 md:right-20 bottom-16 sm:bottom-20 md:bottom-24 z-50">
           <a
-            href="https://wa.me/5493571602787"
+            href="https://wa.me/5493571578542"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_4px_25px_rgba(37,211,102,0.6)] transition-all duration-300"
