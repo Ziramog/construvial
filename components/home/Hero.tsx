@@ -119,16 +119,24 @@ export function Hero() {
   const [scrollY, setScrollY] = useState(0)
   const [isReducedMotion, setIsReducedMotion] = useState(false)
   const [isMediaLoading, setIsMediaLoading] = useState(true)
+  const [loadedMedia, setLoadedMedia] = useState<Record<number, boolean>>({})
 
-  // 3-second fallback for loader
+  // 4-second fallback for loader
   useEffect(() => {
     const fallbackTimer = setTimeout(() => {
       setIsMediaLoading(false)
-    }, 3000)
+    }, 4000)
     return () => clearTimeout(fallbackTimer)
   }, [])
 
-  // Preload first slide media to prevent grey screen
+  // Check if all media is loaded
+  useEffect(() => {
+    if (Object.keys(loadedMedia).length >= slides.length) {
+      setIsMediaLoading(false)
+    }
+  }, [loadedMedia])
+
+  // Preload first slide media to prevent grey screen on load
   usePreloadFirstSlide()
 
   const next = useCallback(() => {
@@ -212,70 +220,80 @@ export function Hero() {
 
       {/* Solid black background — no grey screen while media loads */}
 
-      {/* Background with parallax - Adjusted for mobile fit */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={`${current}-${isMobile}`}
-          initial={current === 0 ? { opacity: 1 } : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: isMobile ? 0.3 : 0.4, ease: "easeOut" }}
-          className="absolute inset-0"
-        >
-          <div
-            className={`absolute left-0 w-full ${isMobile ? 'top-0 h-full' : '-top-[10%] h-[120%]'}`}
-            style={{
-              transform: `translateY(${parallaxY}px)`,
-              willChange: 'transform',
-            }}
-          >
-          {currentIsVideo ? (
-            <video
-              src={currentMedia}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              onCanPlayThrough={() => setIsMediaLoading(false)}
-              className={`object-cover object-center w-full h-full bg-black ${
-                (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
-              }`}
-            />
-          ) : (
-            <Image
-              src={currentMedia}
-              alt={slide.alt || "Background image"}
-              fill
-              onLoad={() => setIsMediaLoading(false)}
-              className={`object-cover object-center ${
-                (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
-              }`}
-              priority={current === 0}
-              sizes="100vw"
-              quality={85}
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx0dHRsdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDAR0XFyAeIB4gHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh3/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-            />
-          )}
-          </div>
+      {/* Backgrounds - all mounted to prevent black screens/reloads */}
+      <div
+        className={`absolute left-0 w-full ${isMobile ? 'top-0 h-full' : '-top-[10%] h-[120%]'}`}
+        style={{
+          transform: `translateY(${parallaxY}px)`,
+          willChange: 'transform',
+        }}
+      >
+        {slides.map((s, idx) => {
+          const media = (isMobile && s.mobileImage) ? s.mobileImage : s.image
+          const isVid = (isMobile && s.mobileImage) ? (s.isMobileVideo ?? s.isVideo) : s.isVideo
+          const isActive = current === idx
 
-          {/* Overlays */}
-          {isMobile ? (
-            <>
-              {/* Mobile: lighter gradient */}
-              <div className={`absolute inset-0 ${mobileOverlay}`} />
-            </>
-          ) : (
-            <>
-              {/* Desktop: lighter side gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
-              {/* Desktop: lighter bottom gradient */}
-              <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000]/70 via-[#000000]/50 to-transparent" />
-            </>
-          )}
-        </motion.div>
-      </AnimatePresence>
+          return (
+            <div
+              key={`${idx}-${isMobile ? 'm' : 'd'}`}
+              className={`absolute inset-0 transition-opacity duration-[1000ms] ease-in-out ${
+                isActive ? 'opacity-100 z-[2]' : 'opacity-0 z-[1]'
+              }`}
+            >
+              {isVid ? (
+                <video
+                  src={media}
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  ref={(el) => {
+                    if (el) {
+                      if (isActive) {
+                        el.play().catch(() => {})
+                      } else {
+                        el.pause()
+                        if (el.currentTime !== 0) el.currentTime = 0 
+                      }
+                    }
+                  }}
+                  onCanPlayThrough={() => setLoadedMedia(prev => ({...prev, [idx]: true}))}
+                  className={`object-cover object-center w-full h-full bg-black ${
+                    (idx === 0 && !isMobile) || idx === 1 ? '-scale-x-100' : ''
+                  }`}
+                />
+              ) : (
+                <Image
+                  src={media}
+                  alt={s.alt || "Background image"}
+                  fill
+                  onLoad={() => setLoadedMedia(prev => ({...prev, [idx]: true}))}
+                  className={`object-cover object-center ${
+                    (idx === 0 && !isMobile) || idx === 1 ? '-scale-x-100' : ''
+                  }`}
+                  priority={idx === 0 || idx === 1}
+                  sizes="100vw"
+                  quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx0dHRsdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDAR0XFyAeIB4gHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh3/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                />
+              )}
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Static Overlays over backgrounds */}
+      <div className="absolute inset-0 z-[5] pointer-events-none transition-colors duration-700">
+        {isMobile ? (
+          <div className={`absolute inset-0 ${mobileOverlay}`} />
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000]/70 via-[#000000]/50 to-transparent" />
+          </>
+        )}
+      </div>
 
       {/* Content - TOP aligned */}
       <div className={`relative z-10 h-full flex flex-col justify-start ${isMobile ? `${mobileTopPad} px-6` : 'pt-32 sm:pt-36 md:pt-40 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20'}`}>
