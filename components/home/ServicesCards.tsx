@@ -1,10 +1,20 @@
 "use client"
 
-import { FadeIn } from "@/components/ui/FadeIn"
+import { useRef } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 
 export function ServicesCards() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  })
+  // Subtle scale + parallax as section scrolls into view
+  const scale = useTransform(scrollYProgress, [0, 0.3, 1], [0.96, 1, 1])
+  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1])
+
   return (
-    <section className="relative bg-[#0a0a0a] py-32 px-6">
+    <section ref={ref} className="relative bg-[#0a0a0a] py-32 px-6">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
@@ -40,21 +50,22 @@ export function ServicesCards() {
           </div>
         </div>
 
-        {/* Right — Video with entrance */}
-        <FadeIn direction="up" scale delay={200}>
-          <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm">
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <video
-              src="/media/servicios/desktop/construvial.mov"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
-          </div>
-        </FadeIn>
+        {/* Right — Video with scroll-driven reveal */}
+        <motion.div
+          style={{ scale, opacity }}
+          className="relative w-full aspect-[16/10] overflow-hidden rounded-sm"
+        >
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <video
+            src="/media/servicios/desktop/construvial.mov"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+        </motion.div>
 
       </div>
     </section>

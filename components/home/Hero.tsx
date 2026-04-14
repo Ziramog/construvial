@@ -145,7 +145,6 @@ export function Hero() {
   const mobileSubtitleSize = isCinematic ? 'text-[13px]' : 'text-[14px]'
   const mobileSubtitleOpacity = isCinematic ? 'text-white/60' : 'text-white/80'
   const mobileTopPad = 'pt-[130px]' // clears the fixed header with breathing room
-  const mobileBottomPad = isCinematic ? 'pb-14' : 'pb-12'
   const mobileOverlay = isCinematic ? 'bg-gradient-to-b from-black/30 via-black/15 to-black/40' : 'bg-gradient-to-b from-black/45 via-black/25 to-black/55'
   const mobileNavOpacity = isCinematic ? 'opacity-40' : 'opacity-70'
 
