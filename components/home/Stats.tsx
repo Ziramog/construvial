@@ -48,10 +48,10 @@ export function Stats() {
           {STATS.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              initial={{ opacity: 0, scale: 0.8, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08, duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
               className={index === 4 ? "hidden sm:flex sm:flex-col sm:items-center sm:text-center" : "flex flex-col items-center text-center"}
             >
               <div className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#0a0a0a] leading-none flex items-baseline">

@@ -11,13 +11,14 @@ export function CTAFinal() {
   })
   // Background glow intensifies as section comes into view
   const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.08, 0.15])
-  const scale = useTransform(scrollYProgress, [0, 0.3, 1], [0.97, 1, 1])
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1])
+  const scale = useTransform(scrollYProgress, [0, 0.2, 1], [0.9, 1, 1])
+  const y = useTransform(scrollYProgress, [0, 0.2, 1], [40, 0, 0])
+  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1])
 
   return (
     <section ref={ref} className="bg-[#facc15] py-24 px-6 border-t border-black/5">
       <motion.div
-        style={{ scale, opacity }}
+        style={{ scale, y, opacity }}
         className="max-w-4xl mx-auto text-center border border-black/10 p-12 lg:p-20 shadow-2xl bg-[#0a0a0a] relative overflow-hidden"
       >
 

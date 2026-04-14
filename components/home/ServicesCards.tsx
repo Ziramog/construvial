@@ -9,8 +9,9 @@ export function ServicesCards() {
     target: ref,
     offset: ["start end", "end start"],
   })
-  // Subtle scale + parallax as section scrolls into view
-  const scale = useTransform(scrollYProgress, [0, 0.3, 1], [0.96, 1, 1])
+  // Scroll-driven reveal: video fades in + slides up as section enters view
+  const scale = useTransform(scrollYProgress, [0, 0.2, 1], [0.88, 1, 1])
+  const y = useTransform(scrollYProgress, [0, 0.2, 1], [50, 0, 0])
   const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1])
 
   return (
@@ -52,7 +53,7 @@ export function ServicesCards() {
 
         {/* Right — Video with scroll-driven reveal */}
         <motion.div
-          style={{ scale, opacity }}
+          style={{ scale, y, opacity }}
           className="relative w-full aspect-[16/10] overflow-hidden rounded-sm"
         >
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
