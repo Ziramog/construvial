@@ -138,7 +138,8 @@ export function Hero() {
   const isCinematic = isMobile ? (slide.cinematic ?? false) : false
 
   // Parallax: background 120% height, moves at 0.3x scroll rate, max 60px
-  const parallaxY = isReducedMotion ? 0 : Math.min(scrollY * 0.3, 60)
+  // Adjusted: disabled on mobile to fit vertical videos perfectly ("adjust on screen size")
+  const parallaxY = (isReducedMotion || isMobile) ? 0 : Math.min(scrollY * 0.3, 60)
 
   // MOBILE-SPECIFIC SIZING
   const mobileHeadlineSize = isCinematic ? 'clamp(28px, 9vw, 36px)' : 'clamp(32px, 10vw, 40px)'
@@ -150,7 +151,7 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative h-screen min-h-[600px] w-full overflow-hidden">
-      {/* Background with parallax - 120% height for movement room */}
+      {/* Background with parallax - Adjusted for mobile fit */}
       <AnimatePresence mode="wait">
         <motion.div
           key={`${current}-${isMobile}`}
@@ -161,7 +162,7 @@ export function Hero() {
           className="absolute inset-0"
         >
           <div
-            className="absolute -top-[10%] left-0 w-full h-[120%]"
+            className={`absolute left-0 w-full ${isMobile ? 'top-0 h-full' : '-top-[10%] h-[120%]'}`}
             style={{
               transform: `translateY(${parallaxY}px)`,
               willChange: 'transform',
