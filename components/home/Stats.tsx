@@ -18,29 +18,31 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.15,
       delayChildren: 0.1,
     },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.75, y: 40 },
+  hidden: { opacity: 0, scale: 0.6, y: 80, rotate: 4 },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
+    rotate: 0,
     transition: {
       type: "spring" as const,
-      stiffness: 120,
-      damping: 14,
+      stiffness: 100,
+      damping: 12,
+      mass: 0.8,
     },
   },
 }
 
 export function Stats() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
     <section id="stats" className="bg-[#FFD100] py-12 sm:py-16 md:py-20 relative overflow-hidden">
@@ -56,11 +58,11 @@ export function Stats() {
       }} />
 
       <div className="container mx-auto px-4 sm:px-6 md:px-6 relative z-10">
-        {/* Heading above stats */}
+        {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ type: "spring", stiffness: 100, damping: 14, duration: 0.6 }}
           className="text-center mb-8 sm:mb-10 md:mb-12"
         >
           <h2 className="font-display text-[#0a0a0a] uppercase leading-none tracking-wide"
@@ -69,7 +71,7 @@ export function Stats() {
           </h2>
         </motion.div>
 
-        {/* Stats grid with staggered reveal */}
+        {/* Stats grid with staggered spring reveal */}
         <motion.div
           ref={ref}
           variants={containerVariants}

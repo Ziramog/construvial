@@ -5,36 +5,51 @@ import { motion, useInView } from "framer-motion"
 
 export function CTAFinal() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
     <section ref={ref} className="bg-[#facc15] py-24 px-6 border-t border-black/5">
       <motion.div
-        initial={{ opacity: 0, y: 60, scale: 0.92 }}
+        initial={{ opacity: 0, y: 100, scale: 0.85 }}
         animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        transition={{ type: "spring", stiffness: 70, damping: 13, mass: 0.7, duration: 0.8 }}
         className="max-w-4xl mx-auto text-center border border-black/10 p-12 lg:p-20 shadow-2xl bg-[#0a0a0a] relative overflow-hidden"
       >
 
-        {/* Glow effect */}
+        {/* Glow that pulses in */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 0.12 } : {}}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={isInView ? { opacity: [0, 0.15, 0.08], scale: [0.8, 1.2, 1] } : {}}
+          transition={{ duration: 1.2, delay: 0.3 }}
           className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#facc15] blur-[100px] pointer-events-none"
         />
 
-        <h2 className="font-display text-white uppercase leading-none mb-6 relative z-10"
-            style={{ fontSize: 'clamp(48px, 6vw, 80px)' }}>
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+          className="font-display text-white uppercase leading-none mb-6 relative z-10"
+          style={{ fontSize: 'clamp(48px, 6vw, 80px)' }}
+        >
           ¿Tenés un proyecto?
-        </h2>
+        </motion.h2>
 
-        <p className="font-body text-[#facc15] text-lg mb-10 tracking-wide font-medium relative z-10">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.35 }}
+          className="font-body text-[#facc15] text-lg mb-10 tracking-wide font-medium relative z-10"
+        >
           Hacelo realidad con quien ya entregó 500 obras en 35 años.<br className="hidden sm:block" />
           <span className="text-white/60">Presupuesto sin compromiso. Respuesta en menos de 24hs.</span>
-        </p>
+        </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
+          className="flex flex-col sm:flex-row gap-6 justify-center relative z-10"
+        >
           <a href="/contacto"
              className="inline-flex items-center justify-center gap-2
                         bg-[#facc15] text-[#0a0a0a] font-body font-bold
@@ -54,7 +69,7 @@ export function CTAFinal() {
             </svg>
             Hablar por WhatsApp
           </a>
-        </div>
+        </motion.div>
 
       </motion.div>
     </section>

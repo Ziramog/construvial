@@ -1,6 +1,8 @@
 "use client"
 
 import Image from "next/image"
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
 
 const clients = [
   { name: "Cliente 1", logo: "/media/logos/10001.png" },
@@ -25,14 +27,20 @@ const clients = [
 ]
 
 export function ClientMarquee() {
-  // Duplicamos el array para el loop infinito visual
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
   const doubled = [...clients, ...clients]
 
   return (
-    <section className="bg-[#F5F7FA] py-20 overflow-hidden border-y border-black/5">
+    <section ref={ref} className="bg-[#F5F7FA] py-20 overflow-hidden border-y border-black/5">
 
       {/* Label superior */}
-      <div className="text-center mb-10">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="text-center mb-10"
+      >
         <p className="font-body text-xs tracking-[0.3em] uppercase
                       text-[#0a0a0a]/60 mb-2 font-semibold">
           Más de 24 empresas líderes, de YPF a INVAP/NASA, confían en nosotros
@@ -41,10 +49,15 @@ export function ClientMarquee() {
                       text-[#0a0a0a]/40">
           Sector público y privado · Energía · Industria · Infraestructura
         </p>
-      </div>
+      </motion.div>
 
       {/* Contenedor con fade lateral */}
-      <div className="relative">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        className="relative"
+      >
 
         {/* Fade izquierdo */}
         <div className="absolute left-0 top-0 bottom-0 w-32 z-10
@@ -73,7 +86,7 @@ export function ClientMarquee() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
     </section>
   )

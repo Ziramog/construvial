@@ -5,18 +5,18 @@ import { motion, useInView } from "framer-motion"
 
 export function EquiposCarousel() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.15 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   return (
     <section ref={ref} className="relative bg-white py-32 px-6">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
-        {/* Left — Video with slide-up reveal */}
+        {/* Left — Video with dramatic upward slide */}
         <motion.div
-          initial={{ opacity: 0, y: 80, scale: 0.92 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+          initial={{ opacity: 0, y: 120, scale: 0.85, rotate: -1 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1, rotate: 0 } : {}}
+          transition={{ type: "spring", stiffness: 70, damping: 13, mass: 0.8, delay: 0.1 }}
           className="relative w-full aspect-[16/10] overflow-hidden rounded-sm"
         >
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
@@ -31,14 +31,19 @@ export function EquiposCarousel() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
         </motion.div>
 
-        {/* Right — Text */}
+        {/* Right — Text with dramatic side slide from right */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          initial={{ opacity: 0, x: 120, rotate: 2 }}
+          animate={isInView ? { opacity: 1, x: 0, rotate: 0 } : {}}
+          transition={{ type: "spring", stiffness: 80, damping: 14, mass: 0.9, delay: 0.2 }}
           className="flex flex-col items-start"
         >
-          <div className="w-16 h-1 bg-[#facc15] mb-6" />
+          <motion.div
+            initial={{ width: 0 }}
+            animate={isInView ? { width: 64 } : {}}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+            className="h-1 bg-[#facc15] mb-6"
+          />
           <p className="font-body text-[#0a0a0a]/50 text-xs tracking-[0.3em] uppercase mb-4 font-bold">
             40+ equipos propios, listos para operar
           </p>
