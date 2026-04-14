@@ -32,7 +32,7 @@ const slides: SlideConfig[] = [
     isVideo: false,
     alt: "Galpón corporativo especializado con flota de maquinaria vial",
     cinematic: false,
-    singleCta: false,
+    singleCta: true,
   },
   {
     headline: "Equipos listos\npara operar\ncuando los necesités",
@@ -63,7 +63,7 @@ const slides: SlideConfig[] = [
   {
     headline: "Construí tu\npróximo\nproyecto",
     subtitle: "Sumate a más de 19 empresas líderes que confían en nosotros para sus obras de infraestructura",
-    cta: "Hablar con nosotros",
+    cta: "Contactanos",
     ctaLink: "/contacto",
     image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=85",
     isVideo: false,
@@ -71,7 +71,7 @@ const slides: SlideConfig[] = [
     isMobileVideo: undefined,
     alt: "Equipo de construcción trabajando en obra civil",
     cinematic: false,
-    singleCta: false,
+    singleCta: true,
   },
 ]
 
@@ -144,7 +144,8 @@ export function Hero() {
   const mobileHeadlineSize = isCinematic ? 'clamp(28px, 9vw, 36px)' : 'clamp(32px, 10vw, 40px)'
   const mobileSubtitleSize = isCinematic ? 'text-[13px]' : 'text-[14px]'
   const mobileSubtitleOpacity = isCinematic ? 'text-white/60' : 'text-white/80'
-  const mobileBottomPad = isCinematic ? 'pb-14' : 'pb-20'
+  const mobileTopPad = isCinematic ? 'pt-14' : 'pt-20'
+  const mobileBottomPad = isCinematic ? 'pb-14' : 'pb-12'
   const mobileOverlay = isCinematic ? 'bg-gradient-to-b from-black/50 via-black/40 to-black/70' : 'bg-gradient-to-b from-black/70 via-black/50 to-black/80'
   const mobileNavOpacity = isCinematic ? 'opacity-40' : 'opacity-70'
 
@@ -210,8 +211,8 @@ export function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Content */}
-      <div className={`relative z-10 h-full flex flex-col justify-end ${isMobile ? `${mobileBottomPad} px-6` : 'pb-16 sm:pb-20 md:pb-24 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20'}`}>
+      {/* Content - TOP aligned */}
+      <div className={`relative z-10 h-full flex flex-col justify-start ${isMobile ? `${mobileTopPad} px-6` : 'pt-24 sm:pt-28 md:pt-32 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20'}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -249,50 +250,29 @@ export function Hero() {
             {/* Subtitle - smaller/hidden on mobile cinematic */}
             {slide.subtitle && (
               <p
-                className={`${isMobile ? `${mobileSubtitleSize} ${mobileSubtitleOpacity}` : 'text-lg md:text-xl text-white/90 max-w-xl'} ${isMobile ? 'mb-5' : 'mb-6'} leading-relaxed`}
+                className={`${isMobile ? `${mobileSubtitleSize} ${mobileSubtitleOpacity}` : 'text-lg md:text-xl text-white/90 max-w-xl'} ${isMobile ? 'mb-4' : 'mb-6'} leading-relaxed`}
                 style={{ textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
               >
                 {slide.subtitle}
               </p>
             )}
 
-            {/* CTAs */}
-            <div className={`flex flex-col gap-2.5 ${isMobile ? '' : 'sm:flex-row sm:gap-4'}`}>
-              <Link
-                href={slide.ctaLink}
-                className={`inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-widest uppercase transition-colors duration-200 ${
-                  isMobile
-                    ? 'w-full text-[14px] py-[12px] px-6 hover:bg-yellow-400 active:bg-yellow-500 active:scale-[0.98]'
-                    : 'w-full sm:w-auto flex-1 sm:flex-none text-sm px-8 py-4 hover:bg-yellow-400 active:bg-yellow-500 group'
-                }`}
-              >
-                {isMobile ? slide.cta : (
-                  <>
-                    Solicitar presupuesto
-                    <span className="text-lg group-hover:translate-x-1 transition-transform duration-200">→</span>
-                  </>
-                )}
-              </Link>
-
-              {/* Second CTA - hidden on mobile single-cta slides */}
-              {!(isMobile && slide.singleCta) && (
-                <Link
-                  href="https://wa.link/ocm4yr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center justify-center gap-2 transition-all duration-200 ${
-                    isMobile
-                      ? 'w-full border-2 border-white/40 text-white font-semibold text-[14px] tracking-widest uppercase px-6 py-[12px] hover:border-white hover:bg-white/10 active:bg-white/20 active:scale-[0.98]'
-                      : 'w-full sm:w-auto flex-1 sm:flex-none border border-white/60 text-white font-body font-medium px-8 py-4 text-sm tracking-widest uppercase hover:border-white hover:bg-white/10 active:bg-white/20'
-                  }`}
-                >
-                  <svg className={`${isMobile ? 'w-4 h-4' : 'w-4 h-4'}`} viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                  </svg>
-                  {isMobile ? 'Hablar por WhatsApp' : 'Hablar por WhatsApp'}
-                </Link>
+            {/* Single CTA per slide */}
+            <Link
+              href={slide.ctaLink}
+              className={`inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-widest uppercase transition-colors duration-200 ${
+                isMobile
+                  ? 'w-full text-[14px] py-[12px] px-6 hover:bg-yellow-400 active:bg-yellow-500 active:scale-[0.98]'
+                  : 'w-full sm:w-auto flex-1 sm:flex-none text-sm px-8 py-4 hover:bg-yellow-400 active:bg-yellow-500 group'
+              }`}
+            >
+              {isMobile ? slide.cta : (
+                <>
+                  {slide.cta}
+                  <span className="text-lg group-hover:translate-x-1 transition-transform duration-200">→</span>
+                </>
               )}
-            </div>
+            </Link>
           </motion.div>
         </AnimatePresence>
 
