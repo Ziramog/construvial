@@ -1,0 +1,20 @@
+{
+  "name": "Construvial S.A.",
+  "short_name": "Construvial",
+  "description": "Empresa constructora vial y civil. 35 años de trayectoria. Ingeniería, obras viales, civiles y electromecánlicas en Argentina.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/media/brand/logo-white.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business"],
+  "lang": "es-AR"
+}

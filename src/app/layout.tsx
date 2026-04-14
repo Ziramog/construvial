@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Bebas_Neue, DM_Sans } from "next/font/google"
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
@@ -23,6 +23,13 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = constructMetadata()
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#0a0a0a",
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,6 +37,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${bebasNeue.variable} ${dmSans.variable}`}>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0a0a0a" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Construvial" />
+      </head>
       <body className="font-body antialiased selection:bg-[#FFD100] selection:text-black">
         <Header />
         <main className="min-h-screen">{children}</main>
