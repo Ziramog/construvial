@@ -15,6 +15,7 @@ interface SlideConfig {
   isVideo?: boolean
   mobileImage?: string
   isMobileVideo?: boolean
+  mobileHeadline?: string
   alt: string
   cinematic?: boolean
   singleCta?: boolean
@@ -23,6 +24,7 @@ interface SlideConfig {
 const slides: SlideConfig[] = [
   {
     headline: "Ejecución eficiente.\nSin desvíos.\nSin excusas.",
+    mobileHeadline: "EJECUCIÓN EFICIENTE.\nSIN DESVÍOS.",
     subtitle: "Reducimos tiempos y errores en obra con ingeniería propia, flota certificada y 35 años de trayectoria comprobada",
     cta: "Solicitar presupuesto",
     ctaLink: "/contacto",
@@ -36,6 +38,7 @@ const slides: SlideConfig[] = [
   },
   {
     headline: "Equipos listos\npara operar\ncuando los necesités",
+    mobileHeadline: "EQUIPOS LISTOS.\nOPERACIÓN CONTINUA.",
     subtitle: "Flota propia de excavadoras, motoniveladoras, compactadores y camiones. Sin intermediarios, tu obra nunca se detiene.",
     cta: "Ver equipamiento",
     ctaLink: "/equipos",
@@ -49,6 +52,7 @@ const slides: SlideConfig[] = [
   },
   {
     headline: "Obras que\ncumplen plazos\ny estándares",
+    mobileHeadline: "OBRAS QUE CUMPLEN\nPLAZOS.",
     subtitle: "Rutas, autopistas y pavimentaciones con ISO 9001 y 500+ obras que siguen en pie.",
     cta: "Ver proyectos",
     ctaLink: "/obras",
@@ -62,6 +66,7 @@ const slides: SlideConfig[] = [
   },
   {
     headline: "Construí tu\npróximo\nproyecto",
+    mobileHeadline: "CONSTRUÍ TU\nPRÓXIMO PROYECTO.",
     subtitle: "Sumate a más de 19 empresas líderes que confían en nosotros para sus obras de infraestructura",
     cta: "Contactanos",
     ctaLink: "/contacto",
@@ -173,15 +178,12 @@ export function Hero() {
   const isCinematic = isMobile ? (slide.cinematic ?? false) : false
 
   // Parallax: background 120% height, moves at 0.3x scroll rate, max 60px
-  // Adjusted: disabled on mobile to fit vertical videos perfectly ("adjust on screen size")
+  // Adjusted: disabled on mobile to fit vertical videos perfectly
   const parallaxY = (isReducedMotion || isMobile) ? 0 : Math.min(scrollY * 0.3, 60)
 
   // MOBILE-SPECIFIC SIZING
-  const mobileHeadlineSize = isCinematic ? 'clamp(28px, 9vw, 36px)' : 'clamp(32px, 10vw, 40px)'
-  const mobileSubtitleSize = isCinematic ? 'text-[13px]' : 'text-[14px]'
-  const mobileSubtitleOpacity = isCinematic ? 'text-white/60' : 'text-white/80'
-  const mobileTopPad = 'pt-[130px]' // clears the fixed header with breathing room
-  const mobileOverlay = isCinematic ? 'bg-gradient-to-b from-black/30 via-black/15 to-black/40' : 'bg-gradient-to-b from-black/45 via-black/25 to-black/55'
+  const mobileTopPad = 'pt-[150px]' // clears the fixed header with significant breathing room
+  const mobileOverlay = isCinematic ? 'bg-gradient-to-b from-black/40 via-black/20 to-black/50' : 'bg-gradient-to-b from-black/55 via-black/30 to-black/65'
   const mobileNavOpacity = isCinematic ? 'opacity-40' : 'opacity-70'
 
   return (
@@ -262,13 +264,13 @@ export function Hero() {
             transition={{ duration: isMobile ? 0.3 : 0.4, ease: "easeOut" }}
             className={isMobile ? 'w-full' : 'max-w-3xl'}
           >
-            {/* Badge - hidden on mobile cinematic slides */}
-            {!(isMobile && isCinematic) && (
+            {/* Badge - Always visible on mobile, selectively hidden on desktop cinematic */}
+            {(!isMobile && isCinematic ? false : true) && (
               <motion.p
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: isMobile ? 0.1 : 0.15, duration: 0.4 }}
-                className={`font-body text-[#facc15] ${isMobile ? 'text-[10px] tracking-[0.25em] mb-3' : 'text-xs tracking-[0.3em] mb-4'} uppercase`}
+                className={`font-body text-[#facc15] uppercase ${isMobile ? 'text-[14px] font-semibold tracking-[1.5px] opacity-85 mb-[12px]' : 'text-xs tracking-[0.3em] mb-4'}`}
                 style={{ textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
               >
                 Desde 1989 · Córdoba, Argentina
@@ -277,20 +279,20 @@ export function Hero() {
 
             {/* Headline */}
             <h1
-              className={`font-display text-white uppercase mb-3 whitespace-pre-line ${isMobile ? '' : 'leading-[0.95] tracking-[0.02em]'}`}
+              className={`font-display text-white uppercase whitespace-pre-line ${isMobile ? 'mb-0 font-[800] max-w-[85%] [text-wrap:balance]' : 'mb-3 leading-[0.95] tracking-[0.02em]'}`}
               style={{
-                fontSize: isMobile ? mobileHeadlineSize : 'clamp(64px,8vw,112px)',
-                lineHeight: isMobile ? '1.05' : '0.95',
+                fontSize: isMobile ? 'clamp(36px, 10vw, 40px)' : 'clamp(64px,8vw,112px)',
+                lineHeight: isMobile ? '1.1' : '0.95',
                 textShadow: "0 2px 20px rgba(0,0,0,0.5), 0 1px 4px rgba(0,0,0,0.8)",
               }}
             >
-              {slide.headline}
+              {isMobile && slide.mobileHeadline ? slide.mobileHeadline : slide.headline}
             </h1>
 
-            {/* Subtitle - smaller/hidden on mobile cinematic */}
-            {slide.subtitle && (
+            {/* Subtitle - hidden on mobile to reduce cognitive load */}
+            {slide.subtitle && !isMobile && (
               <p
-                className={`${isMobile ? `${mobileSubtitleSize} ${mobileSubtitleOpacity}` : 'text-lg md:text-xl text-white/90 max-w-xl'} ${isMobile ? 'mb-4' : 'mb-6'} leading-relaxed`}
+                className="text-lg md:text-xl text-white/90 max-w-xl mb-6 leading-relaxed"
                 style={{ textShadow: "0 1px 8px rgba(0,0,0,0.7)" }}
               >
                 {slide.subtitle}
