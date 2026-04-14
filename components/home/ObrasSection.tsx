@@ -64,16 +64,15 @@ export function ObrasSection() {
 
             {/* Mobile CTA */}
             <a href="/obras"
-               className="md:hidden inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a]
+               className="md:hidden mt-4 inline-flex items-center justify-center gap-2 border border-white text-white
                           font-body font-semibold text-[14px] tracking-widest uppercase
-                          px-[18px] py-[14px] hover:bg-white transition-colors w-[85%]">
+                          px-[18px] py-[14px] hover:bg-white hover:text-black transition-colors w-[85%] pb-4">
               Ver proyectos →
             </a>
             {/* Desktop CTA */}
             <a href="/obras"
-               className="hidden md:inline-flex items-center gap-3 text-white font-body text-sm tracking-widest uppercase hover:text-[#facc15] transition-colors duration-300 group">
-              <span className="border-b border-white/30 group-hover:border-[#facc15] pb-1 transition-colors">Ver proyectos</span>
-              <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+               className="hidden md:inline-flex mt-8 items-center justify-center gap-2 border border-white text-white font-body font-semibold text-sm tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors">
+              Ver proyectos →
             </a>
           </motion.div>
 

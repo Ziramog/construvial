@@ -62,20 +62,12 @@ export function ServicesCards() {
               <span className="hidden md:inline">Ingeniería civil, movimiento de suelos, equipos certificados y logística especializada. Un solo responsable para toda tu obra: menos coordinar, más ejecutar.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 w-[85%] md:w-auto">
+            <div className="flex flex-col sm:flex-row gap-4 w-[85%] md:w-auto mt-4 md:mt-8 pb-4">
               <a href="/servicios"
-                 className="inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a]
+                 className="inline-flex items-center justify-center gap-2 border border-white text-white
                             font-body font-semibold text-[14px] md:text-sm tracking-widest uppercase
-                            px-[18px] py-[14px] md:px-8 md:py-4 hover:bg-white transition-colors">
+                            px-[18px] py-[14px] md:px-8 md:py-4 hover:bg-white hover:text-black transition-colors">
                 Ver servicios →
-              </a>
-              <a href="https://wa.link/ocm4yr"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="inline-flex items-center justify-center gap-2 border border-white/30 text-white
-                            font-body text-[14px] md:text-sm tracking-widest uppercase opacity-80 md:opacity-100
-                            px-[18px] py-[14px] md:px-8 md:py-4 hover:border-white transition-colors">
-                Consultar proyecto
               </a>
             </div>
           </motion.div>
