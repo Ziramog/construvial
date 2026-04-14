@@ -1,31 +1,43 @@
 "use client"
 
-import { FadeIn } from "@/components/ui/FadeIn"
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
 
 export function EquiposCarousel() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.15 })
+
   return (
-    <section className="relative bg-white py-32 px-6">
+    <section ref={ref} className="relative bg-white py-32 px-6">
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
-        {/* Left — Video with entrance */}
-        <FadeIn direction="up" scale delay={200}>
-          <div className="relative w-full aspect-[16/10] overflow-hidden rounded-sm">
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <video
-              src="/media/equipos/desktop/Loader_filling_truck_202604130031.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
-          </div>
-        </FadeIn>
+        {/* Left — Video with slide-up reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 80, scale: 0.92 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+          className="relative w-full aspect-[16/10] overflow-hidden rounded-sm"
+        >
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <video
+            src="/media/equipos/desktop/Loader_filling_truck_202604130031.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+        </motion.div>
 
         {/* Right — Text */}
-        <div className="flex flex-col items-start">
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          className="flex flex-col items-start"
+        >
           <div className="w-16 h-1 bg-[#facc15] mb-6" />
           <p className="font-body text-[#0a0a0a]/50 text-xs tracking-[0.3em] uppercase mb-4 font-bold">
             40+ equipos propios, listos para operar
@@ -54,7 +66,7 @@ export function EquiposCarousel() {
               Consultar disponibilidad
             </a>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

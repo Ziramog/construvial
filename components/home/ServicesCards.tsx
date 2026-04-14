@@ -1,18 +1,11 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 
 export function ServicesCards() {
   const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  })
-  // Scroll-driven reveal: video fades in + slides up as section enters view
-  const scale = useTransform(scrollYProgress, [0, 0.2, 1], [0.88, 1, 1])
-  const y = useTransform(scrollYProgress, [0, 0.2, 1], [50, 0, 0])
-  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1])
+  const isInView = useInView(ref, { once: true, amount: 0.15 })
 
   return (
     <section ref={ref} className="relative bg-[#0a0a0a] py-32 px-6">
@@ -20,7 +13,12 @@ export function ServicesCards() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
 
         {/* Left — Text */}
-        <div className="flex flex-col items-start">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={isInView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="flex flex-col items-start"
+        >
           <div className="w-16 h-1 bg-[#facc15] mb-6" />
           <p className="font-body text-[#facc15] text-xs tracking-[0.3em] uppercase mb-4 font-bold">
             Servicios integrales
@@ -49,11 +47,13 @@ export function ServicesCards() {
               Consultar proyecto
             </a>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right — Video with scroll-driven reveal */}
+        {/* Right — Video with slide-up reveal */}
         <motion.div
-          style={{ scale, y, opacity }}
+          initial={{ opacity: 0, y: 80, scale: 0.92 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           className="relative w-full aspect-[16/10] overflow-hidden rounded-sm"
         >
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}

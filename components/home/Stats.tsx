@@ -1,9 +1,9 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { FadeIn } from "@/components/ui/FadeIn"
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { STATS } from "@/lib/constants"
-import { motion } from "framer-motion"
 
 const AnimatedCounter = dynamic(
   () => import('@/components/ui/AnimatedCounter').then(mod => mod.AnimatedCounter),
@@ -13,7 +13,35 @@ const AnimatedCounter = dynamic(
   }
 )
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, scale: 0.75, y: 40 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring" as const,
+      stiffness: 120,
+      damping: 14,
+    },
+  },
+}
+
 export function Stats() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
+
   return (
     <section id="stats" className="bg-[#FFD100] py-12 sm:py-16 md:py-20 relative overflow-hidden">
       {/* Subtle diagonal pattern */}
@@ -29,29 +57,30 @@ export function Stats() {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-6 relative z-10">
         {/* Heading above stats */}
-        <FadeIn>
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <motion.h2
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-display text-[#0a0a0a] uppercase leading-none tracking-wide"
-              style={{ fontSize: 'clamp(24px, 3vw, 36px)' }}
-            >
-              Resultados que respaldan nuestro trabajo
-            </motion.h2>
-          </div>
-        </FadeIn>
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-center mb-8 sm:mb-10 md:mb-12"
+        >
+          <h2 className="font-display text-[#0a0a0a] uppercase leading-none tracking-wide"
+              style={{ fontSize: 'clamp(24px, 3vw, 36px)' }}>
+            Resultados que respaldan nuestro trabajo
+          </h2>
+        </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-4">
+        {/* Stats grid with staggered reveal */}
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-4"
+        >
           {STATS.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.8, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+              variants={itemVariants}
               className={index === 4 ? "hidden sm:flex sm:flex-col sm:items-center sm:text-center" : "flex flex-col items-center text-center"}
             >
               <div className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#0a0a0a] leading-none flex items-baseline">
@@ -62,7 +91,7 @@ export function Stats() {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

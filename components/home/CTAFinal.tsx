@@ -1,30 +1,26 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 
 export function CTAFinal() {
   const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center center"],
-  })
-  // Background glow intensifies as section comes into view
-  const glowOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.08, 0.15])
-  const scale = useTransform(scrollYProgress, [0, 0.2, 1], [0.9, 1, 1])
-  const y = useTransform(scrollYProgress, [0, 0.2, 1], [40, 0, 0])
-  const opacity = useTransform(scrollYProgress, [0, 0.15], [0, 1])
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
     <section ref={ref} className="bg-[#facc15] py-24 px-6 border-t border-black/5">
       <motion.div
-        style={{ scale, y, opacity }}
+        initial={{ opacity: 0, y: 60, scale: 0.92 }}
+        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+        transition={{ duration: 0.7, ease: "easeOut" }}
         className="max-w-4xl mx-auto text-center border border-black/10 p-12 lg:p-20 shadow-2xl bg-[#0a0a0a] relative overflow-hidden"
       >
 
-        {/* Dynamic glow effect */}
+        {/* Glow effect */}
         <motion.div
-          style={{ opacity: glowOpacity }}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 0.12 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
           className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-[#facc15] blur-[100px] pointer-events-none"
         />
 
