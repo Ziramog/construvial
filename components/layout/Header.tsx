@@ -59,7 +59,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-300 ease-in-out ${
         isScrolled
           ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/10 shadow-xl py-2 sm:py-3"
           : "bg-[#0a0a0a] border-b border-white/5 shadow-2xl py-3 sm:py-5"
@@ -169,10 +169,12 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Menu Toggle — always clickable, above overlay */}
           <button
-            className="lg:hidden p-2 relative z-[60] text-white transition-colors duration-300 hover:text-[#FFD100] touch-manipulation"
-            onClick={() => {
+            className="lg:hidden p-2 relative z-[95] text-white transition-colors duration-300 hover:text-[#FFD100] touch-manipulation select-none"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
               setIsMobileMenuOpen(!isMobileMenuOpen)
             }}
             aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}

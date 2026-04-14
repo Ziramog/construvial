@@ -62,7 +62,7 @@ export function MobileClientMarquee() {
         <div className="absolute right-0 top-0 bottom-0 w-12 z-10 bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none" />
 
         {/* Animated track - FASTER: 20s instead of 35s */}
-        <div className="marquee-track flex items-center" style={{ animation: 'marquee 20s linear infinite' }}>
+        <div className="marquee-track flex items-center" style={{ animation: 'marquee 14s linear infinite' }}>
           {doubled.map((client, i) => (
             <div
               key={`${client.name}-${i}`}
