@@ -8,7 +8,7 @@ export function ObrasSection() {
   const isInView = useInView(ref, { once: true, amount: 0.05 })
 
   return (
-    <section ref={ref} className="relative min-h-[85vh] overflow-hidden">
+    <section ref={ref} className="relative min-h-[85vh] md:min-h-screen overflow-hidden">
       {/* Full-width video background */}
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
@@ -31,7 +31,7 @@ export function ObrasSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-[85vh] flex items-start md:items-center px-5 md:px-12 lg:px-20 pt-[100px] md:pt-0 pb-[90px] md:pb-0">
+      <div className="relative z-10 min-h-[85vh] md:min-h-screen flex items-start md:items-center px-5 md:px-12 lg:px-20 pt-[100px] md:pt-0 pb-[90px] md:pb-0">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
 
           {/* Left — Text with dramatic side slide */}
