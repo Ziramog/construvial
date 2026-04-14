@@ -171,88 +171,91 @@ export function Header() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden p-2 relative z-50 text-white transition-colors duration-300 hover:text-[#FFD100]"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Abrir menú"
+            className="lg:hidden p-2 relative z-[60] text-white transition-colors duration-300 hover:text-[#FFD100] touch-manipulation"
+            onClick={() => {
+              setIsMobileMenuOpen(!isMobileMenuOpen)
+            }}
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
-      <div
-        className={`lg:hidden fixed inset-0 bg-[#0a0a0a] z-40 flex flex-col transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex-1 flex flex-col items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 overflow-y-auto">
-          {/* Quiénes Somos first on mobile */}
-          <Link
-            href="/quienes-somos"
-            className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Quiénes Somos
-          </Link>
-
-          {/* Servicios expandable section */}
-          <div className="w-full max-w-xs text-center">
-            <button
-              onClick={() => setMobileServOpen(!mobileServOpen)}
-              className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200 flex items-center justify-center gap-2 w-full"
-            >
-              Servicios
-              <ChevronDown
-                size={20}
-                className={`transition-transform duration-200 ${mobileServOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
-            {mobileServOpen && (
-              <div className="mt-3 space-y-2">
-                {SERVICIOS_LINKS.map((s) => (
-                  <Link
-                    key={s.href}
-                    href={s.href}
-                    className="block py-2 text-sm text-white/60 hover:text-[#FFD100] transition-colors font-body tracking-wide"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {s.label}
-                  </Link>
-                ))}
-                <Link
-                  href="/servicios"
-                  className="block py-2 text-sm font-bold text-[#FFD100] transition-colors font-body tracking-wide uppercase"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Ver todos →
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {NAV_LINKS.map((link) => (
+      {/* Mobile Nav — rendered only when open to prevent click-through issues */}
+      {isMobileMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-[#0a0a0a] z-[55] flex flex-col"
+        >
+          <div className="flex-1 flex flex-col items-center justify-center gap-4 sm:gap-6 p-6 sm:p-8 overflow-y-auto">
+            {/* Quiénes Somos first on mobile */}
             <Link
-              key={link.name}
-              href={link.href}
+              href="/quienes-somos"
               className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              {link.name}
+              Quiénes Somos
             </Link>
-          ))}
-          <div className="w-16 h-1 bg-white/10 my-2 sm:my-4" />
-          <Link
-            href="https://wa.link/ocm4yr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full max-w-xs text-center bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Solicitar Presupuesto
-          </Link>
+
+            {/* Servicios expandable section */}
+            <div className="w-full max-w-xs text-center">
+              <button
+                onClick={() => setMobileServOpen(!mobileServOpen)}
+                className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200 flex items-center justify-center gap-2 w-full touch-manipulation"
+              >
+                Servicios
+                <ChevronDown
+                  size={20}
+                  className={`transition-transform duration-200 ${mobileServOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+              {mobileServOpen && (
+                <div className="mt-3 space-y-2">
+                  {SERVICIOS_LINKS.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className="block py-2 text-sm text-white/60 hover:text-[#FFD100] transition-colors font-body tracking-wide"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {s.label}
+                    </Link>
+                  ))}
+                  <Link
+                    href="/servicios"
+                    className="block py-2 text-sm font-bold text-[#FFD100] transition-colors font-body tracking-wide uppercase"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Ver todos →
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="w-16 h-1 bg-white/10 my-2 sm:my-4" />
+            <Link
+              href="https://wa.link/ocm4yr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full max-w-xs text-center bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Solicitar Presupuesto
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   )
 }

@@ -76,11 +76,46 @@ const slides: SlideConfig[] = [
 ]
 
 
+// Preload the first slide's media on mount to avoid grey screen
+function usePreloadFirstSlide() {
+  useEffect(() => {
+    const firstSlide = slides[0]
+    // Preload desktop image
+    if (!firstSlide.isVideo) {
+      const link = document.createElement('link')
+      link.rel = 'preload'
+      link.as = 'image'
+      link.href = firstSlide.image
+      document.head.appendChild(link)
+    }
+    // Preload mobile media
+    const mobileSrc = firstSlide.mobileImage || firstSlide.image
+    if (firstSlide.isMobileVideo || firstSlide.isVideo) {
+      const video = document.createElement('video')
+      video.src = mobileSrc
+      video.preload = 'auto'
+      video.muted = true
+      video.playsInline = true
+      video.load()
+    } else {
+      const link = document.createElement('link')
+      link.rel = 'preload'
+      link.as = 'image'
+      link.href = mobileSrc
+      document.head.appendChild(link)
+    }
+  }, [])
+}
+
+
 export function Hero() {
   const [current, setCurrent] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [isReducedMotion, setIsReducedMotion] = useState(false)
+
+  // Preload first slide media to prevent grey screen
+  usePreloadFirstSlide()
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length)
@@ -150,12 +185,14 @@ export function Hero() {
   const mobileNavOpacity = isCinematic ? 'opacity-40' : 'opacity-70'
 
   return (
-    <section id="hero" className="relative h-screen min-h-[600px] w-full overflow-hidden">
+    <section id="hero" className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black">
+      {/* Solid black background — no grey screen while media loads */}
+
       {/* Background with parallax - Adjusted for mobile fit */}
       <AnimatePresence mode="wait">
         <motion.div
           key={`${current}-${isMobile}`}
-          initial={{ opacity: 0 }}
+          initial={current === 0 ? { opacity: 1 } : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: isMobile ? 0.3 : 0.4, ease: "easeOut" }}
@@ -175,7 +212,8 @@ export function Hero() {
               loop
               muted
               playsInline
-              className={`object-cover object-center w-full h-full ${
+              preload="auto"
+              className={`object-cover object-center w-full h-full bg-black ${
                 (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
               }`}
             />
@@ -187,9 +225,11 @@ export function Hero() {
               className={`object-cover object-center ${
                 (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
               }`}
-              priority={current === 0 || current === 1}
+              priority={current === 0}
               sizes="100vw"
               quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx0dHRsdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR3/2wBDAR0XFyAeIB4gHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh3/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
             />
           )}
           </div>
