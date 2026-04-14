@@ -1,93 +1,92 @@
 "use client"
 
-import Image from "next/image"
-import { useRef } from "react"
-import { motion, useInView } from "framer-motion"
-
-const clients = [
-  { name: "Cliente 1", logo: "/media/logos/10001.png" },
-  { name: "Cliente 2", logo: "/media/logos/10002.png" },
-  { name: "Cliente 3", logo: "/media/logos/10003.png" },
-  { name: "Cliente 4", logo: "/media/logos/10004.png" },
-  { name: "Cliente 5", logo: "/media/logos/10005.png" },
-  { name: "Cliente 6", logo: "/media/logos/10006.png" },
-  { name: "Cliente 7", logo: "/media/logos/10007.png" },
-  { name: "Cliente 8", logo: "/media/logos/10008.png" },
-  { name: "Cliente 9", logo: "/media/logos/10009.png" },
-  { name: "Cliente 10", logo: "/media/logos/10010.png" },
-  { name: "Cliente 11", logo: "/media/logos/10011.jpg" },
-  { name: "Cliente 12", logo: "/media/logos/10012.jpg" },
-  { name: "Cliente 13", logo: "/media/logos/10013.jpg" },
-  { name: "Cliente 14", logo: "/media/logos/10014.jpg" },
-  { name: "Cliente 15", logo: "/media/logos/10015.jpg" },
-  { name: "Cliente 16", logo: "/media/logos/10016.jpg" },
-  { name: "Cliente 17", logo: "/media/logos/10017.jpg" },
-  { name: "Cliente 18", logo: "/media/logos/10018.jpg" },
-  { name: "Cliente 19", logo: "/media/logos/10019.jpg" },
-]
-
 export function ClientMarquee() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const doubled = [...clients, ...clients]
-
   return (
-    <section ref={ref} className="bg-[#F5F7FA] py-20 overflow-hidden border-y border-black/5">
-
-      {/* Label superior */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="text-center mb-10"
-      >
-        <p className="font-body text-xs tracking-[0.3em] uppercase
-                      text-[#0a0a0a]/60 mb-2 font-semibold">
-          Más de 24 empresas líderes, de YPF a INVAP/NASA, confían en nosotros
-        </p>
-        <p className="font-body text-[10px] tracking-[0.2em] uppercase
-                      text-[#0a0a0a]/40">
-          Sector público y privado · Energía · Industria · Infraestructura
-        </p>
-      </motion.div>
-
-      {/* Contenedor con fade lateral */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-        className="relative"
-      >
-
-        {/* Fade izquierdo */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 z-10
-                        bg-gradient-to-r from-[#F5F7FA] to-transparent pointer-events-none" />
-
-        {/* Fade derecho */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 z-10
-                        bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none" />
-
-        {/* Track animado - FASTER: 20s instead of 35s */}
-        <div className="marquee-track flex items-center" style={{ animation: 'marquee 14s linear infinite' }}>
-          {doubled.map((client, i) => (
-            <div
-              key={`${client.name}-${i}`}
-              className="flex items-center justify-center mx-10 flex-shrink-0
-                         hover:opacity-70 transition-opacity duration-300"
-              style={{ minWidth: '120px', height: '64px' }}
-            >
-              <Image
-                src={client.logo}
-                alt={client.name}
-                width={140}
-                height={64}
-                className="object-contain max-h-16 w-auto"
-              />
-            </div>
-          ))}
+    <>
+      <style>{`
+        .trust-section {
+          background-color: #f8f8f8;
+          padding: 40px 24px;
+          border-top: 1px solid #e0e0e0;
+          border-bottom: 1px solid #e0e0e0;
+        }
+        .trust-container {
+          max-width: 900px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        .trust-section h3 {
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+          color: #0a0a0a;
+        }
+        .trust-section p {
+          font-size: 14px;
+          color: #666;
+          margin: 0 0 24px;
+          line-height: 1.4;
+        }
+        .trust-logos {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          gap: 24px;
+          align-items: center;
+          justify-items: center;
+        }
+        .trust-logos img {
+          max-height: 45px;
+          width: auto;
+          object-fit: contain;
+          filter: grayscale(100%) brightness(0.6);
+          transition: filter 0.3s ease, transform 0.3s ease;
+        }
+        .trust-logos img:hover {
+          filter: grayscale(0%) brightness(1);
+          transform: scale(1.05);
+        }
+        @media (max-width: 767px) {
+          .trust-section {
+            padding: 32px 0;
+          }
+          .trust-container h3, .trust-container p {
+            padding-left: 16px;
+            padding-right: 16px;
+          }
+          .trust-logos {
+            display: flex;
+            overflow-x: auto;
+            gap: 32px;
+            padding: 0 16px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+          }
+          .trust-logos::-webkit-scrollbar {
+            display: none;
+          }
+          .trust-logos img {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            max-height: 40px;
+          }
+        }
+      `}</style>
+      <section className="trust-section">
+        <div className="trust-container font-body">
+          <h3>MÁS DE 24 EMPRESAS LÍDERES CONFÍAN EN NOSOTROS</h3>
+          <p>Sector público y privado · Energía · Industria · Infraestructura</p>
+          <div className="trust-logos">
+            <img src="/media/logos/logo-nca.svg" alt="NCA Logo" width="120" height="45" loading="lazy" />
+            <img src="/media/logos/logo-axion.svg" alt="Axion Logo" width="120" height="45" loading="lazy" />
+            <img src="/media/logos/logo-ypf.svg" alt="YPF Logo" width="120" height="45" loading="lazy" />
+            <img src="/media/logos/logo-invap.svg" alt="INVAP Logo" width="120" height="45" loading="lazy" />
+            <img src="/media/logos/logo-nasa.svg" alt="NASA Logo" width="120" height="45" loading="lazy" />
+            <img src="/media/logos/logo-placeholder.svg" alt="Placeholder" width="120" height="45" loading="lazy" />
+          </div>
         </div>
-      </motion.div>
-
-    </section>
+      </section>
+    </>
   )
 }
