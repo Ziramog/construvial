@@ -144,9 +144,9 @@ export function Hero() {
   const mobileHeadlineSize = isCinematic ? 'clamp(28px, 9vw, 36px)' : 'clamp(32px, 10vw, 40px)'
   const mobileSubtitleSize = isCinematic ? 'text-[13px]' : 'text-[14px]'
   const mobileSubtitleOpacity = isCinematic ? 'text-white/60' : 'text-white/80'
-  const mobileTopPad = isCinematic ? 'pt-14' : 'pt-20'
+  const mobileTopPad = 'pt-[130px]' // clears the fixed header with breathing room
   const mobileBottomPad = isCinematic ? 'pb-14' : 'pb-12'
-  const mobileOverlay = isCinematic ? 'bg-gradient-to-b from-black/50 via-black/40 to-black/70' : 'bg-gradient-to-b from-black/70 via-black/50 to-black/80'
+  const mobileOverlay = isCinematic ? 'bg-gradient-to-b from-black/30 via-black/15 to-black/40' : 'bg-gradient-to-b from-black/45 via-black/25 to-black/55'
   const mobileNavOpacity = isCinematic ? 'opacity-40' : 'opacity-70'
 
   return (
@@ -197,22 +197,22 @@ export function Hero() {
           {/* Overlays */}
           {isMobile ? (
             <>
-              {/* Mobile: uniform gradient */}
+              {/* Mobile: lighter gradient */}
               <div className={`absolute inset-0 ${mobileOverlay}`} />
             </>
           ) : (
             <>
-              {/* Desktop: side gradient for text zone */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-              {/* Desktop: bottom gradient for CTAs */}
-              <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000] via-[#000000]/80 to-transparent" />
+              {/* Desktop: lighter side gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
+              {/* Desktop: lighter bottom gradient */}
+              <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#000000]/70 via-[#000000]/50 to-transparent" />
             </>
           )}
         </motion.div>
       </AnimatePresence>
 
       {/* Content - TOP aligned */}
-      <div className={`relative z-10 h-full flex flex-col justify-start ${isMobile ? `${mobileTopPad} px-6` : 'pt-24 sm:pt-28 md:pt-32 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20'}`}>
+      <div className={`relative z-10 h-full flex flex-col justify-start ${isMobile ? `${mobileTopPad} px-6` : 'pt-32 sm:pt-36 md:pt-40 container mx-auto px-4 sm:px-6 md:px-12 lg:px-20'}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -256,28 +256,22 @@ export function Hero() {
                 {slide.subtitle}
               </p>
             )}
-
-            {/* Single CTA per slide */}
-            <Link
-              href={slide.ctaLink}
-              className={`inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-widest uppercase transition-colors duration-200 ${
-                isMobile
-                  ? 'w-full text-[14px] py-[12px] px-6 hover:bg-yellow-400 active:bg-yellow-500 active:scale-[0.98]'
-                  : 'w-full sm:w-auto flex-1 sm:flex-none text-sm px-8 py-4 hover:bg-yellow-400 active:bg-yellow-500 group'
-              }`}
-            >
-              {isMobile ? slide.cta : (
-                <>
-                  {slide.cta}
-                  <span className="text-lg group-hover:translate-x-1 transition-transform duration-200">→</span>
-                </>
-              )}
-            </Link>
           </motion.div>
         </AnimatePresence>
 
+        {/* Single CTA — desktop only (mobile uses sticky bar) */}
+        <div className="absolute bottom-12 sm:bottom-14 md:bottom-16 left-0 right-0 hidden md:flex md:justify-center md:px-12 lg:px-20">
+          <Link
+            href="/contacto"
+            className="inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body font-bold text-sm tracking-widest uppercase px-10 py-4 hover:bg-yellow-400 active:bg-yellow-500 group transition-colors duration-200"
+          >
+            Solicitar presupuesto
+            <span className="text-lg group-hover:translate-x-1 transition-transform duration-200">→</span>
+          </Link>
+        </div>
+
         {/* Bottom navigation */}
-        <div className={`absolute bottom-3 left-4 right-4 sm:bottom-5 sm:left-4 sm:right-4 md:left-12 md:right-12 lg:left-20 lg:right-20 flex items-center justify-between ${isMobile ? mobileNavOpacity : ''}`}>
+        <div className={`absolute left-4 right-4 sm:left-12 sm:right-12 md:left-20 md:right-20 flex items-center justify-between ${isMobile ? `bottom-3 ${mobileNavOpacity}` : 'bottom-3 sm:bottom-5'}`}>
           {/* Slide indicators */}
           <div className="flex items-center gap-2">
             {slides.map((_, idx) => (
