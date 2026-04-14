@@ -82,7 +82,6 @@ export function ClientMarquee() {
                 width={140}
                 height={64}
                 className="object-contain max-h-16 w-auto"
-                style={{ filter: 'brightness(0) saturate(100%)' }}
               />
             </div>
           ))}

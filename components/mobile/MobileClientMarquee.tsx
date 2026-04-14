@@ -75,7 +75,6 @@ export function MobileClientMarquee() {
                 width={100}
                 height={56}
                 className="object-contain max-h-14 w-auto"
-                style={{ filter: 'brightness(0) saturate(100%)' }}
               />
             </div>
           ))}
