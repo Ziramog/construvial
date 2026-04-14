@@ -188,10 +188,6 @@ export function Hero() {
   }, [next])
 
   const slide = slides[current]
-
-  // Decide media based on screen size
-  const currentMedia = (isMobile && slide.mobileImage) ? slide.mobileImage : slide.image
-  const currentIsVideo = (isMobile && slide.mobileImage) ? (slide.isMobileVideo ?? slide.isVideo) : slide.isVideo
   const isCinematic = isMobile ? (slide.cinematic ?? false) : false
 
   // Parallax: background 120% height, moves at 0.3x scroll rate, max 60px
