@@ -18,11 +18,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <CompanyBand />
       <Stats />
       <ServicesCards />
       <EquiposCarousel />
       <ObrasSection />
+      <CompanyBand />
       <ClientMarquee />
       <CTAFinal />
     </>
