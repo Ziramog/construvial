@@ -67,13 +67,13 @@ export function ClientMarquee() {
         <div className="absolute right-0 top-0 bottom-0 w-32 z-10
                         bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none" />
 
-        {/* Track animado */}
-        <div className="marquee-track animate-marquee flex items-center">
+        {/* Track animado - FASTER: 20s instead of 35s */}
+        <div className="marquee-track flex items-center" style={{ animation: 'marquee 20s linear infinite' }}>
           {doubled.map((client, i) => (
             <div
               key={`${client.name}-${i}`}
               className="flex items-center justify-center mx-10 flex-shrink-0
-                         opacity-100 hover:opacity-70 transition-opacity duration-300"
+                         hover:opacity-70 transition-opacity duration-300"
               style={{ minWidth: '120px', height: '64px' }}
             >
               <Image
@@ -82,6 +82,7 @@ export function ClientMarquee() {
                 width={140}
                 height={64}
                 className="object-contain max-h-16 w-auto"
+                style={{ filter: 'brightness(0) saturate(100%)' }}
               />
             </div>
           ))}

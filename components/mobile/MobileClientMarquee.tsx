@@ -1,6 +1,8 @@
 "use client"
 
 import Image from "next/image"
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
 
 const clients = [
   { name: "Cliente 1", logo: "/media/logos/10001.png" },
@@ -25,48 +27,60 @@ const clients = [
 ]
 
 export function MobileClientMarquee() {
-  // Duplicate for infinite loop
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
   const doubled = [...clients, ...clients]
 
   return (
-    <section className="bg-[#F5F7FA] py-10 overflow-hidden">
+    <section ref={ref} className="bg-[#F5F7FA] py-10 overflow-hidden">
       {/* Credibility heading */}
-      <div className="text-center mb-8 px-5">
-        <p className="text-[13px] tracking-[0.2em] uppercase text-[#0a0a0a]/70 mb-2 font-bold">
-          Más de 24 empresas líderes, de YPF a INVAP/NASA, confían en nosotros
+      <motion.div
+        initial={{ opacity: 0, y: 20, scale: 0.96 }}
+        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+        transition={{ type: "spring", stiffness: 100, damping: 14 }}
+        className="text-center mb-6 px-5"
+      >
+        <p className="text-[13px] tracking-[0.2em] uppercase text-[#0a0a0a] mb-2 font-bold">
+          Más de 24 empresas líderes confían en nosotros
         </p>
-        <p className="text-[11px] tracking-[0.15em] uppercase text-[#0a0a0a]/40">
+        <p className="text-[10px] tracking-[0.15em] uppercase text-[#0a0a0a]/50">
           Sector público y privado · Energía · Industria · Infraestructura
         </p>
-      </div>
+      </motion.div>
 
       {/* Marquee with fades */}
-      <div className="relative">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+        className="relative"
+      >
         {/* Left fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-[#F5F7FA] to-transparent pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 z-10 bg-gradient-to-r from-[#F5F7FA] to-transparent pointer-events-none" />
 
         {/* Right fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 z-10 bg-gradient-to-l from-[#F5F7FA] to-transparent pointer-events-none" />
 
-        {/* Animated track */}
-        <div className="marquee-track animate-marquee flex items-center">
+        {/* Animated track - FASTER: 20s instead of 35s */}
+        <div className="marquee-track flex items-center" style={{ animation: 'marquee 20s linear infinite' }}>
           {doubled.map((client, i) => (
             <div
               key={`${client.name}-${i}`}
-              className="flex items-center justify-center mx-6 flex-shrink-0 opacity-100"
-              style={{ minWidth: '100px', height: '48px' }}
+              className="flex items-center justify-center mx-5 flex-shrink-0"
+              style={{ minWidth: '90px', height: '56px' }}
             >
               <Image
                 src={client.logo}
                 alt={client.name}
-                width={110}
-                height={48}
-                className="object-contain max-h-12 w-auto"
+                width={100}
+                height={56}
+                className="object-contain max-h-14 w-auto"
+                style={{ filter: 'brightness(0) saturate(100%)' }}
               />
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
