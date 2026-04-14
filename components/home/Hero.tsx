@@ -118,6 +118,15 @@ export function Hero() {
   const [isMobile, setIsMobile] = useState(false)
   const [scrollY, setScrollY] = useState(0)
   const [isReducedMotion, setIsReducedMotion] = useState(false)
+  const [isMediaLoading, setIsMediaLoading] = useState(true)
+
+  // 3-second fallback for loader
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      setIsMediaLoading(false)
+    }, 3000)
+    return () => clearTimeout(fallbackTimer)
+  }, [])
 
   // Preload first slide media to prevent grey screen
   usePreloadFirstSlide()
@@ -188,6 +197,19 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative h-screen min-h-[600px] w-full overflow-hidden bg-black">
+      {/* Loading Overlay */}
+      <div 
+        className={`absolute inset-0 z-[100] flex flex-col items-center justify-center bg-[#0a0a0a] transition-opacity duration-[600ms] ease-in-out ${
+          isMediaLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        aria-hidden={!isMediaLoading}
+      >
+        <div className="w-12 h-12 border-4 border-white/10 border-t-[#FFD700] rounded-full animate-spin mb-4" />
+        <p className="font-display text-white text-xs sm:text-sm tracking-[0.2em] font-medium uppercase animate-pulse">
+          Cargando experiencia...
+        </p>
+      </div>
+
       {/* Solid black background — no grey screen while media loads */}
 
       {/* Background with parallax - Adjusted for mobile fit */}
@@ -215,6 +237,7 @@ export function Hero() {
               muted
               playsInline
               preload="auto"
+              onCanPlayThrough={() => setIsMediaLoading(false)}
               className={`object-cover object-center w-full h-full bg-black ${
                 (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
               }`}
@@ -224,6 +247,7 @@ export function Hero() {
               src={currentMedia}
               alt={slide.alt || "Background image"}
               fill
+              onLoad={() => setIsMediaLoading(false)}
               className={`object-cover object-center ${
                 (current === 0 && !isMobile) || current === 1 ? '-scale-x-100' : ''
               }`}
