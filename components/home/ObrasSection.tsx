@@ -31,7 +31,7 @@ export function ObrasSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-[85vh] flex items-center px-6 md:px-12 lg:px-20">
+      <div className="relative z-10 min-h-[85vh] flex items-start md:items-center px-5 md:px-12 lg:px-20 pt-[100px] md:pt-0 pb-[90px] md:pb-0">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
 
           {/* Left — Text with dramatic side slide */}
@@ -45,21 +45,33 @@ export function ObrasSection() {
               initial={{ width: 0 }}
               animate={isInView ? { width: 64 } : {}}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
-              className="h-1 bg-[#facc15] mb-6"
+              className="hidden md:block h-1 bg-[#facc15] mb-6"
             />
-            <p className="font-body text-[#facc15] text-xs tracking-[0.3em] uppercase mb-4 font-bold">
+            
+            <p className="font-body text-[#facc15] text-[14px] md:text-xs tracking-[1.5px] md:tracking-[0.3em] font-semibold md:font-bold uppercase opacity-85 mb-[12px] md:mb-4">
               Obras ejecutadas
             </p>
-            <h2 className="font-display text-white uppercase leading-none mb-6"
-                style={{ fontSize: 'clamp(48px, 6vw, 80px)' }}>
-              Obras que<br/>
-              <span className="text-[#facc15]">hablan por sí solas</span>
+
+            <h2 className="font-display text-white uppercase text-[36px] md:text-[clamp(48px,6vw,80px)] font-[800] md:font-normal leading-[1.1] md:leading-none max-w-[85%] md:max-w-none mb-4 md:mb-8">
+              <span className="md:hidden">OBRAS QUE<br/>HABLAN POR<br/><span className="text-[#facc15] block">SÍ SOLAS</span></span>
+              <span className="hidden md:inline">Obras que<br/><span className="text-[#facc15]">hablan por sí solas</span></span>
             </h2>
-            <p className="font-body text-white/70 text-[17px] leading-relaxed mb-10 max-w-lg">
-              Planificación precisa, ejecución eficiente y control total en cada etapa. Más de 500 obras entregadas a tiempo, cumpliendo plazos y superando los estándares del sector.
+
+            <p className="font-body text-white/70 text-[14px] md:text-[17px] leading-[1.4] md:leading-relaxed max-w-[85%] md:max-w-lg mb-6 md:mb-10">
+              <span className="md:hidden">+500 obras entregadas.</span>
+              <span className="hidden md:inline">Planificación precisa, ejecución eficiente y control total en cada etapa. Más de 500 obras entregadas a tiempo, cumpliendo plazos y superando los estándares del sector.</span>
             </p>
+
+            {/* Mobile CTA */}
             <a href="/obras"
-               className="inline-flex items-center gap-3 text-white font-body text-sm tracking-widest uppercase hover:text-[#facc15] transition-colors duration-300 group">
+               className="md:hidden inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a]
+                          font-body font-semibold text-[14px] tracking-widest uppercase
+                          px-[18px] py-[14px] hover:bg-white transition-colors w-[85%]">
+              Ver proyectos →
+            </a>
+            {/* Desktop CTA */}
+            <a href="/obras"
+               className="hidden md:inline-flex items-center gap-3 text-white font-body text-sm tracking-widest uppercase hover:text-[#facc15] transition-colors duration-300 group">
               <span className="border-b border-white/30 group-hover:border-[#facc15] pb-1 transition-colors">Ver proyectos</span>
               <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
             </a>
