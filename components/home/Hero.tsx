@@ -2,9 +2,36 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+
+function ProximamenteModal({ visible, onClose }: { visible: boolean; onClose: () => void }) {
+  if (!visible) return null
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70"
+      onClick={onClose}
+    >
+      <div
+        className="relative bg-[#111] border border-white/10 rounded-2xl px-8 py-10 text-center max-w-sm mx-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-4 text-white/50 hover:text-white text-2xl leading-none"
+        >
+          ×
+        </button>
+        <p className="font-display text-white text-2xl tracking-[0.1em] uppercase mb-2">
+          Próximamente...
+        </p>
+        <p className="font-body text-white/60 text-sm">
+          Estamos preparando esta sección. Volvé pronto.
+        </p>
+      </div>
+    </div>
+  )
+}
 
 interface SlideConfig {
   headline: string
@@ -120,6 +147,7 @@ export function Hero() {
   const [isReducedMotion, setIsReducedMotion] = useState(false)
   const [isMediaLoading, setIsMediaLoading] = useState(true)
   const [loadedMedia, setLoadedMedia] = useState<Record<number, boolean>>({})
+  const [showProximamente, setShowProximamente] = useState(false)
 
   // 4-second fallback for loader
   useEffect(() => {
@@ -341,13 +369,13 @@ export function Hero() {
 
         {/* Single CTA — desktop only (mobile uses sticky bar) */}
         <div className="absolute bottom-12 sm:bottom-14 md:bottom-16 left-0 right-0 hidden md:flex md:justify-center md:px-12 lg:px-20">
-          <Link
-            href="/contacto"
-            className="inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body font-bold text-sm tracking-widest uppercase px-10 py-4 hover:bg-yellow-400 active:bg-yellow-500 group transition-colors duration-200"
+          <button
+            onClick={() => setShowProximamente(true)}
+            className="inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body font-bold text-sm tracking-widest uppercase px-10 py-4 hover:bg-yellow-400 active:bg-yellow-500 group transition-colors duration-200 cursor-pointer"
           >
             Solicitar presupuesto
             <span className="text-lg group-hover:translate-x-1 transition-transform duration-200">→</span>
-          </Link>
+          </button>
         </div>
 
         {/* WA Floating Button (Hero Only) */}
@@ -411,6 +439,9 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      {/* "Próximamente..." Modal */}
+      <ProximamenteModal visible={showProximamente} onClose={() => setShowProximamente(false)} />
     </section>
   )
 }
