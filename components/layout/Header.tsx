@@ -6,6 +6,34 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown } from "lucide-react"
 
+function ProximamenteModal({ visible, onClose }: { visible: boolean; onClose: () => void }) {
+  if (!visible) return null
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70"
+      onClick={onClose}
+    >
+      <div
+        className="relative bg-[#111] border border-white/10 rounded-2xl px-8 py-10 text-center max-w-sm mx-4"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-4 text-white/50 hover:text-white text-2xl leading-none"
+        >
+          ×
+        </button>
+        <p className="font-display text-white text-2xl tracking-[0.1em] uppercase mb-2">
+          Próximamente...
+        </p>
+        <p className="font-body text-white/60 text-sm">
+          Estamos preparando esta sección. Volvé pronto.
+        </p>
+      </div>
+    </div>
+  )
+}
+
 const SERVICIOS_LINKS = [
   { href: '/servicios/ingenieria-civil',     label: 'Ingeniería Civil' },
   { href: '/servicios/movimiento-suelos',    label: 'Movimiento de Suelos' },
@@ -26,6 +54,7 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [servOpen, setServOpen] = useState(false)
   const [mobileServOpen, setMobileServOpen] = useState(false)
+  const [showProximamente, setShowProximamente] = useState(false)
   const servRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
 
@@ -84,16 +113,16 @@ export function Header() {
             <nav className="hidden lg:flex items-center justify-center gap-6 xl:gap-8 font-body">
               {/* Quiénes Somos first */}
               <div className="relative group">
-                <Link
-                  href="/quienes-somos"
-                  className={`text-sm tracking-wider uppercase transition-colors duration-300 font-bold ${
+                <button
+                  onClick={() => setShowProximamente(true)}
+                  className={`text-sm tracking-wider uppercase transition-colors duration-300 font-bold cursor-pointer ${
                     pathname === "/quienes-somos"
                       ? "text-white"
                       : "text-white/60 hover:text-white"
                   }`}
                 >
                   Quiénes Somos
-                </Link>
+                </button>
                 <span className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${pathname === "/quienes-somos" ? "w-full" : ""}`} />
               </div>
 
@@ -101,7 +130,7 @@ export function Header() {
               <div ref={servRef} className="relative group">
                 <button
                   onClick={() => setServOpen(!servOpen)}
-                  className={`flex items-center gap-1 text-sm tracking-wider uppercase transition-colors duration-300 font-bold ${
+                  className={`flex items-center gap-1 text-sm tracking-wider uppercase transition-colors duration-300 font-bold cursor-pointer ${
                     pathname.startsWith('/servicios')
                       ? "text-white"
                       : "text-white/60 hover:text-white"
@@ -119,22 +148,20 @@ export function Header() {
                 {servOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 bg-[#0a0a0a] border border-white/5 shadow-2xl overflow-hidden z-50">
                     {SERVICIOS_LINKS.map((s) => (
-                      <Link
+                      <button
                         key={s.href}
-                        href={s.href}
-                        onClick={() => setServOpen(false)}
-                        className="block px-6 py-4 text-sm text-white/70 hover:text-white hover:bg-white/5 border-b border-white/5 last:border-0 transition-colors font-body tracking-wide"
+                        onClick={() => { setServOpen(false); setShowProximamente(true) }}
+                        className="block w-full text-left px-6 py-4 text-sm text-white/70 hover:text-white hover:bg-white/5 border-b border-white/5 last:border-0 transition-colors font-body tracking-wide cursor-pointer"
                       >
                         {s.label}
-                      </Link>
+                      </button>
                     ))}
-                    <Link
-                      href="/servicios"
-                      onClick={() => setServOpen(false)}
-                      className="block px-6 py-4 text-sm font-bold text-[#FFD100] hover:bg-white/5 transition-colors font-body tracking-wide uppercase"
+                    <button
+                      onClick={() => { setServOpen(false); setShowProximamente(true) }}
+                      className="block w-full text-left px-6 py-4 text-sm font-bold text-[#FFD100] hover:bg-white/5 transition-colors font-body tracking-wide uppercase cursor-pointer"
                     >
                       Ver todos los servicios →
-                    </Link>
+                    </button>
                   </div>
                 )}
               </div>
@@ -142,16 +169,16 @@ export function Header() {
               {/* Rest of nav */}
               {NAV_LINKS.map((link) => (
                 <div key={link.name} className="relative group">
-                  <Link
-                    href={link.href}
-                    className={`text-sm tracking-wider uppercase transition-colors duration-300 font-bold ${
+                  <button
+                    onClick={() => setShowProximamente(true)}
+                    className={`text-sm tracking-wider uppercase transition-colors duration-300 font-bold cursor-pointer ${
                       pathname === link.href
                         ? "text-white"
                         : "text-white/60 hover:text-white"
                     }`}
                   >
                     {link.name}
-                  </Link>
+                  </button>
                   {/* Hover line */}
                   <span className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${pathname === link.href ? "w-full" : ""}`} />
                 </div>
@@ -160,14 +187,12 @@ export function Header() {
 
             {/* CTA - Right */}
             <div className="hidden lg:flex items-center">
-              <Link
-                href="https://wa.me/5493571578542"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-sm px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:bg-yellow-400"
+              <button
+                onClick={() => setShowProximamente(true)}
+                className="bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-sm px-5 xl:px-7 py-2.5 xl:py-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 hover:bg-yellow-400 cursor-pointer"
               >
                 Solicitar Presupuesto
-              </Link>
+              </button>
             </div>
 
             {/* Mobile Menu Toggle — always clickable, above overlay */}
@@ -203,13 +228,12 @@ export function Header() {
             </Link>
 
             {/* Quiénes Somos */}
-            <Link
-              href="/quienes-somos"
-              className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200"
-              onClick={() => setIsMobileMenuOpen(false)}
+            <button
+              onClick={() => { setIsMobileMenuOpen(false); setShowProximamente(true) }}
+              className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200 cursor-pointer"
             >
               Quiénes Somos
-            </Link>
+            </button>
 
             {/* Servicios expandable section */}
             <div className="w-full max-w-xs text-center">
@@ -226,49 +250,46 @@ export function Header() {
               {mobileServOpen && (
                 <div className="mt-3 space-y-2">
                   {SERVICIOS_LINKS.map((s) => (
-                    <Link
+                    <button
                       key={s.href}
-                      href={s.href}
-                      className="block py-2 text-sm text-white/60 hover:text-[#FFD100] transition-colors font-body tracking-wide"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={() => { setIsMobileMenuOpen(false); setShowProximamente(true) }}
+                      className="block w-full text-center py-2 text-sm text-white/60 hover:text-[#FFD100] transition-colors font-body tracking-wide cursor-pointer"
                     >
                       {s.label}
-                    </Link>
+                    </button>
                   ))}
-                  <Link
-                    href="/servicios"
-                    className="block py-2 text-sm font-bold text-[#FFD100] transition-colors font-body tracking-wide uppercase"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                  <button
+                    onClick={() => { setIsMobileMenuOpen(false); setShowProximamente(true) }}
+                    className="block w-full text-center py-2 text-sm font-bold text-[#FFD100] transition-colors font-body tracking-wide uppercase cursor-pointer"
                   >
                     Ver todos →
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>
 
             {NAV_LINKS.map((link) => (
-              <Link
+              <button
                 key={link.name}
-                href={link.href}
-                className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => { setIsMobileMenuOpen(false); setShowProximamente(true) }}
+                className="font-display text-3xl sm:text-4xl text-white/80 uppercase tracking-wider hover:text-white transition-colors duration-200 cursor-pointer"
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
             <div className="w-16 h-1 bg-white/10 my-2 sm:my-4" />
-            <Link
-              href="https://wa.me/5493571578542"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full max-w-xs text-center bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95"
-              onClick={() => setIsMobileMenuOpen(false)}
+            <button
+              onClick={() => { setIsMobileMenuOpen(false); setShowProximamente(true) }}
+              className="w-full max-w-xs text-center bg-[#facc15] text-[#0a0a0a] font-body font-bold tracking-wider uppercase text-base sm:text-lg px-6 py-4 shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               Solicitar Presupuesto
-            </Link>
+            </button>
           </div>
         </div>
       )}
+
+      {/* "Próximamente..." Modal */}
+      <ProximamenteModal visible={showProximamente} onClose={() => setShowProximamente(false)} />
     </>
   )
 }
