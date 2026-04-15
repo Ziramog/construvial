@@ -3,6 +3,7 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
+import { ProximamenteModal, useProximamente } from "@/components/ui/ProximamenteModal"
 
 export function CompanyBand() {
   const ref = useRef(null)
@@ -11,6 +12,7 @@ export function CompanyBand() {
     offset: ["start end", "end start"],
   })
   const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const { show, setShow } = useProximamente()
 
   // Desktop Parallax
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -50])
@@ -80,17 +82,19 @@ export function CompanyBand() {
           </motion.p>
 
           {/* MOBILE CTA */}
-          <a href="/quienes-somos"
-             className="md:hidden mt-[20px] inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body font-[600] text-[14px] tracking-widest uppercase px-[18px] py-[14px] w-[85%] hover:bg-white transition-colors">
+          <button
+            onClick={() => setShow(true)}
+            className="md:hidden mt-[20px] inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#0a0a0a] font-body font-[600] text-[14px] tracking-widest uppercase px-[18px] py-[14px] w-[85%] hover:bg-white transition-colors cursor-pointer">
             Conocer la empresa →
-          </a>
+          </button>
 
           {/* DESKTOP CTA */}
-          <a href="/quienes-somos"
-             className="hidden md:inline-flex mt-0 items-center gap-3 text-white font-body text-sm tracking-widest uppercase hover:text-[#facc15] transition-colors duration-300 group">
+          <button
+            onClick={() => setShow(true)}
+            className="hidden md:inline-flex mt-0 items-center gap-3 text-white font-body text-sm tracking-widest uppercase hover:text-[#facc15] transition-colors duration-300 group cursor-pointer">
             <span className="border-b border-white/30 group-hover:border-[#facc15] pb-1 transition-colors">Conocer la empresa</span>
             <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
-          </a>
+          </button>
         </motion.div>
 
         {/* MOBILE COLLAGE */}
@@ -151,6 +155,8 @@ export function CompanyBand() {
         </motion.div>
 
       </div>
+
+      <ProximamenteModal visible={show} onClose={() => setShow(false)} />
     </section>
   )
 }

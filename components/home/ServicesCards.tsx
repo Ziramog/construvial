@@ -2,10 +2,12 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { ProximamenteModal, useProximamente } from "@/components/ui/ProximamenteModal"
 
 export function ServicesCards() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.05 })
+  const { show, setShow } = useProximamente()
 
   return (
     <section ref={ref} className="relative min-h-[85vh] md:min-h-screen overflow-hidden">
@@ -63,12 +65,13 @@ export function ServicesCards() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-[85%] md:w-auto mt-4 md:mt-8 pb-4">
-              <a href="/servicios"
-                 className="inline-flex items-center justify-center gap-2 border border-white text-white
-                            font-body font-semibold text-[14px] md:text-sm tracking-widest uppercase
-                            px-[18px] py-[14px] md:px-8 md:py-4 hover:bg-white hover:text-black transition-colors">
+              <button
+                onClick={() => setShow(true)}
+                className="inline-flex items-center justify-center gap-2 border border-white text-white
+                           font-body font-semibold text-[14px] md:text-sm tracking-widest uppercase
+                           px-[18px] py-[14px] md:px-8 md:py-4 hover:bg-white hover:text-black transition-colors cursor-pointer">
                 Ver servicios →
-              </a>
+              </button>
             </div>
           </motion.div>
 
@@ -76,6 +79,8 @@ export function ServicesCards() {
           <div className="hidden lg:block lg:col-span-1" />
         </div>
       </div>
+
+      <ProximamenteModal visible={show} onClose={() => setShow(false)} />
     </section>
   )
 }

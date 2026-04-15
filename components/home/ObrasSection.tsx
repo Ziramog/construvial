@@ -2,10 +2,12 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { ProximamenteModal, useProximamente } from "@/components/ui/ProximamenteModal"
 
 export function ObrasSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.05 })
+  const { show, setShow } = useProximamente()
 
   return (
     <section ref={ref} className="relative min-h-[85vh] md:min-h-screen overflow-hidden">
@@ -63,23 +65,27 @@ export function ObrasSection() {
             </p>
 
             {/* Mobile CTA */}
-            <a href="/obras"
-               className="md:hidden mt-4 inline-flex items-center justify-center gap-2 border border-white text-white
-                          font-body font-semibold text-[14px] tracking-widest uppercase
-                          px-[18px] py-[14px] hover:bg-white hover:text-black transition-colors w-[85%] pb-4">
+            <button
+              onClick={() => setShow(true)}
+              className="md:hidden mt-4 inline-flex items-center justify-center gap-2 border border-white text-white
+                         font-body font-semibold text-[14px] tracking-widest uppercase
+                         px-[18px] py-[14px] hover:bg-white hover:text-black transition-colors w-[85%] pb-4 cursor-pointer">
               Ver proyectos →
-            </a>
+            </button>
             {/* Desktop CTA */}
-            <a href="/obras"
-               className="hidden md:inline-flex mt-8 items-center justify-center gap-2 border border-white text-white font-body font-semibold text-sm tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors">
+            <button
+              onClick={() => setShow(true)}
+              className="hidden md:inline-flex mt-8 items-center justify-center gap-2 border border-white text-white font-body font-semibold text-sm tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-black transition-colors cursor-pointer">
               Ver proyectos →
-            </a>
+            </button>
           </motion.div>
 
           {/* Right — empty for video to show through */}
           <div className="hidden lg:block lg:col-span-1" />
         </div>
       </div>
+
+      <ProximamenteModal visible={show} onClose={() => setShow(false)} />
     </section>
   )
 }

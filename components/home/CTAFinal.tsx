@@ -2,10 +2,12 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { ProximamenteModal, useProximamente } from "@/components/ui/ProximamenteModal"
 
 export function CTAFinal() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const { show, setShow } = useProximamente()
 
   return (
     <section ref={ref} className="bg-[#facc15] py-24 px-6 border-t border-black/5">
@@ -68,16 +70,19 @@ export function CTAFinal() {
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
           className="flex flex-col sm:flex-row gap-6 justify-center relative z-10"
         >
-          <a href="/contacto"
-             className="inline-flex items-center justify-center gap-2
-                        bg-[#facc15] text-[#0a0a0a] font-body font-bold
-                        text-sm tracking-widest uppercase px-10 py-5
-                        hover:bg-white transition-colors duration-200">
+          <button
+            onClick={() => setShow(true)}
+            className="inline-flex items-center justify-center gap-2
+                       bg-[#facc15] text-[#0a0a0a] font-body font-bold
+                       text-sm tracking-widest uppercase px-10 py-5
+                       hover:bg-white transition-colors duration-200 cursor-pointer">
             SOLICITAR PRESUPUESTO →
-          </a>
+          </button>
         </motion.div>
 
       </motion.div>
+
+      <ProximamenteModal visible={show} onClose={() => setShow(false)} />
     </section>
   )
 }
